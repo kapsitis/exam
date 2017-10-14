@@ -3,20 +3,25 @@ var path = require('path')
 
 var BUILD_DIR = path.resolve(__dirname + '/build')
 var APP_DIR = path.resolve(__dirname + '/app')
+var WEBAPP_DIR = path.resolve(__dirname + '/src/main/webapp')
 
 var config = {
   entry: APP_DIR + '/index.jsx',
   output: {
-    path: BUILD_DIR, 
+    path: WEBAPP_DIR, 
     filename: 'bundle.js', 
     publicPath: '/'
   },
+  
+/*
   devtool: 'source-map',
   devServer: {
     inline: true,
-    contentBase: BUILD_DIR, 
+    contentBase: WEBAPP_DIR, 
     port: 3333
   },
+*/
+  
   module: {
     loaders: [
       {
@@ -28,7 +33,10 @@ var config = {
         }
       }
     ]
-  }
+  }, 
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({minimize: true})
+  ]
 }
 
 module.exports = config

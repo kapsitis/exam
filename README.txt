@@ -10,9 +10,13 @@ npm install --save-dev babel-preset-react
 npm install --save-dev react
 npm install --save-dev react-dom
 
-npm run build
+npm run dev
 
 npm install --save-dev webpack-dev-server
 
 
+nmp run build
+ant copy
+mvn clean package
+... upload to tomcat ... 
 

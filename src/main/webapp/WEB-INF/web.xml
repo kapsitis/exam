@@ -4,14 +4,39 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
   version="2.5">
   <display-name>Archetype Created Web Application</display-name>
-  
+
+  <servlet>
+    <servlet-name>GradingServlet</servlet-name>
+    <servlet-class>lv.ddgatve.nt.exam.GradingServlet</servlet-class>
+  </servlet>
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
     <servlet-class>lv.ddgatve.nt.exam.HelloServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>lv.ddgatve.nt.exam.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SwitchQuestionServlet</servlet-name>
+    <servlet-class>lv.ddgatve.nt.exam.SwitchQuestionServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>GradingServlet</servlet-name>
+    <url-pattern>/grading</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SwitchQuestionServlet</servlet-name>
+    <url-pattern>/switchQuestion</url-pattern>
   </servlet-mapping>
   
 </web-app>

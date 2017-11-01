@@ -2,18 +2,8 @@ import React from 'react'
 import {render} from 'react-dom'
 import ReactDOM from 'react-dom'
 
-//import * as Hammer from 'hammer';
-//window.Hammer = Hammer.default;
-//require(['../js/hammer.min.js']);
-//var Hammer = require(['hammer']);
 
-//import * as Hammer from '/exam/js/hammer.min.js';
-
-import Exam from './exam.jsx'
-import Exam2 from './exam2.jsx'
-import Carousel2 from './carousel2.jsx'
-
-class App extends React.Component {
+class Exam extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -169,42 +159,42 @@ class App extends React.Component {
                 /*,
 
 
-                {
-                    "id": "nt-part1-01.q2",
-                    "question": "Izteikt kā parastu daļskaitli: $0.0399999\\ldots=0.03\\overline{9}$.",
-                    "instruction": "Ierakstīt atbildi formā a/b",
-                    "answerForm": ["text.10"],
-                    "validation": "^\\d+/\\d+$",
-                    "normalize": [],
-                    "correct": "1/25"
-                },
+                 {
+                 "id": "nt-part1-01.q2",
+                 "question": "Izteikt kā parastu daļskaitli: $0.0399999\\ldots=0.03\\overline{9}$.",
+                 "instruction": "Ierakstīt atbildi formā a/b",
+                 "answerForm": ["text.10"],
+                 "validation": "^\\d+/\\d+$",
+                 "normalize": [],
+                 "correct": "1/25"
+                 },
 
-                {
-                    "id": "nt-part1-01.q3",
-                    "question": "Izteikt kā divu naturālu skaitļu reizinājumu (kas abi pārsniedz 1):<br/> $5^4 + 4\\cdot 6^4$.",
-                    "instruction": "Atdalīt reizinātājus ar zvaigznīti: a*b",
-                    "answerForm": ["text.10"],
-                    "validation": "^\\d+\\*\\d+$",
-                    "normalize": ["asteriskSplit", "sort", "asteriskJoin"],
-                    "correct": "157*37"
-                },
+                 {
+                 "id": "nt-part1-01.q3",
+                 "question": "Izteikt kā divu naturālu skaitļu reizinājumu (kas abi pārsniedz 1):<br/> $5^4 + 4\\cdot 6^4$.",
+                 "instruction": "Atdalīt reizinātājus ar zvaigznīti: a*b",
+                 "answerForm": ["text.10"],
+                 "validation": "^\\d+\\*\\d+$",
+                 "normalize": ["asteriskSplit", "sort", "asteriskJoin"],
+                 "correct": "157*37"
+                 },
 
 
-                {
-                    "id": "nt-part1-01.q5",
-                    "question": "Dārgumu krātuvē bija $N$ lādītes, kurās kopā bija pavisam 462 dārgakmeņi, "
-                    + "pie tam katrā lādītē dārgakmeņu skaits bija vienāds. "
-                    + "Dārgumu krātuves kasierim vajadzēja četras tukšas lādītes, "
-                    + "un viņš varēja izvietot četru lādīšu dārgakmeņus pa atlikušajām lādītēm tā, "
-                    + "lai katrā lādītē atkal būtu vienāds skaits dārgakeņu. "
-                    + "Atrast visas iespējamās lādīšu skaita $N$ vērtības.",
-                    "instruction": "Ierakstīt vienu vai vairākus skaitļus, atdalot tos ar komatiem",
-                    "answerForm": ["text.10"],
-                    "validation": "^\d+(,\d+)*$",
-                    "normalize": ["commaSplit","sort","commaJoin"],
-                    "correct": "11,7"
-                }
-                */
+                 {
+                 "id": "nt-part1-01.q5",
+                 "question": "Dārgumu krātuvē bija $N$ lādītes, kurās kopā bija pavisam 462 dārgakmeņi, "
+                 + "pie tam katrā lādītē dārgakmeņu skaits bija vienāds. "
+                 + "Dārgumu krātuves kasierim vajadzēja četras tukšas lādītes, "
+                 + "un viņš varēja izvietot četru lādīšu dārgakmeņus pa atlikušajām lādītēm tā, "
+                 + "lai katrā lādītē atkal būtu vienāds skaits dārgakeņu. "
+                 + "Atrast visas iespējamās lādīšu skaita $N$ vērtības.",
+                 "instruction": "Ierakstīt vienu vai vairākus skaitļus, atdalot tos ar komatiem",
+                 "answerForm": ["text.10"],
+                 "validation": "^\d+(,\d+)*$",
+                 "normalize": ["commaSplit","sort","commaJoin"],
+                 "correct": "11,7"
+                 }
+                 */
             ]
 
 
@@ -215,51 +205,54 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <form action="grading" method="GET">
-                    Vārds: <input type="text" name="name" maxlength="24" size="24"/><br/>
-                {this.state.questions.map(function(qq,ii) {
-                    return <div>
-                        <h3>{ii+1}. Jautājums</h3>
-                        <p>{qq.question}</p>
-                        <ol type="a">
-                            {qq.alternatives.map(function(object, i){
-                                return <li><input type="radio" name={'q'+ii} value={i+1}/>{object}</li>;
-                            })}
-                        </ol>
+            <form action="grading" method="GET">
 
-                    </div>;
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item">
+                            <div class="container">
 
-                })}
+                                <h1>Stuff1</h1>
 
-                    <input type="submit" value="Nosūtīt"/>
-                </form>
-            </div>
+                            </div>
+
+                        </div>
+                        <div class="item active">
+
+                            <div class="container">
+
+                                <h1>Stuff2</h1>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+
+
+                <div class="container">
+
+                    <p><a class="btn btn-lg btn-primary" href="javascript:void(0);"
+                          onClick="document.forms['myform'].submit();"
+                          role="button">Iesūtīt</a></p>
+                </div>
+            </form>
         );
     }
 };
 
-
-
-if (document.getElementById('app') != null) {
-    ReactDOM.render(<App />, document.getElementById('app'));
-}
-
-
-
-
-if (document.getElementById('exam') != null) {
-    ReactDOM.render(<Exam />, document.getElementById('exam'));
-}
-
-
-
-
-if (document.getElementById('carousel2') != null) {
-    ReactDOM.render(<Carousel2 />, document.getElementById('carousel2'));
-}
-
-
-
-
-
+module.exports = Exam;

@@ -27,6 +27,7 @@
     "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
+    "hammer": "0.0.5",
     "mathjax": "^2.7.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"

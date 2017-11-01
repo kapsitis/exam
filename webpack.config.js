@@ -12,7 +12,7 @@ var config = {
     filename: 'bundle.js', 
     publicPath: '/'
   },
-  
+
 /*
   devtool: 'source-map',
   devServer: {
@@ -21,7 +21,7 @@ var config = {
     port: 3333
   },
 */
-  
+
   module: {
     loaders: [
       {

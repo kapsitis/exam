@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f27da2f3-347b-49a9-af6b-e10d5ffd2370" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/examlist.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/examlistApi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/app.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/exam-main.html" afterPath="$PROJECT_DIR$/src/main/webapp/examlist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/lv/ddgatve/nt/exam/CharsetFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/lv/ddgatve/nt/exam/ExamlistJsServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/lv/ddgatve/nt/exam/JsonTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.txt" afterPath="$PROJECT_DIR$/README.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/carousel2.jsx" afterPath="$PROJECT_DIR$/app/carousel2.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.jsx" afterPath="$PROJECT_DIR$/app/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lv/ddgatve/nt/exam/LoginServlet.java" afterPath="$PROJECT_DIR$/src/main/java/lv/ddgatve/nt/exam/LoginServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/bundle.js" afterPath="$PROJECT_DIR$/src/main/webapp/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/carousel.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/carousel.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,7 +22,18 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="examlist-mock.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/examlist-mock.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -85,7 +81,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/examlist.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/json/mytest.js" />
         <option value="$PROJECT_DIR$/app/mytest.js" />
-        <option value="$PROJECT_DIR$/app/examlist-mock.js" />
         <option value="$PROJECT_DIR$/app/carousel2.jsx" />
         <option value="$PROJECT_DIR$/app/examlist.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/app.html" />
@@ -96,6 +91,7 @@
         <option value="$PROJECT_DIR$/util/examlistApi.js" />
         <option value="$PROJECT_DIR$/app/examlist.jsx" />
         <option value="$PROJECT_DIR$/app/examlistApi.js" />
+        <option value="$PROJECT_DIR$/app/examlist-mock.js" />
       </list>
     </option>
   </component>
@@ -277,7 +273,7 @@
       <workItem from="1509532900557" duration="685000" />
       <workItem from="1509612554290" duration="11927000" />
       <workItem from="1509795047750" duration="16831000" />
-      <workItem from="1509880673860" duration="2538000" />
+      <workItem from="1509880673860" duration="2668000" />
     </task>
     <task id="LOCAL-00001" summary="It has 2 exams now">
       <created>1509533516375</created>
@@ -286,11 +282,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509533516375</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Exam fetch from servlet works.">
+      <created>1509888388817</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1509888388817</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105803000" />
+    <option name="totallyTimeSpent" value="105933000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -303,9 +306,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1592" height="867" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25207934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25207934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -353,7 +356,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="It has 2 exams now" />
-    <option name="LAST_COMMIT_MESSAGE" value="It has 2 exams now" />
+    <MESSAGE value="Exam fetch from servlet works." />
+    <option name="LAST_COMMIT_MESSAGE" value="Exam fetch from servlet works." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -585,6 +589,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4485">
           <caret line="301" column="22" lean-forward="false" selection-start-line="301" selection-start-column="22" selection-end-line="301" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -592,6 +597,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="25" column="18" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="25" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -599,6 +605,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="166" column="118" lean-forward="false" selection-start-line="166" selection-start-column="118" selection-end-line="166" selection-end-column="118" />
+          <folding>
+            <element signature="e#0#25#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -622,14 +631,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/examlist.js" />
-    <entry file="file://$PROJECT_DIR$/app/examlist-mock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lv/ddgatve/nt/exam/ExamlistJsServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-24">
@@ -658,8 +659,8 @@
         <state relative-caret-position="3825">
           <caret line="259" column="0" lean-forward="false" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#289#318#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="false" />
+            <element signature="e#289#318#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -702,6 +703,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/examlist-mock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -10,10 +10,11 @@ import ReactDOM from 'react-dom'
 //import * as Hammer from '/exam/js/hammer.min.js';
 
 import Exam from './exam.jsx'
-import Exam2 from './exam2.jsx'
 import Carousel2 from './carousel2.jsx'
+import Examlist from './examlist.jsx'
 
-class App extends React.Component {
+
+class Index extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -241,25 +242,19 @@ class App extends React.Component {
 
 
 
-if (document.getElementById('app') != null) {
-    ReactDOM.render(<App />, document.getElementById('app'));
+if (document.getElementById('index') != null) {
+    ReactDOM.render(<Index />, document.getElementById('index'));
 }
-
-
-
 
 if (document.getElementById('exam') != null) {
     ReactDOM.render(<Exam />, document.getElementById('exam'));
 }
 
-
-
-
 if (document.getElementById('carousel2') != null) {
     ReactDOM.render(<Carousel2 />, document.getElementById('carousel2'));
 }
 
-
-
-
+if (document.getElementById('examlist') != null) {
+    ReactDOM.render(<Examlist />, document.getElementById('examlist'));
+}
 

@@ -158,6 +158,13 @@ class Carousel2 extends React.Component {
                     "length":"4",
                     "question": "Kādi ir pēdējie četri cipari reizinājumā: $$1 \\cdot 2 \\cdot 3 \\cdot \\ldots \\cdot 97 \\cdot 98 \\cdot 99$$"
 
+                },
+
+                {
+                    "id": "nt-part1-04.q13",
+                    "questionType": "INPUT",
+                    "length": "1",
+                    "question": "Kāds ir pēdējais cipars reizinājumā $$11 \\cdot 13 \\cdot \\ldots \\cdot 27 \\cdot 29$$"
                 }
 
             ]

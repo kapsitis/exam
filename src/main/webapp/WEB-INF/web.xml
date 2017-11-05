@@ -4,7 +4,27 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
   version="2.5">
   <display-name>Archetype Created Web Application</display-name>
+  
+  
+  
+  <filter>
+    <filter-name>CharsetFilter</filter-name>
+    <filter-class>lv.ddgatve.nt.exam.CharsetFilter</filter-class>
+      <init-param>
+        <param-name>requestEncoding</param-name>
+        <param-value>UTF-8</param-value>
+      </init-param>
+  </filter>
 
+  <filter-mapping>
+    <filter-name>CharsetFilter</filter-name>
+    <url-pattern>*.js</url-pattern>
+  </filter-mapping>
+
+  <servlet>
+    <servlet-name>ExamlistJsServlet</servlet-name>
+    <servlet-class>lv.ddgatve.nt.exam.ExamlistJsServlet</servlet-class>
+  </servlet>
   <servlet>
     <servlet-name>GradingServlet</servlet-name>
     <servlet-class>lv.ddgatve.nt.exam.GradingServlet</servlet-class>
@@ -22,6 +42,10 @@
     <servlet-class>lv.ddgatve.nt.exam.SwitchQuestionServlet</servlet-class>
   </servlet>
 
+  <servlet-mapping>
+    <servlet-name>ExamlistJsServlet</servlet-name>
+    <url-pattern>/examlist.js</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>GradingServlet</servlet-name>
     <url-pattern>/grading</url-pattern>

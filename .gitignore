@@ -1,4 +1,5 @@
 *.class
+/package-lock.json
 
 /bin
 /build/bundle.js

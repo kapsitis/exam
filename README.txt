@@ -20,3 +20,9 @@ ant copy
 mvn clean package
 ... upload to tomcat ... 
 
+
+
+
+
+(Fixing UTF-8 encoding in servlets:
+https://stackoverflow.com/questions/138948/how-to-get-utf-8-working-in-java-webapps )

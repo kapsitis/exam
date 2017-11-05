@@ -172,3 +172,14 @@ input.webFormInput:focus {
     border: 3pt solid blue;
     font-size: 12pt;
 }
+
+table.loginTable {
+    font-size: 200%;
+    width: 100%;
+}
+
+div.maxWide {
+    margin: 1%;
+}
+
+

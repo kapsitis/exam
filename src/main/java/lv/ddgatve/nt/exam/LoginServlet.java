@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -63,31 +65,36 @@ public class LoginServlet extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+			throws IOException, ServletException {
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		String loginID = req.getParameter("loginID");
 		HttpSession session = req.getSession();
 		String name = req.getParameter("name");
 		
-		out.println("<html><head><title>Login</title></head><body>");
 
 		if (name.trim().equals("")) {
+			out.println("<html><head><title>Login</title></head><body>");
 			out.println("<p>Login wrong - Name cannot be empty</p>");
 			out.println("<p>Please <a href='http://www.dudajevagatve.lv:8080/exam/login.jsp'>Try again</a></p>");
-			
+			out.println("</body></html>");
 		} else if (!logins.contains(loginID)) {
+			out.println("<html><head><title>Login</title></head><body>");
 			out.println("<p>Login wrong - no such ID.</p>");
 			out.println("<p>Please <a href='http://www.dudajevagatve.lv:8080/exam/login.jsp'>Try again</a></p>");
+			out.println("</body></html>");
 		} else {
 			session.setAttribute("loginID", loginID);
 			session.setAttribute("name", name);
-			out.println("<p>Login successful</p>");
-			out.println("<p>Welcome, <tt>" + name + "</tt></p>");
-			out.println("<p>This is "
-					+ "<a href='http://www.dudajevagatve.lv:8080/exam/carousel2.html'>Test for today</a>");
+			
+			//RequestDispatcher rd = req.getRequestDispatcher("examlist.html");
+			//rd.forward(req, resp);
+			resp.sendRedirect("/exam/examlist.html");
+			
+//			out.println("<p>Login successful</p>");
+//			out.println("<p>Welcome, <tt>" + name + "</tt></p>");
+//			out.println("<p>This is "
+//					+ "<a href='http://www.dudajevagatve.lv:8080/exam/carousel2.html'>Test for today</a>");
 		}
-
-		out.println("</body></html>");
 	}
 }

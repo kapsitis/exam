@@ -67,6 +67,11 @@ body {
     display: none;
 }
 
+.carousel-inner > .item input[type="checkbox"] {
+    display: none;
+}
+
+
 
 
 .carousel-indicators li {
@@ -166,6 +171,7 @@ body {
 input.webFormInput {
     border: 3pt solid silver;
     font-size: 12pt;
+    background-color: white;
 }
 
 input.webFormInput:focus {

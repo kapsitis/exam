@@ -3,14 +3,15 @@ import {render} from 'react-dom'
 import ReactDOM from 'react-dom'
 import {RadiobuttonGroup, CheckboxGroup, CheckboxSingle} from './radioButtons.jsx'
 import getMinutesSeconds from './jsutils.js'
-import examData from './carousel2data.js'
+import examData from './carousel1data.js'
 
-class Carousel2 extends React.Component {
+
+
+class Carousel1 extends React.Component {
     constructor(props) {
         super(props);
         this.state = examData
     }
-
 
     componentDidMount() {
         setInterval(() => {
@@ -34,7 +35,7 @@ class Carousel2 extends React.Component {
                     </a>&nbsp;&nbsp;
                     {getMinutesSeconds(this.state.count)}
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	<input type="hidden" name="testId" value="carousel2"/>
+                    <input type="hidden" name="testId" value="carousel1"/>
                     <input type="submit" value="Nosūtīt"/>
                     <br/>
                 </div>
@@ -86,4 +87,5 @@ class Carousel2 extends React.Component {
 }
 
 
-module.exports = Carousel2;
+module.exports = Carousel1;
+

@@ -1,13 +1,17 @@
 package lv.ddgatve.nt.exam;
 
+import static org.junit.Assert.assertEquals;
+
 import org.json.simple.JSONValue;
+import org.junit.Test;
 
 public class JsonTest {
-	
-	public static void main(String[] args) {
+
+	@Test
+	public void testJsonLiteral() {
 		String s = "Kal\"vis";
 		String s2 = JSONValue.escape(s);
-		System.out.println("s2 = '" + s2 + "'");
+		assertEquals("Kal\\\"vis",s2);
 	}
-
+	
 }

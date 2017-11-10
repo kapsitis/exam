@@ -3,9 +3,9 @@ import {render} from 'react-dom'
 import ReactDOM from 'react-dom'
 import {RadiobuttonGroup, CheckboxGroup, CheckboxSingle} from './radioButtons.jsx'
 import getMinutesSeconds from './jsutils.js'
-import examData from './carousel2data.js'
+import examData from './carouselNT2EXAM2data.js'
 
-class Carousel2 extends React.Component {
+class CarouselNT2EXAM2 extends React.Component {
     constructor(props) {
         super(props);
         this.state = examData
@@ -34,7 +34,7 @@ class Carousel2 extends React.Component {
                     </a>&nbsp;&nbsp;
                     {getMinutesSeconds(this.state.count)}
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	<input type="hidden" name="testId" value="carousel2"/>
+                	<input type="hidden" name="testId" value="carouselNT2EXAM2"/>
                     <input type="submit" value="Nosūtīt"/>
                     <br/>
                 </div>
@@ -47,20 +47,30 @@ class Carousel2 extends React.Component {
                     </ol>
                     <div className="carousel-inner" role="listbox">
                         {this.state.questions.map(function(qq,i) {
-
                             let webForm = null;
                             let theInstruction = "";
+                            let webImage = "";
                             if (qq.questionType == "INPUT") {
                                 webForm = <div><input size={qq.length} maxLength={qq.length}
                                                       className="webFormInput" type="text" name={"q" + i}/></div>;
+                            } else if (qq.questionType == "MS") {
+                                webForm = <CheckboxGroup alternatives={qq.alternatives} i={i}/>;
                             } else {
                                 webForm = <RadiobuttonGroup alternatives={qq.alternatives} i={i}/>;
                             }
+
+
 
                             if (qq.hasOwnProperty('instruction') && qq.instruction != "") {
                                 theInstruction = <i>({qq.instruction})</i>
                             } else {
                                 theInstruction = ""
+                            }
+
+                            if (qq.hasOwnProperty('imgSrc') && qq.imgSrc != "") {
+                                webImage = <img src={qq.imgSrc}/>;
+                            } else {
+                                webImage = ""
                             }
 
 
@@ -71,6 +81,7 @@ class Carousel2 extends React.Component {
                                         <div className="col-xs-12">
                                             <br/><b style={{fontSize:"120%"}}>Q{i+1}:</b> {qq.question}
                                             {(theInstruction == "") ? "" : <span><br />{theInstruction}</span>}
+                                            {(webImage == "") ? "" : <span><br/>{webImage}<br /></span>}
                                             <br/>
                                             {webForm}
                                         </div>
@@ -86,4 +97,4 @@ class Carousel2 extends React.Component {
 }
 
 
-module.exports = Carousel2;
+module.exports = CarouselNT2EXAM2;

@@ -36,7 +36,12 @@ public class LoginServlet extends HttpServlet {
 			"000066", "000067", "000068", "000069", "000070",
 			"000071", "000072", "000073", "000074", "000075", 
 			"000076", "000077", "000078", "000079", "000080",
-
+			"000081", "000082", "000083", "000084", "000085", 
+			"000086", "000087", "000088", "000089", "000080",
+			"000091", "000092", "000093", "000094", "000095", 
+			"000096", "000097", "000098", "000099", "000100",
+			
+			
 			"000101", "000102", "000103", "000104", "000105", 
 			"000106", "000107", "000108", "000109", "000110",
 			"000111", "000112", "000113", "000114", "000115", 
@@ -58,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 			"000191", "000192", "000193", "000194", "000195", 
 			"000196", "000197", "000198", "000199", "000200",
 			
-			"577337", // Kalvis (000001-000060) 
+			"577337", // Kalvis (000001-000060)
 			"677288", // Agnese L. (000061-000080)
 			"188622" // Maruta (000101-000200)
 			);
@@ -66,35 +71,45 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
+		
+		HttpSession session = req.getSession(false);
+		if (session!=null) {
+			session.invalidate();
+		}
+		
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		String loginID = req.getParameter("loginID");
-		HttpSession session = req.getSession();
-		String name = req.getParameter("name");
+		if (loginID == null) { 
+			loginID = "";
+		} else {
+			loginID = loginID.trim();
+		}
+		String loginName = req.getParameter("loginName");
+		if (loginName == null) { 
+			loginName = "";
+		} else {
+			// TODO: Better perform space-normalization; control weird characters
+			loginName = loginName.trim();
+		}
 		
+		session = req.getSession();
 
-		if (name.trim().equals("")) {
-			out.println("<html><head><title>Login</title></head><body>");
-			out.println("<p>Login wrong - Name cannot be empty</p>");
-			out.println("<p>Please <a href='http://www.dudajevagatve.lv:8080/exam/login.jsp'>Try again</a></p>");
-			out.println("</body></html>");
-		} else if (!logins.contains(loginID)) {
+		if (req.getParameter("isAnon") != null) {
+			loginID = "ANON";
+		}
+		
+		if (!loginID.equals("ANON") && !logins.contains(loginID)) {
 			out.println("<html><head><title>Login</title></head><body>");
 			out.println("<p>Login wrong - no such ID.</p>");
-			out.println("<p>Please <a href='http://www.dudajevagatve.lv:8080/exam/login.jsp'>Try again</a></p>");
+			out.println("<p>Please <a href='http://www.dudajevagatve.lv:8080/exam/login.html'>Try again</a></p>");
 			out.println("</body></html>");
 		} else {
 			session.setAttribute("loginID", loginID);
-			session.setAttribute("name", name);
-			
-			//RequestDispatcher rd = req.getRequestDispatcher("examlist.html");
-			//rd.forward(req, resp);
+			session.setAttribute("loginName", loginName);
 			resp.sendRedirect("/exam/examlist.html");
-			
-//			out.println("<p>Login successful</p>");
-//			out.println("<p>Welcome, <tt>" + name + "</tt></p>");
-//			out.println("<p>This is "
-//					+ "<a href='http://www.dudajevagatve.lv:8080/exam/carousel2.html'>Test for today</a>");
 		}
 	}
 }
+
+

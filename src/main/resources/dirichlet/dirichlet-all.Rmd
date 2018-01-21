@@ -1,0 +1,21 @@
+---
+title: Dirihlē princips - Testi
+date: "2018-01-17"
+output: word_document
+---
+
+
+```{r dirichlet01-intro, child = 'dirichlet01-intro.Rmd'}
+```
+
+```{r dirichlet02-generalizations, child = 'dirichlet02-generalizations.Rmd'}
+```
+
+```{r dirichlet03-combinatorics, child = 'dirichlet03-combinatorics.Rmd'}
+```
+
+```{r dirichlet04-shapes, child = 'dirichlet04-shapes.Rmd'}
+```
+
+```{r dirichlet05-number-theory, child = 'dirichlet05-number-theory.Rmd'}
+```

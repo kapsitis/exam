@@ -5,6 +5,7 @@ class RadiobuttonGroup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            "prefix": props.prefix,
             "i": props.i,
             "alternatives": props.alternatives
         }
@@ -19,7 +20,7 @@ class RadiobuttonGroup extends React.Component {
                     return <tr>
                         <td>
                             <label className={(this.state.i==0) ? "btn active" : "btn"}>
-                                <input type="radio" name={"q"+this.state.i} value={["a","b","c","d","e","f"][ii]}/><i className="fa fa-circle-o fa-2x"></i><i className="fa fa-dot-circle-o fa-2x"></i>
+                                <input type="radio" name={this.state.prefix + this.state.i} value={["a","b","c","d","e","f"][ii]}/><i className="fa fa-circle-o fa-2x"></i><i className="fa fa-dot-circle-o fa-2x"></i>
                                 <span style={{fontSize:"100%", color:"black"}}>({["a","b","c","d","e","f"][ii]})</span>
                             </label>
                         </td>
@@ -38,6 +39,7 @@ class CheckboxGroup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            "prefix": props.prefix,
             "i": props.i,
             "alternatives": props.alternatives
         }
@@ -52,7 +54,7 @@ class CheckboxGroup extends React.Component {
                     return <tr>
                         <td>
                             <label className="btn active">
-                                <input type="checkbox" name={"q"+this.state.i + ["a","b","c","d","e","f"][ii]}/>
+                                <input type="checkbox" name={this.state.prefix + this.state.i + ["a","b","c","d","e","f"][ii]}/>
                                 <i className="fa fa-square-o fa-2x"></i>
                                 <i className="fa fa-check-square-o fa-2x"></i><span>({["a","b","c","d","e","f"][ii]})</span>
                             </label>

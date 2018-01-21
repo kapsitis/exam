@@ -1,0 +1,149 @@
+---
+title: Algebriskas metodes skaitļu teorijā
+output: word_document
+---
+
+* **Anotācija:** Tests par Dirihlē principu.
+* **Pēdējās izmaiņas:** 2017-12-12
+
+
+**nt-R5.q1:** <!--questionType=MC--> Makā ir $25$ monētas (eiro vai centu). Vai makā noteikti ir vismaz $4$ 
+vienādas vērtības monētas?
+
+a. true
+b. false
+
+**Atbilde:** `a`
+
+**Skaidrojums:** Pavisam ir astoņu vērtību monētas $1,2,5,10,20,50$ centu, $1$ un $2$ eiro.
+No pretējā: Ja nebūtu vismaz $4$ monētu ar vienādu vērtību (vienalga kādas vērtības), tad
+varētu būt ne vairāk kā $3$ monētu katrai no astoņām vērtībām, t.i. to kopskaits nevarētu 
+pārsniegt $3 \cdot 8 = 24$. 
+
+
+
+
+**nt-R5.q2:** <!--questionType=MC--> Autobusā brauc $50$ cilvēki. Vai var apgalvot, ka vismaz $6$ 
+no tiem dzimuši vienā mēnesī?
+
+a. true
+b. false
+
+**Atbilde:** `b`
+
+**Skaidrojums:** Tā kā ir pavisam $12$ mēneši, var gadīties, ka katrā no tiem dzimuši $4$ vai $5$ cilvēki 
+no autobusā klātesošajiem (desmit mēnešos dzimuši $4$, bet divos mēnešos dzimuši $5$). 
+Tad $50 = 10 \cdot 4 + 2 \cdot 5$. Šajā gadījumā nebūs neviena mēneša, kurā dzimuši vismaz $6$ cilvēki. 
+
+
+**nt-R5.q3:** <!--questionType=INPUT|length=5--> Auto dīlerim ir $20$ Audi, $20$ BMW, $20$ VW un $20$ Volvo 
+automašīnas. Kāds mazākais mašīnu skaits jānopērk, lai varētu apgalvot, ka ir nopirktas vismaz piecas vienas markas automašīnas?
+
+**Atbilde:** `17`
+
+**Skaidrojums:** Ja nopirktas tikai $16$ mašīnas, tad var būt pa četrām no katras markas. 
+Ja nopirktas $17$ mašīnas, tad nevar gadīties, ka no katras markas nopirktas mazāk kā piecas, jo 
+$4 \cdot 4 < 17$. 
+
+
+**nt-R5.q4** <!--questionType=INPUT|length=5--> Kāds ir mazākais skaits skolēnu, kam jābūt klasē,
+lai varētu apgalvot, ka vismaz 5 no tiem ir dzimuši vienā nedēļas dienā?
+(**Norāde:** *Ierakstīt veselu pozitīvu skaitli.*)
+
+**Atbilde:** `29`
+
+**Skaidrojums:** Ja skolēnu ir $28$, tad katrā no septiņām nedēļas dienām var būt dzimuši tikai $4$ skolēni. 
+Ja skolēnu ir $29$, tad nevar gadīties, ka katrā nedēļas dienā dzimuši mazāk kā $5$ skolēni, jo 
+$7 \cdot 4 < 29$. 
+
+
+**nt-R5.q5:** <!--questionType=INPUT|length=5--> Uz galda ir $15$ spēļu kārtis. 
+Kāds lielākais skaits no tām noteikti ir vienā krāsā?
+(**Norāde:** *Ierakstīt veselu pozitīvu skaitli.*)
+
+**Atbilde:** `8`
+
+**Skaidrojums:** Spēļu kārtīm ir divas krāsas (melna un sarkana). Ja tikai septiņas būtu katrā no krāsām, 
+tad to kopskaits nevarētu pārsniegt $2 \cdot 7 = 14$. Tāpēc vismaz $8$ ir vienādā krāsā (nav zināms kādā). 
+Nav obligāti, lai lielāks skaits būtu vienādā krāsā, jo var būt $8$ kārtis vienā krāsā, bet $7$ kārtis - otrā krāsā.
+
+
+
+**nt-R5.q6** <!--questionType=INPUT|length=5--> Kāds ir mazākais skaits skolēnu, kam jābūt skolā,
+lai divi no tiem noteikti būtu dzimuši vienā datumā (dd.mm). Arī tikai 
+garajos gados esošie datumi (29.februāris) ir iespējami. 
+(**Norāde:** *Ierakstīt veselu pozitīvu skaitli.*)
+
+**Atbilde:** `367`
+
+**Skaidrojums:** Garajos gados ir $366$ datumi (parastajos gados $365$ datumi). 
+Ja skolēnu skaits būs $367 > 366$, tad noteikti kāds no datumiem atkārtosies, jo 
+katram skolēnam nevarēs iedot "savu" datumu. Ja skolēnu ir tikai $366$, tad 
+var gadīties, ka katrs dzimis citā datumā. 
+
+
+
+**nt-R5.q7:** <!--questionType=MC--> Taisnstūrim $ABCD$ ir šāda īpašība: ja to pārgriež pa nogriezni, 
+kas savieno tā garāko malu viduspunktus iegūst divus vienādus taisnstūrus, 
+kas abi līdzīgi $ABCD$. Kāda ir $ABCD$ garākās un īsākās malas attiecība?
+
+a. $2/1$,
+b. $\sqrt{2}/1$,
+c. $\frac{\sqrt{5}+1}{2}$,
+d. $3/2$.
+
+**Atbilde:** `b`
+
+**Skaidrojums:** Ja $AB$ un $CD$ ir garākās malas, apzīmēsim to viduspunktus ar $M$ un $N$. 
+Sākotnējā taisnstūrī garākās un īsākās malas attiecība ir $AB/AD$. Pēc pārgriešanas
+uz pusēm iegūtajā taisnstūrī $AMND$ malu attiecība ir $AD/AM$. Tā kā $AM = 0.5 \cdot AB$, tad
+$$ \frac{AB}{AD} = \frac{AD}{AM} = \frac{AD}{0.5 \cdot AB} = \frac{2AD}{AB}.$$
+Apzīmēsim $x=\frac{AB}{AD}$, tad $x = 2/x$ jeb $x^2 =2$. Tādēļ $x = \sqrt{2}$. 
+
+
+
+**nt-R5.q8:** <!--questionType=MC--> Taisnstūrim $ABCD$ ir šāda īpašība: ja tam nogriež kvadrātu, 
+kura malas garums vienāds ar $ABCD$ īsākās malas garumu, tad paliek pāri taisnstūris, kurš līdzīgs $ABCD$. 
+Kāda ir $ABCD$ garākās un īsākās malas attiecība?
+
+a. $2/1$,
+b. $\sqrt{2}/1$,
+c. $\frac{\sqrt{5}+1}{2}$,
+d. $3/2$.
+
+**Atbilde:** `c`
+
+**Skaidrojums:** Ja $AB$ un $CD$ ir garākās malas, atzīmēsim uz šīm malām nogriežņus attiecīgi 
+$AM$ un $DN$ tā, lai $AM = DN = AD$. Tad pēc kvadrāta $AMND$ nogriešanas paliks taisnstūris
+$MBCN$. Tā kā $AB = AM + MB = AD + MB$, tad 
+$$ \frac{AD}{MB} = \frac{AB}{AD} = \frac{AD+MB}{AD} = 1 + \frac{MB}{AD}.$$
+Apzīmēsim $x = \frac{AD}{MB}$, tad $x = 1+(1/x)$ jeb $x^2 = x + 1$. Vienīgā sakne $x>1$ vienādojumam
+$$ x^2 - x - 1 = 0$$ 
+ir $x = \sqrt{1+\sqrt{5}}{2}$. 
+
+
+
+
+**nt-R5.q9:** <!--questionType=INPUT|length=20--> Dots bezgalīgs decimāldaļskaitlis $0.222\ldots$. 
+Uzrakstīt nesaīsināmu racionālu daļu, ar ko tas vienāds.
+(**Norāde:** *Ierakstīt atbildi formā `a/b`.*)
+
+**Atbilde:** `2/9`
+
+**Skaidrojums:** Varam sasummēt bezgalīgu ģeometrisku progresiju: 
+$$ 0.222\ldots = 0.2 + 0.02 + 0.002 + \ldots = \frac{0.2}{1-0.1} = \frac{0.2}{0.9}=\frac{2}{9}. $$
+Šeit izmantota formula $\frac{b_1}{1-q}$, kur $b_1$ - ģeometriskās progresijas pirmais loceklis, 
+bet $q$ ir kvocients.  
+Varam šo pašu rezultātu iegūt arī apzīmējot $x = 0.222\ldots$. Tad $0.1x = 0.0222\ldots$. 
+Atņemot šos abus skaitļus, iegūsim $x - 0.1x = 0.2$. No šejienes var izteikt $x$. 
+
+
+**nt-R5.q10** <!--questionType=INPUT|length=20--> Dots bezgalīgs decimāldaļskaitlis 
+$0.(114)=0.114114114\\ldots$. Uzrakstīt nesaīsināmu racionālu daļu, ar ko tas vienāds.
+(**Norāde:** *Ierakstīt atbildi formā `a/b`.*)
+
+**Skaidrojums:** Varam sasummēt bezgalīgu ģeometrisku progresiju: 
+$$ 0.114114114\ldots = 0.114 + 0.000114 + 0.000000114 + \ldots = \frac{0.114}{1-0.001} = \frac{0.114}{0.999}=\frac{114}{999}=\frac{38}{333}. $$
+
+
+

@@ -13,14 +13,14 @@ var config = {
     publicPath: '/'
   },
 
-/*
+
   devtool: 'source-map',
   devServer: {
     inline: true,
     contentBase: WEBAPP_DIR, 
     port: 3333
   },
-*/
+
 
   module: {
     loaders: [
@@ -38,7 +38,7 @@ var config = {
       new webpack.ProvidePlugin({
           "React": "react",
       }),
-    new webpack.optimize.UglifyJsPlugin({minimize: true})
+    //new webpack.optimize.UglifyJsPlugin({minimize: true})
   ]
 }
 

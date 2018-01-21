@@ -1,0 +1,408 @@
+---
+title: Dirihlē princips (3) - Lietojumi kombinatorikā
+date: "December 20, 2017"
+output: pdf_document
+---
+
+# Dirihlē princips (3) - Lietojumi kombinatorikā
+
+<!--
+
+-->
+
+* **Anotācija:** Tests par Dirihlē principa lietojumiem kombinatorikas uzdevumos, kur 
+objektu vai būrīšu skaits jāatrod ar kombinatorikas līdzekļiem; jāveic novērtējumi, 
+izvēloties ekstrēmos elementus vai jānovērtē algoritmu ātrdarbība. 
+
+## c.dirichlet.combinatorics.q1
+<!--questionType=INPUT|length=5--> 
+Konfektes iesaiņotas vairākās pakās, kurās var būt no $11$ līdz $20$ konfekšu. 
+Cik konfekšu jāiesaiņo (vienalga kura lieluma pakās) tā, lai noteikti 
+atrastos vai nu divas pakas ar vienādu 
+konfekšu skaitu vai arī divas pakas ar konfekšu summu $31$?
+
+**Atbilde:** `106`
+
+**Skaidrojums:** Ir spēkā vienādība:
+$$15+16+17+18+19+20 = 3 \cdot (15+20) = 105.$$
+Tiklīdz kā konfekšu skaits pārsniedz $105$, tad tās nevar iesaiņot $6$ pakās. 
+Ir nepieciešamas vismaz $7$ pakas, kas nozīmē to, ka vismaz divas 
+no pakām izrādīsies vienādas vai arī nonāks vienādos attālumos no virknītes
+$10,\ldots,20$ galiem (t.i. dod summā $31$). 
+
+
+## c.dirichlet.combinatorics.q2
+Morzes ābece pārraida burtus ar divu veidu pīkstieniem - īsajiem un garajiem. 
+Piemēram, burtu "S" pārraida ar trim īsajiem pīkstieniem. 
+Cik 3-pīkstienu kombinācijas jāpārraida, lai vismaz $10$ no šīm 
+kombinācijām būtu vienādas (t.i. saturētu vienādu skaitu ar īsajiem un 
+garajiem pīkstieniem vienādā secībā)? 
+
+**Atbilde:** `73`
+
+**Skaidrojums:** Pavisam ir astoņas dažādas 3-pīkstienu kombinācijas 
+(reizināšanas likums kombinatorikā: $2 \cdot 2 \cdot 2 = 8$, jo ir
+trīs pīkstieni un katrs var pieņemt divas vērtības). 
+Pārraidot $73$ kombinācijas, iegūstam, ka 
+vispopulārākajā 3-pīkstienu kombinācijā nonāks 
+$\lceil 73/8 \rceil = \lceil 9.125 \rceil = 10$ no tām. 
+
+
+## c.dirichlet.combinatorics.q3
+Istabā ir $10$ cilvēki; katri divi vai nu pazīst viens otru vai arī nepazīst. 
+(Pazīšanās ir simetriska: ja $A$ pazīst $B$, tad arī $B$ pazīst $A$.) 
+Izvēlamies cilvēku $X$ starp šiem $10$ cilvēkiem.
+Kāds ir lielākais skaits cilvēku, kas vai nu visi pazīst $X$, vai arī 
+visi nepazīst $X$?
+
+**Atbilde:** `5`
+
+**Skaidrojums:** Cilvēkam $X$ ir pavisam $9$ dažādi citi cilvēki. 
+Katru no tiem var pazīt vai nepazīt. Vismaz $5$ no šiem 
+cilvēkiem būs attiecībā "pazīst" vai arī attiecībā "nepazīst". 
+$9$ cilvēkus dala divu veidu "būrīšos".
+
+<!-- šoreiz 3*48 = 144 < 29*5 = 145 --> 
+## c.dirichlet.combinatorics.q4
+Vecmāmiņa kāpj pa trepēm $49$ pakāpienus, ar vienu soli pārvarot 
+$1$, $2$ vai $3$ pakāpienus. Pavisam viņai nepieciešami
+$30$ soļi augšup. Ja vecmāmiņa piecreiz uzkāpj pa šīm trepēm, 
+cik reižu viņa ciemojusies uz tā pakāpiena, 
+uz kura viņa bijusi visbiežāk 
+(pašu apakšējo - $0$-to un pašu augšējo - $49$-to neskaitot)?
+
+**Atbilde:** `4`
+
+**Skaidrojums:** 
+Pavisam ir $48$ pakāpieni (neskaitot apakšējo un augšējo). 
+0-tajā solī vecmāmiņa ir uz apakšējā pakāpiena, bet 30-tajā solī - uz 
+augšējā. Tādēļ viņai katrā uzkāpšanas reizē ir $29$ soļi uz pakāpieniem 
+kaut kur pa vidu. Iegūstam, $29 \cdot 5 = 145$. Sadalot $145$ uz $48$
+"būrīšiem" iegūstam, ka vismaz vienā būrītī būs vismaz 
+$\lceil 145/48 \rceil = \lceil 3.02 \rceil = 4$ objekti. 
+(**Piezīme:** Spēja kāpt tieši pa $1$, $2$ vai $3$ nav būtiska - varētu atļaut
+kāpt arī lielāku skaitu pakāpienu, atbilde no tā nemainītos.)
+
+## c.dirichlet.combinatorics.q5
+Ir $15$ sarkani un $15$ zaļi aplīši; uz katra aplīša uzrakstīts cits skaitlis
+no $1$ līdz $100$. Vai noteikti var atrast divus tādus pārus (katrā pārī ir
+$1$ sarkans un $1$ zaļš aplītis), ka abos pāros 
+skaitļu summas ir vienādas?
+
+a. Jā
+b. Nē
+
+**Atbilde:** `a`
+
+**Skaidrojums:** Iespējamo aplīšu pāru ir$15 \cdot 15 = 225$ (reizināšanas
+likums: pirmajā solī izvēlas jebkuru no sarkanajiem aplīšiem; otrajā solī - jebkuru 
+no zaļajiem aplīšiem), savukārt summu ir tikai $199$ (no $1+1=2$ līdz 
+$100 + 100 = 200$). Tādēļ pēc Dirihlē principa, divi no pārīšiem 
+iekritīs tanī pašā summā. 
+
+Nevar gadīties, ka atrastie pāri 
+daļēji pārklājas. Ja sarkanā/zaļā aplīša pāris ir $(s_1,z_1)$ kā arī 
+$(s_1,z_2)$, turklāt $s_1 + z_1 = s_1 + z_2$; pēc noīsināšanās: 
+$z_1 = z_2$. Tātad abi pāri sakrīt - tie nevar daļēji pārklāties.
+Līdzīgi pamato arī gadījumam, ja zaļie aplīši abos pāros sakristu (tad 
+būtu jāsakrīt arī sarkanajiem - bet Dirihlē princips nodrošina, ka būs 
+divi dažādi pāri). 
+
+## c.dirichlet.combinatorics.q6
+Ir $10$ sarkani un $10$ zaļi aplīši; uz katra aplīša uzrakstīts cits skaitlis
+no $1$ līdz $100$. Vai noteikti var atrast divus pārus, kuros ietilpst
+pa vienam sarkanam un vienam zaļam aplītim, uz kuriem uzrakstīto skaitļu 
+summas ir vienādas?
+
+a. Jā
+b. Nē
+
+**Atbilde:** `b`
+
+**Skaidrojums:** Var gadīties, ka nevar atrast divus šādus pārus. 
+Pretpiemēru var izveidot, izvēloties sarkanos 
+aplīšus, kas visi dalās ar $10$: $(10,20,\ldots,100)$. 
+Toties zaļie aplīši ir $(1,2,\ldots,10)$. 
+Katra summa $S \in [2,200]$ viennozīmīgi izsakās kā tieši viens no zaļajiem 
+aplīšiem (atkarībā no atlikuma, kas rodas $S$ dalot ar $10$) un 
+tieši viens no sarkanajiem aplīšiem: ja no $S$ atņem skaitli uz zaļā aplīša. 
+
+## c.dirichlet.combinatorics.q7
+Vai starp $51$ skaitļiem noteikti var atrast divus tādus skaitļus $a$ un $b$, 
+ka to summa vai starpība dalās ar $100$? 
+
+a. Jā
+b. Nē
+
+**Atbilde:** `b`
+
+**Skaidrojums:** Var izvēlēties $51$ skaitļus: $\{ 50,51,\ldots,100 \}$. 
+Visas starpības nepārsniedz $50$. Visas summas ir vismaz $50+51 = 101$
+un nepārsniedz $99+100 = 199$. 
+
+## c.dirichlet.combinatorics.q8 
+Dotas $8$ pēc izskata vienādas monētas, kuru masas ir dažādas.
+Doti sviras svari ar diviem kausiem un bez atsvariem, uz kuriem var 
+uzlikt jebkuras divas monētas un noskaidrot, kura ir smagāka. 
+Kādam lielākajam $n$ noteikti nepietiek ar $n$ svēršanām, lai atrastu smagāko 
+monētu. 
+
+**Atbilde:** `6`
+
+**Skaidrojums:** Ja ar $n$ svēršanām ir atrasta smagākā monēta, 
+tad tas nozīmē, ka tā ir salīdzināta ar visām $7$ pārējām monētām 
+(vai nu tieši: salīdzinot smagāko ar kādu citu, vai arī netieši: 
+salīdzinot smagāko ar vienu, pēc tam to ar vēl kādu utt.).
+Citiem vārdiem sakot, ja katru svēršanu iztēlo kā monētu 
+savienošanu ar svītriņu, tad svēršanu beigās eksistē ceļš 
+ar vienu vai vairākām svītriņām, kas ved no smagākās uz jebkuru citu. 
+Nedrīkst palikt izolēti gabali, kas nekad nav salīdzināti ar to 
+monētu, kuru esam pasludinājuši par smagāko. 
+
+Ja pirms visām svēršanām katra monēta veido "izolētu gabalu", tad 
+veicot $6$ svēršanas gabalu skaits var samazināties no $8$ līdz $2$
+(katra svēršana var sasaistīt kopā divus gabalus). Bet ar to 
+nepietiek, lai nonāktu līdz vienam gabalam. 
+
+
+## c.dirichlet.combinatorics.q9
+Dotas $12$ pēc izskata vienādas monētas. Viena no tām ir viltota. 
+Visas citas monētas ir ar vienādu masu, bet viltotā ir vai nu vieglāka
+vai smagāka par tām. Doti sviras svari ar diviem svaru kausiem un 
+bez atsvariem; var noskaidrot vai kreisais svaru kauss ir smagāks/vienāds/vieglāks
+par labo svaru kausu.  
+Atrast lielāko $n$, kuram var pamatot, ka ar $n$ svēršanām uz sviru 
+svariem NEPIETIEK, lai atrastu viltoto monētu un uzzinātu 
+vai tā smagāka/vieglāka par citām.
+
+**Atbilde:** `2`
+
+**Skaidrojums:** Mums uzdevumā jāspēj izšķirt $12 \cdot 2 = 24$ dažādas
+situācijas (ikviena no $12$ monētām var izrādīties viltota, turklāt
+tā var būt gan smagāka, gan vieglāka par citām.) Ar divām svēršanām, kam 
+iespējami trīs iznākumi, var iegūt $9$ dažādus rezultātus. Tā kā $24 > 9$, 
+tad ar šiem iznākumiem nepietiek, lai atšķirtu visas iespējas.
+
+## c.dirichlet.combinatorics.q10
+Latviešu alfabētā ir $33$ burti. Kādā skolā katrs skolēns parakstās ar
+iniciāļiem - tieši diviem latviešu alfabēta burtiem (abi burti
+var būt arī vienādi). 
+Kāds var būt vismazākais skolēnu skaits skolā, lai noteikti atrastos 
+divi skolēni ar vienādiem iniciāļiem, kurus viņi raksta tieši tanī 
+pašā secībā?
+
+**Atbilde:** `1090`
+
+**Skaidrojums:** Iespējamo iniciāļu pāru (t.i. Dirihlē principa "būrīšu") 
+ir $33 \cdot 33 = 1089$. Ja skolēnu būs par vienu vairāk, tad
+diviem no viņiem būs jānonāk vienā "būrītī", t.i. jāizmanto tie paši iniciāļi 
+tanī pašā secībā.
+
+Ja skolēnu ir $1089$ vai mazāk, katram var būt cits iniciāļu pāris.
+
+<!-- 1110100011 --> 
+## c.dirichlet.combinatorics.q11
+Miķelītis $n$ reizes pēc kārtas meta monētu un katrā
+reizē pierakstīja "C", ja uzkrita "cipars" un "Ģ", ja uzkrita
+ģerbonis - šādi iegūstot $n$ burtu virknīti. 
+Kādai mazākajai $n$ vērtībai šajā virknītē noteikti 
+atradīsies divi vienādi lasāmi $3$-burtu fragmenti (šie 
+fragmenti drīkst daļēji pārklāties - piemēram "CĢCĢC" divas
+reizes satur fragmentu "CĢC"). 
+
+**Atbilde:** `11`
+
+**Skaidrojums:** Ja virknītes garums ir $11$ burti, tad tajā ir deviņi 
+trīsburtu gabali (pirmais sākas ar 1.burtu, pēdējais - ar 9.burtu). 
+No deviņiem gabaliem vismaz divi sakritīs, jo no diviem 
+burtiem var izveidot tikai $2^3=8$ dažādus trīsburtu gabalus.  
+Atbilde $10$ neder, jo var rasties virkne "CCCĢCĢĢĢCC", kurā 
+katrs no astoņiem trīsburtu gabaliem ietilpst tieši vienreiz.
+
+## c.dirichlet.combinatorics.q12
+Kādu lielāko skaitu laidņu var izvietot uz šaha galdiņa $6 \times 6$ 
+tā, lai tie viens otru neapdraud (t.i. neatrodas uz vienas diagonāles)?
+
+**Atbilde:** `10`
+
+**Skaidrojums:** Ir divu veidu laidņi - uz melnajām un uz baltajām 
+diagonālēm. Ja aplūkojam melnās diagonāles, tad tām eksistē 
+divi virzieni (no kreisā augšējā uz labo apakšējo stūri un 
+no labā augšējā uz kreiso apakšējo). Dirihlē principa lietošanai
+izdevīgāks tas virziens uz kura ir mazāk diagonāļu ($5$ diagonāles
+nevis $6$ - sk. pelēkās bultiņas 1.zīmējumā). Uz katras no $5$ diagonālēm 
+var novietot ne vairāk par vienu laidni. Tas pats sakāms arī par 
+baltajām diagonālēm. Tādēļ laidņu nevar būt vairāk par $5+5=10$. 
+
+```{r, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+## caption
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVP1)
+grid.text("1.z\u012Bm.",x=0.5,y=0.5)
+popViewport(1)
+#end caption
+
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP12)
+subVP121 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.025, y=0.025, width=0.95, height=0.95)
+pushViewport(subVP121)
+Nx <- 7
+Ny <- 7
+uX <- 1/Nx
+uY <- 1/Ny
+
+for (i in 0:(Ny-2)) {
+  for (j in 0:(Nx-2)) {
+    theColor <- if ((i+j) %% 2 == 0) "#999999" else "white"
+    grid.rect(x=j*uX,y=i*uY,width=uX,height=uY,
+              gp=gpar(fill=theColor),just=c("left","bottom"))
+  }
+}
+xx <- c(2,4,6,6,6)
+yy <- c(6,6,6,4,2)
+xxD1 <- c(2,4,6,6,6)
+yyD1 <- c(6,6,6,4,2)
+xxD2 <- c(0,0,0,2,4)
+yyD2 <- c(4,2,0,0,0)
+for (k in 1:5) {
+  grid.lines(x = c(xx[k]+0.9,xx[k]+0.2)*uX, y = c(yy[k]+0.9,yy[k]+0.2)*uY,
+             gp=gpar(col="#999999", lwd=2),
+             arrow = arrow(angle = 15, length = unit(0.10, "inches"),
+                           ends = "last", type = "open"))
+  grid.lines(x = c(xxD1[k],xxD2[k])*uX, y = c(yyD1[k],yyD2[k])*uY, 
+             gp=gpar(col="red", lwd=2, lty="dotted"))
+}
+
+popViewport(2)
+
+popViewport(1)
+
+```
+
+
+Veids, kā izvietot $10$ laidņus ir parādīts 2.zīmējumā.
+
+```{r, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+## caption
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVP1)
+grid.text("2.z\u012Bm.",x=0.5,y=0.5)
+popViewport(1)
+#end caption
+
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP12)
+subVP121 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.025, y=0.025, width=0.95, height=0.95)
+pushViewport(subVP121)
+Nx <- 6
+Ny <- 6
+uX <- 1/Nx
+uY <- 1/Ny
+
+for (i in 0:(Ny-1)) {
+  for (j in 0:(Nx-1)) {
+    theColor <- if ((i+j) %% 2 == 0) "#999999" else "white"
+    grid.rect(x=j*uX,y=i*uY,width=uX,height=uY,
+              gp=gpar(fill=theColor),just=c("left","bottom"))
+  }
+}
+xx <- c(0:(Nx-1), 1:(Nx-2))
+yy <- c(rep(Ny-1,times=Nx), rep(0,times=Nx-2))
+for (k in 1:length(xx)) {
+  grid.circle(x=(xx[k]+0.5)*uX, y=(yy[k]+0.5)*uY,r=min(uX,uY)/4,gp=gpar(fill="yellow"))
+}
+
+popViewport(2)
+
+popViewport(1)
+
+```
+
+
+
+## c.dirichlet.combinatorics.q13
+Kāds mazākais skaits torņu jānovieto uz šaha galdiņa $6 \times 6$ rūtiņas, 
+lai no tiem noteikti varētu izvēlēties trīs torņus, kuri 
+viens otru neapdraud (t.i. neatrodas uz vienas horizontāles vai 
+vienas vertikāles)?
+
+**Atbilde:** `13`
+
+**Skaidrojums:** Ja torņu ir $12$ vai vēl mazāk, tad tos var izvietot tikai 
+divās horizontālēs - šādā gadījumā $3$ savstarpēji neapdraudošus
+torņus no tiem izvēlēties nevar.
+
+Ja torņu ir $13$, tad atrodam horizontāli $H_1$, kurā ir vismaz trīs torņi. 
+Tāda noteikti atrodas pēc Dirihlē principa ($13$ torņus izvieto 
+$6$ horizontālēs). Atzīmējam šajā horizontālē trīs torņus. 
+Pēc tam šo horizontāli svītrojam. 
+
+Mums tagad noder novērtējums no augšas (nevienā horizontālē nevar 
+būt vairāk kā $6$ torņi); tādēļ pēc izsvītrošanas paliek pāri vismaz
+$13-6=7$ torņi. No atlikušajām horizontālēm atrodam tādu $H_2$, kurā atrodas vismaz
+$2$ torņi un izsvītrojam arī to. Arī tajā nav vairāk kā $6$ torņi, 
+tāpēc paliek vismaz vēl viens tornis. Šo horizontāli apzīmējam ar $H_3$. 
+
+No $H_3$ izvēlamies vienīgo tur garantēti esošo torni. Izsvītrojam šī torņa
+vertikāli no $H_1$ un $H_2$ (tur paliek attiecīgi divi un viens tornis). 
+Pēc tam ņemam neizsvītroto torni no $H_2$ un izsvītrojam arī viņa vertikāli. 
+Visbeidzot ņemam neizsvītroto torni no $H_1$. Šī procesa beigās mums ir 
+trīs torņi, kas cits citu neapdraud.
+
+
+
+## c.dirichlet.combinatorics.q14
+Spēlētājs $A$ izvēlas $10$ divciparu skaitļus. Spēlētājs $B$
+no tiem izvēlas netukšu apakškopu (t.i. vienu vai vairākus 
+skaitļus; varbūt arī visus $10$); pēc tam $B$ visus izvēlētos
+skaitļus saskaita. Kāda ir mazākā un kāda lielākā 
+summa, ko $B$ var iegūt?
+
+**Atbilde:** `10,945`. 
+
+**Skaidrojums:** Ja spēlētājs $A$ izvēlējās kopu, kurā ietilpst 
+skaitlis $10$, bet $B$ izvēlējās tieši šo skaitli $10$, tad
+tas arī ir mazākais.
+
+Lielākā summa, ko var iegūt, ir $90+\ldots+99 = 945$. 
+
+## c.dirichlet.combinatorics.q15
+Spēlētājs $A$ izvēlas $10$ divciparu skaitļus. Spēlētājs $B$
+no tiem izvēlas netukšu apakškopu (t.i. vienu vai vairākus 
+skaitļus; varbūt arī visus $10$).   
+1. Cik dažādos veidos $B$ to var izdarīt? 
+2. Vai noteikti atradīsies divas dažādas apakškopas, kurās
+skaitļu summas ir vienādas?
+    a. Jā
+    b. Nē
+
+**Atbilde:** `1023,a`.
+
+**Skaidrojums:** No $10$ elementiem apakškopas var izvēlēties
+$2^{10}=1024$ dažādos veidos. Tukšā apakškopa mums neder, 
+tādēļ faktiski rezultāts ir par vienu mazāks: $1024-1 = 1023$. 
+
+Tā kā iespējamo summu ir $945-9 = 936$ (sk. iepriekšējo 
+testa jautājumu), bet iespēju izvēlēties netukšu apakškopu ir $1023 > 936$, 
+tad vismaz viena summa būs pārstāvēta divas reizes.
+
+
+

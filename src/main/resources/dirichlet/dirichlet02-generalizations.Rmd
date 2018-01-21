@@ -1,0 +1,408 @@
+---
+title: Dirihlē princips (2) - Vispārinājumi
+date: "December 25, 2017"
+output: pdf_document
+---
+
+# Dirihlē princips (2) - Vispārinājumi
+
+* **Anotācija:** Tests par Dirihlē principa vispārīgāko gadījumu ($K$ aplīši, $M$ būrīši). 
+
+## c.dirichlet.generalizations.q1
+<!--questionType=MC--> Makā ir $25$ monētas (eiro vai centu). 
+Vai makā noteikti ir vismaz $4$ 
+vienādas vērtības monētas?
+
+a. Jā
+b. Nē
+
+**Atbilde:** `a`
+
+**Skaidrojums:** Pavisam ir astoņu vērtību monētas $1,2,5,10,20,50$ centu, $1$ un $2$ eiro.
+No pretējā: Ja nebūtu vismaz $4$ monētu ar vienādu vērtību (vienalga kādas vērtības), tad
+varētu būt ne vairāk kā $3$ monētu katrai no astoņām vērtībām, t.i. to kopskaits nevarētu 
+pārsniegt $3 \cdot 8 = 24$. 
+
+
+## c.dirichlet.generalizations.q2
+<!--questionType=MC--> 
+Autobusā brauc $50$ cilvēki. Vai var apgalvot, ka vismaz $6$ 
+no tiem dzimuši vienā mēnesī?
+
+a. Jā
+b. Nē
+
+**Atbilde:** `b`
+
+**Skaidrojums:** Tā kā ir pavisam $12$ mēneši, var gadīties, ka katrā no tiem dzimuši $4$ vai $5$ cilvēki 
+no autobusā klātesošajiem (desmit mēnešos dzimuši $4$, bet divos mēnešos dzimuši $5$). 
+Tad $50 = 10 \cdot 4 + 2 \cdot 5$. Šajā gadījumā nebūs neviena mēneša, kurā dzimuši vismaz $6$ cilvēki. 
+
+
+## c.dirichlet.generalizations.q3
+<!--questionType=INPUT|length=5--> 
+Auto dīlerim ir $20$ Audi, $20$ BMW, $20$ VW un $20$ Volvo 
+automašīnas. Kāds mazākais mašīnu skaits jānopērk, lai varētu apgalvot, ka ir nopirktas vismaz piecas vienas markas automašīnas?
+
+**Atbilde:** `17`
+
+**Skaidrojums:** Ja nopirktas tikai $16$ mašīnas, tad var būt pa četrām no katras markas. 
+Ja nopirktas $17$ mašīnas, tad nevar gadīties, ka no katras markas nopirktas mazāk kā piecas, jo 
+$4 \cdot 4 < 17$. 
+
+
+## c.dirichlet.generalizations.q4
+<!--questionType=INPUT|length=5--> Kāds ir mazākais skaits skolēnu, kam jābūt klasē,
+lai varētu apgalvot, ka vismaz 5 no tiem ir dzimuši vienā nedēļas dienā?
+(**Norāde:** *Ierakstīt veselu pozitīvu skaitli.*)
+
+**Atbilde:** `29`
+
+**Skaidrojums:** Ja skolēnu ir $28$, tad katrā no septiņām nedēļas dienām 
+var būt dzimuši tikai $4$ skolēni. 
+Ja skolēnu ir $29$, tad nevar gadīties, ka katrā nedēļas dienā dzimuši 
+mazāk kā $5$ skolēni, jo $7 \cdot 4 < 29$.
+
+
+
+
+## c.dirichlet.generalizations.q5
+Dots apgalvojums: Ja istabā ienāk $n$ cilvēki, tad vismaz trīs no viņiem 
+noteikti ir dzimuši vienā nedēļas dienā, bet var gadīties, ka neeksistē četri, 
+kuri visi dzimuši vienā nedēļas dienā.  
+Atrast mazāko un lielāko $n$ vērtību, kurai šis apgalvojums ir patiess.
+
+**Atbilde:** mazākā: `15`, lielākā: `21`
+
+**Skaidrojums:** Ja $n <15$, tad ne vairāk kā $14$ cilvēkus var sadalīt 
+pa nedēļas dienām tā, lai katrā būtu dzimuši ne vairāk kā $2$.  
+Ja cilvēku ir no $15$ līdz $21$ (abus galapunktus ieskaitot), tad
+pēc vispārinātā Dirihlē principa iegūsim $\lceil n/7 \rceil = 3$ - vismaz
+trīs cilvēkus "vispopulārākajā" nedēļas dienā.  
+Ja cilvēku ir vairāk kā $21$, tad no tā paša Dirihlē principa iegūsim, 
+ka būs nedēļas diena, kurā dzimuši vismaz četri. 
+
+## c.dirichlet.generalizations.q6 
+Tortes dekorēšanai nepieciešami vai nu divi apelsīni, vai trīs āboli, 
+vai piecas aprikozes, vai septiņi ķirši. 
+Mazā Mija atnesa no veikala $n$ augļus, ikviens no kuriem 
+ir apelsīns, ābols, aprikoze vai ķirsis. 
+Kādam mazākajam $n$ ar atnestajiem augļetriem
+noteikti pietiek tortes dekorēšanai?
+
+**Atbilde:** `14`
+
+**Skaidrojums:** Skaits $n = (2-1)+(3-1)+(5-1)+(7-1)=2+3+5+7-4=13$ 
+ir vislielākais, kuram var atnest augļus tā, lai katram no četriem
+paveidiem viens pietrūktu. Ja atnesīs par vienu vairāk, t.i. 
+$14$, tad vismaz vienam paveidam tiks sasniegts vajadzīgais skaits.
+
+## c.dirichlet.generalizations.q7
+Klasē mācās $20$ skolēni. Katram skolēnam ir tieši divi 
+vectētiņi; turklāt katriem diviem skolēniem vismaz viens
+vectētiņš ir kopīgs. (Zināms arī, ka neeksistē visiem 
+skolēniem kopīgs vectētiņš.) Kāds ir lielākais iespējamais 
+šīs klases skolēnu 
+vectētiņu skaits?
+
+**Atbilde:** `3`
+
+**Skaidrojums:** Trīs vectētiņi $A,B,C$, acīmredzot, ir iespējami - ja katram 
+skolēnam vectētiņu pāris ir $(A,B)$, $(A,C)$ vai $(B,C)$, tad 
+katriem diviem skolēniem kāds no vectētiņiem sakritīs 
+(ja četrus vectētiņus var izvēlēties no trim, tad divi sakritīs). 
+
+Noskaidrosim, vai aplūkotajā situācijā iespējami četri vectētiņi - 
+pievienosim skolēnus $a_1,a_2,\ldots,a_{20}$ pa vienam. 
+Skolēna $a_1$ vectētiņus apzīmējam ar $A$ un $B$. Apskatām 
+to skolēnu $a_2$, kuram $B$ nav vectētiņš (tāds noteikti eksistē, 
+jo uzdevumā zināms, ka nevar būt visu skolēnu kopīgais vectētiņš - 
+t.sk. arī $B$ tāds nav). Apzīmēsim $a_2$ vectētiņus ar $A$ un $C$
+($A$ jābūt $a_2$ vectētiņam, jo tas ir kopīgs skolēniem $a_1, a_2$). 
+Tālāk aplūkosim tādu skolēnu $a_3$, kuram $A$ nav vectētiņš
+(arī tāds noteikti eksistē). Lai $a_3$ būtu kopīgi vectētiņi gan ar 
+$a_1$, gan $a_2$, tam jābūt ar vectētiņu pāri $(B,C)$. 
+
+Pievienojot jebkuru jaunu skolēnu $a_4$ utt. mums būs 
+jāizmanto kāds no vectētiņu pāriem $(A,B)$, $(A,C)$ vai $(B,C)$
+(ja skolēnam $a_4$ būtu kāds jauns vectētiņš $D$, tad viņam nevarēs
+būt kopīgs otrs vectētiņš gan ar $a_1$, gan ar $a_2$, gan ar $a_3$). 
+Tātad ceturtais vectētiņš ir neiespējams.
+
+
+## c.dirichlet.generalizations.q8
+Klasē mācās $20$ skolēni. Katram skolēnam ir tieši divi 
+vectētiņi; turklāt katriem diviem skolēniem šajā klasē vismaz viens
+vectētiņš ir kopīgs. Kāds ir lielākais skolēnu skaits, 
+kuriem noteikti visiem ir kopīgs vectētiņš? 
+
+**Atbilde:** `14`
+
+**Skaidrojums:** Ja visiem skolēniem ir visiem kopīgs vectētiņš, 
+tad skolēnu skaits ar kopīgo vectētiņu ir $20$. Bet šāds rezultāts 
+nav garantēts. Ja visiem skolēniem kopīga vectētiņa nav, tad 
+var būt pavisam $3$ vectētiņi (sk. iepriekšējo testa jautājumu). 
+Katram no $20$ skolēniem ir pa $2$ vectētiņi; varam uzskatīt, ka no 
+katra skolēna uz vectētiņu kopu novilktas divas bultiņas - 
+pavisam ir $40$ bultiņu. Ja $40$ bultiņu galus 
+kaut kā sadala $3$ vectētiņiem, pēc Dirihlē principa iegūstam, 
+ka vismaz vienam no vectētiņiem "iedurs" vivsmaz $14$ bultiņas, 
+jo $\lceil 40/3 \rceil = 14$. 
+
+
+## c.dirichlet.generalizations.q9
+$k$ trusīšus kaut kā izvietoja pa $m$ būrīšiem.
+Atrast formulu, kura izsaka mazāko iespējamo trusīšu skaitu 
+tanī būrī, kur viņu ir visvairāk.  
+(Ar $\lfloor x \rfloor$ apzīmēta **apakšējā** veselā daļa - 
+lielākais veselais skaitlis, kas nepārsniedz $x$. Piemēram, 
+$\lfloor 4 \rfloor = 4$ un $\lfloor 3.99 \rfloor = 3$.)
+
+a. $\lfloor \frac{k}{m} \rfloor$
+b. $\lfloor \frac{k-1}{m} \rfloor + 1$
+c. $\lfloor \frac{k+1}{m} \rfloor$
+d. $\lfloor \frac{k+1}{m}+1 \rfloor$
+e. $\lfloor \frac{k}{m-1} \rfloor$
+
+**Atbilde:** `b`
+
+**Skaidrojums:** Ja $1 \leq k \leq m$, tad lielākajā būrī var garantēt
+$1$ trusīša esamību. Ja $m+1 \leq k \leq 2m$, tad $2$ trusīšu esamību, utt. 
+Tas atbilst formulai $\lfloor \frac{k-1}{m} \rfloor + 1$: no $k$ atņem vieninieku, 
+atrod apakšējo veselo daļu, dalot ar $m$. Pēc tam pieskaita $1$. 
+
+## c.dirichlet.generalizations.q10
+Pilnā $52$ spēļu kāršu komplektā katrai kārtij ir
+kāds no $13$ nosaukumiem ("2" (divnieks), "3", "4", "5", "6", "7", 
+"8", "9", "10" (desmitnieks),
+"J" (kalps), "Q" (dāma), "K" (kungs), "A" (dūzis)) un 
+kāds no $4$ mastiem (kreics, pīķis, ercs, kāravs). 
+Tātad eksistē pavisam četri divnieki, četri dūži, utt. 
+Kāds mazākais skaits spēļu kāršu jāizvēlas, lai 
+starp izvēlētajām noteikti atrastos divas kārtis ar blakusesošiem 
+nosaukumiem, piemēram, ("2";"3") vai ("10","J") vai ("K","A")? 
+
+**Atbilde:** `29`
+
+**Skaidrojums:** Izveidosim 7 Dirihlē "būrīšus": ("2";"3"), 
+("4", "5"), ("6", "7"), ("8", "9"), ("10", "J"), ("Q", "K"), 
+("A"). Izvēloties $29$ kārtis, vismaz $\lceil 29/7 \rceil = 5$
+nonāks vienā būrītī. Tā kā ar vienu nosaukumu ir tikai $4$ kārtis, 
+tad maksimālajā būrītī noteikti būs divu dažādu nosaukumu kārtis - tās 
+arī būs ar blakusesošiem nosaukumiem.
+
+Ar $28$ kārtīm, acīmredzot, nepietiek, jo var izvēlēties visus 
+četrus no šiem septiņiem nosaukumiem: "2", "4", "6", "8", "10", 
+"Q", "A". Tur nekādi divi nosaukumi nenonāk blakus, jo tie ņemti,
+vienu izlaižot.
+
+## c.dirichlet.generalizations.q11
+Vai ir patiess sekojošs apgalvojums: 
+Starp jebkuriem $8$ naturāliem skaitļiem, kuru summa ir $20$
+noteikti atradīsies daži (vismaz divi) tādi skaitļi, kuru summa ir $4$. 
+
+a. Jā. 
+b. Nē. 
+
+**Atbilde:** `a`
+
+**Skaidrojums:** Summu $4$ var iegūt kā $1+1+1+1$ vai 
+$1+1+2$, vai $1+3$, vai $2+2$. 
+Lai nenotiktu neviens no šiem gadījumiem, 
+kādi var būt izvēlētie skaitļi,  kas mazāki par $4$? Ir sekojošas iespējas:
+a. Tikai ar trijniekiem: $(3)$, $(3,3)$ (vai arī lielāks skaits ar trijniekiem) 
+b. Ar trijniekiem un divniekiem: $(3,2)$, $(3,3,2)$  (vai arī vēl vairāk trijnieku un 
+viens divnieks)
+c. Bez trijniekiem, bet ar divnieku: $(2)$, $(2,1)$.
+d. Bez trijniekiem un divniekiem: $(1,1,1)$.
+
+Visos šajos gadījumos izraudzītais skaitļu komplekts (kopā ar 
+atlikušajiem skaitļiem, kuri ir lielāki vai vienādi ar $4$) nedos
+aritmētisko vidējo, kas vienāds ar $20/8 = 2.5$. To pārbauda ar pilno pārlasi. 
+
+a. Ja izraudzīti $n$ trijnieki ($n=1,\ldots,6$), tad paliek $8-n$ skaitļi,
+kas dod summā $20-3n$. Iegūstam, ka vidējais ir $(20-3n)/(8-n)$. Visas šīs 
+attiecības nepārsniedz $17/7<4$, t.i. visi $(8-n)$ skaitļi nevar būt vismaz $4$. 
+b. Ja izraudzīti $n$ trijnieki ($n=1,\ldots,6$) un viens divnieks, tad
+atliek $(7-n)$ skaitļi, kas dod summā $18-3n$. Visas šīs attiecības nepārsniedz
+$15/6=2.5$, t.i. visi $(7-n)$ skaitļi nevar būt vismaz $4$. 
+c. Aplūkosim $(2,1)$ (gadījums $(2)$ ir līdzīgs). Iegūstam, ka ir vēl seši 
+skaitļi, kuru summa ir $17$. Tad $17/6 < 4$, t.i. visi šie seši skaitļi 
+nevar būt vismaz $4$.
+d. Ja ir izraudzīti skaitļi $(1,1,1)$ un vēl pieci skaitļi, kas dod 
+summā $20-3=17$, tad $17/5=3.4$, t.i. piecu skaitļu aritmētiskais vidējais 
+nevar būt vismaz $4$. 
+
+
+## c.dirichlet.generalizations.q12
+Kādu lielāko skaitu skaitļu var izvēlēties no 
+kopas $\{ 1,2,\ldots,50 \}$ tā, lai starp izvēlētajiem 
+neatrastos divi dažādi skaitļi, kuru summa dalās ar $7$?
+
+**Atbilde:** `23`
+
+
+**Skaidrojums:** Starp šiem skaitļiem ir septiņi skaitļi, kuri 
+dod atlikumu $0$, dalot ar $7$, astoņi skaitļi, kuri dod
+atlikumu $1$, dalot ar $7$ un pa septiņiem skaitļiem, 
+kuri dod visus citus atlikumus ($2$, $3$, $4$, $5$, $6$), dalot 
+ar $7$. Lai divu skaitļu summas nedalītos ar $7$, nedrīkst
+izvēlēties divus skaitļus ar atlikumiem $0$; nedrīkst arī 
+izvēlēties abus atlikumus $1$ un $6$, kā arī $2$ un $5$ vai 
+$3$ un $4$.  
+Tātad var ņemt vienu skaitli ar atlikumu $0$, visus skaitļus
+ar atlikumiem $1$, $2$ un $3$. Iegūstam $1 + 8 + 7+7 = 23$. 
+
+## c.dirichlet.generalizations.q13
+Kopu $A$ veido, izvēloties dažus naturālus skaitļus 
+no $1$ līdz $100$ (abus galapunktus
+arī drīkst izvēlēties). Zināms, ka, saskaitot 
+jebkurus divus elementus no kopas $A$, nevar iegūt summu $125$. 
+Kāds ir lielākais iespējamais elementu skaits kopā $A$?
+
+**Atbilde:** `62`
+
+**Skaidrojums:** Skaitļi no $1$ līdz $24$ nevar piedalīties nevienā 
+skaitļu pārī, kam summā sanāk $125$. Visus citus skaitļus var 
+sadalīt pa pāriem, kas veido šādas summas: 
+$25+100 = 125$, $26 + 99 = 125$, utt., $62+63=125$. 
+Šajos pāros ietilpstošo skaitļu pavisam ir $100-24 = 76$, pašu 
+pāru ir $76/2 = 38$. No katra pāra var ņemt ne vairāk kā vienu skaitli. 
+Tātad pavisam var izvēlēties $24 + 38 = 62$ skaitļus. 
+
+
+
+## c.dirichlet.generalizations.q14
+Katrs no $36$ punktiem kvadrātiskā režģī $6 \times 6$, nejauši izvēloties, nokrāsots
+vai nu melns vai balts. 
+Kāds lielākais punktu skaits var būt balti, lai noteikti atrastos 
+horizontāla vai vertikāla taisne, uz kuras ir vismaz $4$ melni punkti?
+
+**Atbilde:** `17`
+
+**Skaidrojums:** Ja $17$ punkti ir balti, tad $19$ punkti ir melni. 
+Tos kaut kā sazīmējot uz $6$ paralēlām taisnēm režģī (piemēram, horizontālajām)
+atradīsies $\lceil 19/6 \rceil = 4$ punkti uz vienas horizontālās taisnes. 
+
+Ja turpretī izvēlas $18$ baltos punktus, tad arī melno būs $18$ un tos
+režģī $6 \times 6$ varēs iekrāsot pārmaiņus līdzīgi šaha galdiņa krāsojumam.
+
+
+```{r, fig.width=2, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+
+subVP1 <- viewport(name="subVP1", 
+                   x=0.5, y=0.5, width=0.95, height=0.95)
+pushViewport(subVP1)
+
+N <- 6
+uX <- 1/N
+uY <- 1/N
+
+for (j in 1:N) {
+  grid.lines(x=c(0.5*uX,1-0.5*uX), y=rep((j-0.5)*uY, times=2), gp=gpar(col="#cccccc"))
+  grid.lines(x=rep((j-0.5)*uX, times=2), y=c(0.5*uY,1-0.5*uY), gp=gpar(col="#cccccc"))
+  
+}
+
+for (i in 1:N) {
+  for (j in 1:N) {
+    theColor <- if ((i+j) %% 2 == 0) "black" else "white"
+    grid.circle(x=(i-0.5)*uX, y=(j-0.5)*uY, r=0.04, 
+                gp=gpar(fill=theColor))
+  }
+}
+
+popViewport(2)
+
+```
+
+
+## c.dirichlet.generalizations.q15
+Klasē ir $12$ skolēni. Katrs no viņiem kaut kā izvēlas $n$ klasesbiedrus
+un nosūta katram no viņiem Jaungada apsveikumu. Kādam mazākajam $n$ var apgalvot, 
+ka noteikti atradīsies divi tādi klasesbiedri, kas nosūtījuši apsveikumus viens
+otram?
+
+**Atbilde:** `6`
+
+**Skaidrojums:** Attēlosim klasesbiedrus kā punktus, kas izvietoti uz
+riņķa līnijas. Pavisam tos savieno $C_12^2 = \frac{12 \cdot 11}{2}=66$ 
+šķautnes jeb vēstuļu sūtīšanas "kanāli". Ja tiek sūtītas $12 \cdot 6$ = $72$
+vēstules, tad katrai vēstulei nepietiek sava "kanāla"; divām jātiek 
+sūtītām starp tām pašām virsotnēm - t.i. 
+klasesbiedri nosūta vēstules viens otram.
+
+Pretpiemēra veidošanai katru no klasesbiedriem apzīmēsim ar numuru 
+no $0$ līdz $11$. Skolēns ar
+numuru $N \in \{ 0,\ldots,11 \}$ nosūta piecas vēstules skolēniem 
+$N+1, \ldots, N+5$ (ja kāds no skaitļiem $N+i$ ir lielāks vai vienāds 
+ar $12$, tad aprēķinām atlikumu $N+i$ dalot ar $12$). Pie šādas 
+kārtības neatradīsies nekādi divi skolēni, kuri sūta vēstules viens
+otram, jo $N+i+j$ (kur $i,j$ ir naturāli skaitļi, kas nepārsniedz $5$)
+nevar dot atlikumu $N$, dalot ar $12$.
+
+
+```{r, fig.width=1.98, fig.height=2.2, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"),
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP1)
+
+
+subVP11 <- viewport(name="subVP11",
+                   x=0.5, y=0.5, width=0.92, height=0.92)
+pushViewport(subVP11)
+
+N <- 12
+uX <- 1/N
+uY <- 1/N
+M <- 5
+
+R1 <- 0.4
+R2 <- 0.5
+
+#grid.circle(x=0.5, y=0.5, r=0.5, gp=gpar(col="#cccccc", fill=NA))
+
+cx <- 0.5+R1*cos(2*(0:(N-1))*pi/N)
+cy <- 0.5+R1*sin(2*(0:(N-1))*pi/N)
+
+grid.circle(x=cx, y=cy, r=0.04, gp=gpar(fill="white"))
+grid.text(label=as.character(0:11), 
+          x = 0.5+R2*cos(2*(0:(N-1))*pi/N),
+          y = 0.5+R2*sin(2*(0:(N-1))*pi/N))
+
+for (i in 1:M) {
+  grid.lines(x = c(cx[1],cx[1+i]), y = c(cy[1],cy[1+i]),
+             gp=gpar(col="red", lwd=2),
+             arrow = arrow(angle = 15, length = unit(0.15, "inches"),
+                           ends = "last", type = "open"))
+  grid.lines(x = c(cx[2],cx[2+i]), y = c(cy[2],cy[2+i]),
+             gp=gpar(col="blue", lwd=2),
+             arrow = arrow(angle = 15, length = unit(0.15, "inches"),
+                           ends = "last", type = "open"))
+}
+
+popViewport(2)
+
+
+subVP2 <- viewport(name="subVP2", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVP2)
+
+
+grid.text(label="1.z\u012Bm.", x=0.5,y=0.5)
+
+popViewport(1)
+
+
+```

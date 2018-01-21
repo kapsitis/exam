@@ -1,0 +1,177 @@
+---
+title: Algebriskas metodes skaitļu teorijā
+output: word_document
+---
+
+* **Anotācija:** Tests par mainīgo apzīmējumu un algebras metožu izmantošanu skaitļu teorijas uzdevumos.
+* **Pēdējās izmaiņas:** 2017-12-12
+
+**nt-R4.q1:** <!--questionType=INPUT|length=5--> Kāds ir mazākais skaitlis, kas dod atlikumu $8$, dalot ar $9$, bet šī skaitļa ciparu summa ir lielāka nekā $8$?
+
+**Atbilde:** `89`
+
+**Skaidrojums:** Saskaņā ar skaitļa $9$ dalāmības pazīmi, atlikumu $8$ dalot ar $9$ dod tie skaitļi $n$, 
+kuru ciparu summa $S(n)$ dod atlikumu $8$ dalot ar $9$. Tātad $S(n)$ var būt $8, 17, 26,\ldots$. 
+Pēc uzdevuma nosacījuma $S(n)$ nevar būt $8$. Mazākā iespējamā ciparu summa ir $17$. To var iegūt 
+kā divciparu skaitli divos veidos: $8 + 9$ vai $9 + 8$ (t.i. $89$ un $98$). 
+Mazākais no šiem skaitļiem ir $89$.  
+
+**nt-R4.q2:** <!--questionType=INPUT|length=15--> Kāds ir mazākais skaitlis $n$, kura ciparu summa $S(n)=89$?
+
+**Atbilde:** `8999999999`
+
+**Daļējs kredīts:** Ja atbilde ir 10-ciparu skaitlis ar ciparu summu $89$, bet nav mazākais iespējamais.  
+<!--"""[0-9]{10}""".r|"""9*89*""".r-->
+
+**Skaidrojums:** Skaitli $89$ var iegūt kā ciparu summu ļoti daudzos veido. Ar deviņiem cipariem nepietiek
+(pat ja visi tie ir deviņnieki, tad $9 \cdot 9$ ir tikai $81$). 
+Ar desmit cipariem var: jāizmanto deviņi cipari "9" un viens cipars "8". Mazākais no šiem skaitļiem būs tas, 
+kur cipars "8" ir pašā sākumā: $8999999999$. 
+
+
+**nt-R4.q3:** <!--questionType=INPUT|length=20--> Naturāliem $n$ lielākais kopīgais dalītājs ar $50$: 
+$\operatorname{gcd}(n,50)$ var pieņemt dažādas vērtības. Uzrakstīt, kuras tās ir.  
+(**Norāde:** *Ierakstīt visas iespējamās lielākā kopīgā dalītāja vērtības, atdalot ar komatiem. Secība nav svarīga.*)
+
+**Atbilde:** `1,2,5,10,25,50`
+
+**Skaidrojums:** Lai skaitlis $x$ būtu lielākais kopīgais dalītājs skaitļiem $n$ un $50$, tam jābūt skaitļa $50$ 
+dalītājam. Skaitlim $50 = 2 \cdot 5^2$ ir tieši seši dalītāji ($1,2,5,10,25,50$) - tie iegūstami kā 
+dažādas kombinācijas pakāpju reizinājumiem $2^a \cdot 5^b$, kur $a = 0,1$ un $b = 0,1,2$ (t.i. $a$ divas 
+vērtības kombinējot ar $b$ trim vērtībām iegūstam sešas kombinācijas).  
+Acīmredzot, visas šīs vērtības ir iegūstamas. Piemēram, ja $n=10$, tad $\operatorname(10,25) = 10$. 
+
+
+**nt-R4.q4:** <!--questionType=INPUT|length=5--> Kāds ir lielākais kopīgais dalītājs visiem četrciparu palindromiem?  
+(Par palindromiem sauc skaitļus, kurus vienādi lasa no abiem galiem, piemēram '1001')  
+(**Norāde:** *Ierakstīt veselu pozitīvu skaitli.*)
+
+**Atbilde:** `11`
+
+**Skaidrojums:** Aplūkosim divus pēc kārtas sekojošus četriciparu palindromus $1001$ un $1111$. 
+Atradīsim to lielāko kopīgo dalītāju. Pēc Eiklīda algoritma: 
+$$\operatorname{gcd}(1001,1111) = \operatorname{gcd}(1111-1001,1001) = \operatorname{gcd}(110,1001) = $$
+$$ = \operatorname{gcd}(1001 - 9 \cdot 110, 110) = \operatorname{gcd}(11,110) = 11. $$
+Ja visi četrciparu palindromi dalās ar $11$, tad visu šo palindromu lielākais kopīgais dalītājs ir $11$
+un nevar būt lielāks, jo $1001$ un $1111$ abi dalās tikai ar $11$. Ja 
+turpretī ir daži palindromi, kas ar $11$ nedalās, tad lielākais kopīgais dalītājs var būt tikai $1$.  
+Varam viegli pārliecināties, ka visi palindromi dalās ar $11$, jo katram četrciparu skaitlim $\overline{abba}$:
+$$ \overline{abba} = 1001 \cdot a + 110 \cdot b = 11 \cdot (91 \cdot a + 10 \cdot b). $$
+
+
+**nt-R4.q5:** <!--questionType=MC--> Atrast algebrisku izteiksmi, kur mainīgajiem piešķirot 
+naturālas vērtības, iegūsim sekojošu skaitļu kopu:  
+$A$: 'Visi 6-ciparu skaitļi, kuru decimālpierakstā 3-ciparu grupa divreiz atkārtojas'. 
+
+a. $6n \pm 1$,
+b. $2^m \cdot 3^n$, kur $m \leq 4$, $n \leq 2$",
+c. $10n+1$,
+d. $2^n$,
+e. $1001 \cdot n$, kur $n \in [100; 999]$,
+f. $11n$; kur $n \\geq 6$.
+
+**Skaidrojums:** Apzīmējam sešciparu skaitli $\overline{abcabc}$, kur "a", "b", "c" ir pirmie trīs cipari. 
+Tad skaitli var izteikt kā desmitnieka pakāpju summu:  
+$$ \overline{abcabc} = 100000a + 10000b + 1000c + 100a + 10b + c = 1001 \cdot 100a + 1001 \cdot 10b + 1001c = 1001 \cdot \overline{abc}.$$
+Ja skaitlis $\overline{abc} ir lielāks par $999$ vai mazāks par $100$, tad tas nav trīsciparu skaitlis (un 
+to atkārtojot divas reizes neiegūsim sešciparu skaitli).   
+Ievietojot $n$ vietā $100, 101, 102, \ldots$, iegūsim $100100$, $101101$, $102102$ utml., kas arī ir visi 
+sešciparu skaitļi, kuros ciparu grupa divreiz atkārtojas.
+
+
+**nt-R4.q6:** <!--questionType=MC--> Atrast algebrisku izteiksmi, kur mainīgajiem 
+piešķirot naturālas vērtības, iegūsim sekojošu skaitļu kopu:  
+$B$: 'Skaitļi, kam pēdējais cipars ir $1$'.
+
+a. $6n \pm 1$,
+b. $2^m \cdot 3^n$, kur $m \leq 4$, $n \leq 2$",
+c. $10n+1$,
+d. $2^n$,
+e. $1001 \cdot n$, kur $n \in [100; 999]$,
+f. $11n$; kur $n \\geq 6$.
+
+**Atbilde:** `c`
+
+**Skaidrojums:** Skaitļa decimālpierakstā pēdējais cipars apzīmē atlikumu, dalot ar $10$. Tādēļ 
+skaitlis, kura pieraksts beidzas ar $1$, ir izsakāms $10n+1$. 
+
+
+**nt-R4.q7:** <!--questionType=MC--> Atrast algebrisku izteiksmi, kur mainīgajiem piešķirot naturālas vērtības, iegūsim sekojošu skaitļu kopu:  
+$C$: 'Visi skaitļa $144$ pozitīvie dalītāji'.
+
+a. $6n \pm 1$,
+b. $2^m \cdot 3^n$, kur $m \leq 4$, $n \leq 2$",
+c. $10n+1$,
+d. $2^n$,
+e. $1001 \cdot n$, kur $n \in [100; 999]$,
+f. $11n$; kur $n \\geq 6$.
+
+**Atbilde:** `b`
+
+**Skaidrojums:** Skaitļa $144$ dalījums pirmreizinātājos: $144 = 2^4 \cdot 3^2$. Lai skaitlis $d$ 
+būtu $144$ dalītājs ir nepieciešami un pietiekami, lai $d$ saturētu tikai pirmreizinātājus $2$ un $3$, turklāt
+pakāpes nepārsniegtu tās pakāpes, kuras ir skaitlī $144$ (t.i. attiecīgi $2^4$ un $3^2$). 
+Tādēļ $d = 2^m \cdot 3^n$, kur $0 \leq m \leq 4$ un $0 \leq n \leq 2$" (t.i. ir pavisam $5 \cdot 3 = 15$ 
+kombinācijas $(m,n)$, kas atbilst visiem $144$ dalītājiem). 
+
+
+**nt-R4.q8:** <!--questionType=MC--> Atrast algebrisku izteiksmi, kur mainīgajiem piešķirot 
+naturālas vērtības, iegūsim sekojošu skaitļu kopu:  
+$D$: 'Naturāli skaitļi, kam nav kopīgu dalītāju ar $6$, izņemot $1$'. 
+
+a. $6n \pm 1$,
+b. $2^m \cdot 3^n$, kur $m \leq 4$, $n \leq 2$",
+c. $10n+1$,
+d. $2^n$,
+e. $1001 \cdot n$, kur $n \in [100; 999]$,
+f. $11n$; kur $n \\geq 6$.
+
+**Atbilde:** `a`
+
+**Skaidrojums:** Naturāli skaitļi, kuriem nav kopīgu dalītāju ar $6$ ir sekojoši: $1,5,7,11,13,17,\ldots$. 
+Šie skaitļi veido divas aritmētiskas progresijas (abas ar diferenci $d = 6$) - viena satur skaitļus $1,7,13,19,\ldots$, 
+kuri dod atlikumu $1$, dalot ar $6$, bet otra satur skaitļus $5,11,17,\ldots$, kuri dod atlikumu $5$, dalot ar $6$. 
+Abas šīs skaitļu virknes var īsi pierakstīt kā $6n \pm 1$ (t.i. skaitļa $6$ daudzkārtņiem $6n$ pieskaita vai atņem vieninieku). 
+
+**nt-R4.q9:**  <!--questionType=MC--> Atrast algebrisku izteiksmi, kur mainīgajiem piešķirot naturālas vērtības, 
+iegūsim sekojošu skaitļu kopu:  
+$E$: '11 pēc kārtas ņemtu naturālu skaitļu summa'.
+
+a. $6n \pm 1$,
+b. $2^m \cdot 3^n$, kur $m \leq 4$, $n \leq 2$",
+c. $10n+1$,
+d. $2^n$,
+e. $1001 \cdot n$, kur $n \in [100; 999]$,
+f. $11n$; kur $n \geq 6$.
+
+**Atbilde:** `f`
+
+**Skaidrojums:** Aritmētiskai progresijai $a_1,\ldots,a_n$ summas formula ir  
+$$ S_n = a_1 + a_2 + \ldots + a_n = \frac{a_1 + a_n}{2}\cdot n, $$
+kur $a_1$ un $a_n$ ir pirmais un pēdējais progresijas loceklis, bet $n$ - saskaitīto locekļu skaits. 
+Tā kā $11$ ir nepāru skaitlis, tad $a_1$ un $a_{11}$ abi ir pāru (vai abi ir nepāru), 
+un to aritmētiskais vidējais būs vesels skaitlis, kurš nevar būt mazāks par $(1+11)/2 = 6$. 
+Savukārt reizinātājs $n$ summas formulā nozīmē, ka $S_n$ vienmēr dalīsies ar $n=11$. 
+Tādēļ $11$ pēc kārtas ņemtu naturālu skaitļu summa būs $11n$, kur $n \geq 6$.  
+Viegli pamanīt, ka jebkuru skaitli $11n$ var izteikt kā $11$ pēc kārtas ņemtu 
+naturālu skaitļu summu, ja to progresijas vidējais loceklis $n = (a_1 + a_{11})/2$ vienāds ar $n$. 
+
+**nt-R4.q10:**  <!--questionType=MC--> Atrast algebrisku izteiksmi, kur mainīgajiem piešķirot naturālas vērtības, 
+iegūsim sekojošu skaitļu kopu:  
+$F$: 'Skaitļi, kam nav nepāru dalītāju, izņemot $1$'. 
+
+a. $6n \pm 1$,
+b. $2^m \cdot 3^n$, kur $m \leq 4$, $n \leq 2$",
+c. $10n+1$,
+d. $2^n$,
+e. $1001 \cdot n$, kur $n \in [100; 999]$,
+f. $11n$; kur $n \geq 6$.
+
+**Atbilde:** `d`
+
+**Atbilde:** Ja skaitļa $N$ dalījumā pirmreizinātājos ir kaut viens pirmskaitlis $p \neq 2$, tad tas arī 
+ir skaitļa nepāru dalītājs, kas lielāks par $1$. Tātad skaitlim nevar būt nepāru pirmreizinātāju, un 
+vienīgais pāru pirmreizinātājs ir $2$. Tātad skaitlis $N$ izsakāms kā divnieka pakāpe $2^n$. 
+
+
+

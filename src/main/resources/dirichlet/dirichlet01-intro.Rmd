@@ -1,0 +1,319 @@
+---
+title: Dirihlē princips (1) - Ievads
+date: "December 20, 2017"
+output: pdf_document
+---
+
+# Dirihlē princips (1) - Ievads
+
+
+* **Anotācija:** Tests par Dirihlē principa vienkāršāko gadījumu ($N+1$ aplīši, $N$ būrīši). 
+
+## c.dirichlet.intro.q1
+<!--questionType=INPUT|length=5--> Tumšā skapī ir zeķes 12 krāsās - pa 20 zeķēm katrā no krāsām. 
+Kāds mazākais zeķu skaits jāizvelk, lai starp tām noteikti atrastos divas zeķes vienādā krāsā?
+
+**Atbilde:** `13`
+
+**Skaidrojums:** Izvilktās zeķes ir objekti ("truši"), bet iespējamās krāsas ir grupas ("būri"). 
+Tā kā grupu ir tieši $N=12$, tad izvelkot  $N+1 = 13$ zeķes, starp tām noteikti būs 
+divas vienādā krāsā. Ar $12$ zeķēm nepietiek, jo var neveikties: katra no pirmajām $12$ zeķēm 
+var būt citā krāsā.
+
+## c.dirichlet.intro.q2
+<!--questionType=INPUT|length=8--> Rūpnīca ražo ķieģeļus, no kuriem neviens nav 
+smagāks par 3kg, neviens nav vieglāks par 2.7kg. 
+Kāds mazākais ķieģeļu skaits jānopērk, lai 
+starp tiem noteikti atrastos divi tādi, kuru masu starpība ir mazāka par 1g 
+(masu starpību iegūst, no lielākās masas atņemot mazāko)?
+
+**Atbilde:** `302`
+
+**Skaidrojums:** Pārveidojam visas masas gramos. Tad intervālu $[2700;3000]$ 
+var pārklāt ar $301$ maziem intervāliem $[2700.0;2700.5)$, 
+$[2700.5;2701.5)$, $[2701.5;2702.5)$, $\ldots$, 
+$[2999.5;3000.0]$. Ja izraudzīti jebkādi $302$ ķieģeļi, tad vismaz vienā no intervāliem 
+būs vismaz divi ķieģeļi. Tā kā jebkurš intervāls (izņemot pirmo un pēdējo, 
+kuri ir vēl īsāki) ir pusatvērts ar garumu $1$, 
+tad tas nozīmē, ka tajā esošo abu ķieģeļu masu starpība būs mazāka par $1$. Ar $301$ 
+nepietiek, jo var ņemt $w_0 = 2700$, $\ldots$, $w_{300} = 3000$ (un tad visas masu 
+atšķirības ir vismaz $1\operatorname{g}$). 
+
+
+## c.dirichlet.intro.q3
+<!--questionType=INPUT|length=1--> 
+Kāds mazākais skaits no naturāliem skaitļiem $1,2,3,4,5,6,7,8$ jāizsvītro, lai 
+starp palikušajiem skaitļiem neatrastos tādi divi, kuru summa ir $9$?
+
+**Atbilde:** `4`
+
+**Skaidrojums:** Ir pavisam $4$ "būrīši" ($(1,8)$, $(2,7)$, $(3,6)$, $(4,5)$), kuros esošie
+skaitļu pāri dod summā $9$. Izsvītrojot no katra vienu ir pietiekami. Ja svītro mazāk, 
+tad paliek pāri būrītis ar diviem skaitļiem, kuri summā dod $9$. 
+
+
+## c.dirichlet.intro.q4 
+<!--questionType=MC-->
+Vai skaitļus $1,2,3,4,5,6,7,8$ var uzrakstīt (1) rindiņā, (2) pa apli 
+tā, lai katru divu blakusesošo 
+skaitļu starpības būtu dažādas? (Skaitļu starpību aprēķina, no lielākā skaitļa atņemot mazāko.)
+
+1. Rakstot rindiņā:
+    a. Jā
+    b. Nē
+2. Rakstot pa apli
+    a. Jā
+    b. Nē
+
+**Atbilde:** `a,b`
+
+**Skaidrojums:** Var rakstīt, piemēram, šādu virknīti: $1,8,2,7,3,6,4,5$. 
+Iespējamo starpību ir tieši $7$ un visas tās tiek iegūtas. 
+
+Ja raksta pa apli, tad arī ir $7$ iespējamās starpības (no $1$ līdz $7$), 
+bet veselas $8$ vietas, kur saskaras blakusesošie skaitļi. Tādēļ vismaz
+divas starpības sakritīs.
+
+
+## c.dirichlet.intro.q5
+<!--questionType=MC--> 
+Atzīmēt, kurš no apgalvojumiem ir vienmēr patiess, ja $6$ objektus kaut kā izvieto $5$ būros. 
+
+a. Eksistē tieši viens būris, kurā ir vismaz divi objekti. 
+b. Eksistē vismaz viens būris, kurā ir tieši divi objekti. 
+c. Eksistē vismaz viens būris, kurā ir vismaz divi objekti. 
+d. Eksistē tieši viens būris, kurā ir tieši divi objekti. 
+
+**Atbilde:** `c`
+
+**Skaidrojums:** Dirihlē princips apgalvo, ka vismaz vienā būrī būs vismaz divi elementi. 
+Tas nesola, ka būs tieši viens tāds būris vai arī, ka tajā būs tieši divi elementi.
+
+
+## c.dirichlet.intro.q6
+<!--questionType=MC--> 
+$3$ trušus kaut kā izvieto $4$ būros. Kāds apgalvojums ir vienmēr patiess? 
+
+a. Eksistē būris, kurā ir tieši divi truši.
+b. Eksistē būris, kurš ir tukšs. 
+c. Eksistē būris, kurā ir tieši viens trusis.
+d. Eksistē vismaz divi būri, kuros ir vismaz pa vienam trusim.
+
+**Atbilde:** `b`
+
+**Skaidrojums:** Ja būru ir vairāk nekā objektu, tad vismaz viens būris noteikti ir tukšs. 
+(Tas ir līdzīgi Dirihlē principam, tikai būri un truši samainīti vietām - t.i. 
+katram būrim truša nepietiek.) Citiem apgalvojumiem viegli atrast pretpiemērus - 
+var, piemēram, visus trušus salikt vienā no būriem. 
+
+## c.dirichlet.intro.q7
+<!--questionType=INPUT|length=5--> Uz galda ir $15$ spēļu kārtis. 
+Kāds lielākais skaits no tām noteikti ir vienā krāsā?
+
+**Atbilde:** `8`
+
+**Skaidrojums:** Spēļu kārtīm ir divas krāsas (melna un sarkana). 
+Ja tikai septiņas būtu katrā no krāsām, 
+tad to kopskaits nevarētu pārsniegt $2 \cdot 7 = 14$. 
+Tāpēc vismaz $8$ ir vienādā krāsā (nav zināms kādā). 
+Nav obligāti, lai lielāks skaits būtu vienādā krāsā, jo var būt $8$ kārtis 
+vienā krāsā, bet $7$ kārtis - otrā krāsā.
+
+## c.dirichlet.intro.q8 
+<!--questionType=INPUT|length=5--> Kāds ir mazākais skaits skolēnu, kam jābūt skolā,
+lai divi no tiem noteikti būtu dzimuši vienā datumā (dd.mm).
+(Garajos gados esošo datumu 29.februāri te neaplūkojam - pieņemam, ka neviens skolēns tajā nav dzimis.)
+
+**Atbilde:** `366`
+
+**Skaidrojums:** Gados ir $365$ datumi, neskaitot 29. februāri. 
+Ja skolēnu skaits būs $366 > 365$, tad noteikti kāds no datumiem atkārtosies. 
+Ja skolēnu ir $365$ vai mazāk, tad katram var būt cits dzimšanas datums.
+
+
+## c.dirichlet.intro.q9
+<!--questionType=CONDITIONAL_INPUT|length=10|condition=radio.a--> 
+$4$ trušus dažādos veidos izvietoja pa $3$ būriem. Katram no veidiem 
+būrus sakārtoja trušu skaita dilšanas secībā. 
+Ieguva šādas iespējas $(4,0,0)$ (visi četri vienā būrī, abi citi būri ir tukši), 
+$(3,1,0)$, $(2,2,0)$, $(2,1,1)$. Vai eksistē cits $4$ trušu izvietojuma veids, 
+kurš te nav parādīts?  
+(**Norāde:** *Ja atzīmējāt atbildi "eksistē", tad ierakstiet trūkstošo 
+veidu lodziņā, formā `(a,b,c)`, burtu vietā norādot veselus skaitļus.*)
+
+a. eksistē
+b. neeksistē. 
+
+**Atbilde:** `b`
+
+**Skaidrojums:** Ir tikai viens veids, kā divi būri var būt tukši ($(4,0,0)$), 
+un divi veidi, kā viens būris var būt tukšs ($(3,1,0)$ un $(2,2,0)$). 
+Kā arī viens veids, kurā neviens būris nav tukšs: $(2,1,1)$. 
+Uzdevumā visi tie ir norādīti. 
+
+## c.dirichlet.intro.q10
+<!--questionType=INPUT|length=5-->
+Tumšā skapī ir 100 melnas, 100 zilas un 100 zaļas zeķes. 
+Kāds mazākais skaits zeķu neskatoties ir jāizvelk, lai noteikti starp tām būtu 
+divas melnas vai divas zilas zeķes?
+
+**Atbilde:** `103`
+
+**Skaidrojums:** 
+Ar $102$ izvilktām zeķēm nepietiek, jo var gadīties $100$ zaļas, 
+viena melna un viena zila.   
+Ar $103$ izvilktām zeķēm vienmēr pietiek, jo vismaz $3$ no tām nebūs zaļas
+un varēs lietot Dirihlē principu - jebkādi piekārtojot $3$ zeķes divām krāsām, 
+divas no zeķēm nonāks vienā krāsā.
+
+## c.dirichlet.intro.q11
+<!--questionType=INPUT|length=5-->
+Valoda $L$ satur visus $3$-burtu vārdus no burtiem "A" un "B" 
+(ieskaitot vārdus, kur vienādi burti ir blakus, piemēram "AAA" vai "BBA"). 
+Cik vārdi šajā valodā jāpasaka, lai noteikti būtu pateikti divi 
+vienādi vārdi? 
+
+**Atbilde:** `9`
+
+**Skaidrojums:** 
+Valodā $L$ ir $8$ dažādi vārdi. Pasakot $9$ vārdus, vismaz viens no tiem 
+būs pateikts divas reizes.
+
+
+## c.dirichlet.intro.q12
+<!--questionType=INPUT|length=1-->
+Kāds mazākais daudzums skaitļu no $1$ līdz $9$ jāizvēlas, 
+lai starp tiem atrastos divi, kuru summa ir $10$?
+
+**Atbilde:** `5`
+
+**Skaidrojums:**
+Var izvēlēties skaitli $5$ un arī pa vienam no katra pārīša
+$(1,9)$, $(2,8)$, $(3,7)$, $(4,6)$. Ja izvēlas vairāk nekā 
+piecus, tad vismaz divi no izvēlētajiem nonāk vienā no 
+minētajiem pārīšiem, t.i. summā dod $10$. 
+
+## c.dirichlet.intro.q13
+<!--questionType=INPUT|length=5-->
+Auditorijā ir $10$ gari soli, uz kuriem kaut kādā veidā 
+jau sasēdušās $100$ meitenes. 
+Kādu lielāko skaitu zēnu var sasēdināt šajā auditorijā, ja 
+nekādi divi zēni nedrīkst sēdēt blakus uz viena sola?
+
+**Atbilde:** `110`
+
+**Skaidrojums:** Pirms meitenēm auditorijā bija $10$ "būrīši" (katrs no soliem), 
+bet katras meitenes nosēdināšana "būrīšu" skaitu palielina par $1$
+(pārdalot solu vai tā posmu divās daļās). Tādēļ būrīšu ir pavisam $110$. 
+Lai nevienā būrītī nonāktu ne vairāk par vienu zēnu, to skaits nevar 
+pārsniegt $110$.  
+$110$, acīmredzot, var izsēdināt. Piemēram, var izsēdināt uz viena sola 11 zēnus
+un 10 meitenes:
+$$(Z,M,Z,M,\ldots,M,Z,M,Z)$$
+
+
+
+## c.dirichlet.intro.q14
+<!--questionType=MC-->
+Vienā gadā noteikti var atrast divus tādus mēnešus, kuriem 30. datums ir 
+vienā nedēļas dienā. 
+
+a. Jā
+b. Nē
+
+**Atbilde:** `a`
+
+**Skaidrojums:** Gada laikā ir $11$ mēneši, kuros ir 30.datums. 
+Tā kā nedēļas dienu ir tikai septiņas, tad atradīsies divi mēneši, kuriem 
+šis datums ir vienā dienā. 
+
+## c.dirichlet.intro.q15
+Visos gados, kuros ir $365$ dienas (t.i. tajos, kuri 
+nav garie gadi), janvāra un oktobra tabulu kalendārs
+sakrīt (1.zīm. attēlots 2018.g. kalendārs). 
+Atrast, kurš apgalvojums noteikti ir patiess katrā gadā, 
+kurā ir $365$ dienas:
+
+a. Eksistē tāda nedēļas diena, kurā nesākas neviens 
+mēnesis ar 31 dienu.
+b. Eksistē trīs tādas nedēļas dienas, kurās nesākas
+neviens mēnesis ar mazāk nekā 31 dienu.
+c. Eksistē tieši divas nedēļas dienas, kurās 
+sākas divi tā paša gada mēneši.
+
+```{r, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+## caption
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVP1)
+grid.text("1.z\u012Bm.",x=0.5,y=0.5)
+popViewport(1)
+#end caption
+
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP12)
+subVP121 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.025, y=0.025, width=0.95, height=0.95)
+pushViewport(subVP121)
+Nx <- 7
+Ny <- 8
+uX <- 1/Nx
+uY <- 1/Ny
+
+L5 <- c("P","O","T","C","P","S","S")
+L4 <- c(as.character(1:7))
+L3 <- c(as.character(8:14))
+L2 <- c(as.character(15:21))
+L1 <- c(as.character(22:28))
+L0 <- c(as.character(29:31),"","","","")
+
+grid.rect(x=0,y=(Ny-2)*uY,width=1,height=2*uY,
+              gp=gpar(fill="white"),just=c("left","bottom"))
+grid.text("Janv\u0101ris, 2018.g.", x=0.5,y=(7+0.5)*uY)
+grid.text("Oktobris, 2018.g.", x=0.5,y=(6+0.5)*uY)
+for (i in 0:(Ny-3)) {
+  for (j in 0:(Nx-1)) {
+    grid.rect(x=j*uX,y=i*uY,width=uX,height=uY,
+              gp=gpar(fill="white"),just=c("left","bottom"))
+    
+    if (i == 5) {
+      grid.text(label=L5[j+1],x=(j+0.5)*uX, y=(i+0.5)*uY)
+    }
+    if (i == 4) {
+      grid.text(label=L4[j+1],x=(j+0.5)*uX, y=(i+0.5)*uY)
+    }
+    if (i == 3) {
+      grid.text(label=L3[j+1],x=(j+0.5)*uX, y=(i+0.5)*uY)
+    }
+    if (i == 2) {
+      grid.text(label=L2[j+1],x=(j+0.5)*uX, y=(i+0.5)*uY)
+    }
+    if (i == 1) {
+      grid.text(label=L1[j+1],x=(j+0.5)*uX, y=(i+0.5)*uY)
+    }
+    if (i == 0) {
+      grid.text(label=L0[j+1],x=(j+0.5)*uX, y=(i+0.5)*uY)
+    }
+    #grid.text(label="17",x=(j+0.5)*uX, y=(i+0.5)*uY)
+  }
+}
+popViewport(2)
+
+popViewport(1)
+
+```
+
+**Atbilde:** `a`
+
+**Skaidrojums:** Pavisam ir $7$ mēneši ar $31$ dienu 
+(janvāris, marts, maijs, jūlijs, augusts, oktobris, decembris). 
+Ja zināms, ka divi no tiem (janvāris un oktobris) sākas vienā
+nedēļas dienā, tad uz pārējām $6$ nedēļas dienām atliek 
+tikai $5$ mēneši, t.i. vienai nedēļas dienai mēneša nepietiks.

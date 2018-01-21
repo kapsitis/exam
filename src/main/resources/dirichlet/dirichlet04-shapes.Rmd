@@ -1,0 +1,1343 @@
+---
+title: Dirihlē princips (4) - Figūriņu izvietojumi
+date: "December 20, 2017"
+output: pdf_document
+---
+
+# Dirihlē princips (4) - Figūriņu izvietojumi
+
+* **Anotācija:** Tests par Dirihlē principa lietojumiem punktu konfigurācijām, 
+figūriņu izvietojumiem, rūtiņu izvietojumiem.
+
+## c.dirichlet.shapes.q1
+<!--questionType=INPUT|length=2--> 
+Kāds ir lielākais taisnstūrīšu $1 \times 2$ skaits, kuros var sagriezt
+kvadrātu $6 \times 6$, kam noņemtas divas rūtiņas kvadrāta pretējos stūros? 
+Griešana jāveic pa rūtiņu līnijām.
+
+```{r, fig.width=2, fig.height=1.2, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=0.4, height=1)
+pushViewport(subVP1)
+grid.text("1.z\u012Bm.",x=0.5,y=0.05)
+subVP11 <- viewport(name="subVP11", just=c("left","bottom"), 
+                    x=0.08, y=0.12, width=0.84, height=0.84*(4/6))
+pushViewport(subVP11)
+u1 <- 1/4
+grid.rect(x=1*u1,y=0,width=u1,height=u1,gp=gpar(fill="#999999"),just=c("left","bottom"))
+grid.rect(x=2*u1,y=0,width=u1,height=u1,gp=gpar(fill="#ffffff"),just=c("left","bottom"))
+popViewport(2)
+
+
+subVP2 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0.4, y=0, width=0.6, height=1)
+pushViewport(subVP2)
+grid.text("2.z\u012Bm.",x=0.5,y=0.05)
+subVP21 <- viewport(name="subVP21", just=c("left","bottom"), 
+                    x=0.08, y=0.12, width=0.84, height=0.84)
+pushViewport(subVP21)
+N <- 6
+u2 <- 1/N
+for (i in 0:(N-1)) {
+  for (j in 0:(N-1)) {
+    if ((i != 0 || j != N-1) && (i != N-1 || j != 0)) {
+      theCol <- if ((i+j) %% 2 == 0) "#999999" else "#ffffff"
+      grid.rect(x=j*u2,y=i*u2,width=u2,height=u2,
+                  gp=gpar(fill=theCol),just=c("left","bottom"))
+    }
+  }
+}
+grid.polygon(x=c(0,1-u2,1-u2,1,1,u2,u2,0),y=c(0,0,u2,u2,1,1,1-u2,1-u2),
+             gp=gpar(lwd=2,fill=NA))
+popViewport(2)
+
+popViewport(1)
+
+```
+
+**Atbilde:** `16`
+
+**Skaidrojums:** Šādā kvadrātā ir $16$ baltas un $18$ melnas rūtiņas. 
+Ja vēlēsimies ievietot $(36-2)/2=17$ taisnstūrīšus (katram no kuriem jāsatur
+viena balta un viena melna rūtiņa), izrādīsies, ka $16$ baltajām rūtiņām 
+uzklājušās $17$ figūriņas, t.i. katram taisnstūrītim baltas rūtiņas nepietiks.
+
+
+## c.dirichlet.shapes.q2
+Dots kvadrātisks punktu režģis $3 \times n$. Katrs punkts šajā režģī 
+nokrāsots zils vai sarkans. 
+Pie kāda mazākā $n$ tajā noteikti var atrast taisnstūri ar
+malām paralēlām režģa malām, kuram visas virsotnes ir 
+vienā krāsā?
+
+```{r, fig.width=2, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+
+subVP1 <- viewport(name="subVP1", 
+                   x=0.5, y=0.5, width=0.95, height=0.95)
+pushViewport(subVP1)
+Ux <- 1/6
+Uy <- 1/3
+
+theColors <- sample(c("red","blue"), replace=TRUE, size=18)
+for (j in 1:3) {
+  grid.lines(x=c(0,1), y=rep((j-0.5)*Uy, times=2), gp=gpar(col="#cccccc"))
+}
+
+for (i in 1:6) {
+  grid.lines(x=rep((i-0.5)*Ux, times=2), 
+             y=c((1-0.5)*Uy,(3-0.5)*Uy), gp=gpar(col="#cccccc"))
+  for (j in 1:3) {
+    grid.circle(x=(i-0.5)*Ux, y=(j-0.5)*Uy, r=0.04, 
+                gp=gpar(fill=theColors[3*(i-1)+j]))
+  }
+}
+
+
+
+popViewport(2)
+
+```
+
+
+**Atbilde:** `7`
+
+**Skaidrojums:** Ja ir kāda vertikāle uz kuras atrodas visi trīs 
+punkti vienā krāsā (piemēram, sarkanā), 
+tad pievienojot vēl četras vertikāles - ne uz vienas
+no tām nevarēs likt divus sarkanus punktus, t.i. būs kombinācijas
+$(Z,Z,Z)$, $(Z,Z,S)$, $(Z,S,Z)$ vai $(S,Z,Z)$. Ja kāda no tām 
+atkārtojas (vai ir kopā ar $(Z,Z,Z)$), iegūstam zilu taisnstūri. 
+Tātad šajā gadījumā lielākais vertikāļu skaits ir $4$: 
+$(S,S,S)$, $(Z,Z,S)$, $(Z,S,Z)$ vai $(S,Z,Z)$. 
+
+Ja turpretī neeksistē tāda vertikāle uz kuras visi trīs punkti 
+ir vienā krāsā, tad var uzlikt $6$ kombinācijas - ar diviem sarkaniem 
+un vienu zilu punktu vai otrādi (ar vienu sarkanu un diviem ziliem). 
+Tiklīdz kā liksim $7$ kombinācijas, tad divas atkārtosies.
+
+## c.dirichlet.shapes.q3
+Dots punktu režģis $5 \times n$. Visi punkti nokrāsoti zili vai sarkani (1.zīm.). 
+Pie kāda $n$ tajā noteikti var atrast režģi $3 \times 3$, kurā visas virsotnes ir 
+vienā krāsā (2.zīm.)?
+
+
+```{r, fig.width=1.98, fig.height=2.2, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"),
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP1)
+
+nX <- 8
+nY <- 5
+uX <- 1/nX
+uY <- 1/nY
+
+for (i in 1:nY) {
+  grid.lines(x=c(0,1),
+             y=c((i-0.5)*uY,(i-0.5)*uY), 
+             gp=gpar(col="#cccccc"))
+}
+for (j in 1:nX) {
+  grid.lines(x=c((j-0.5)*uX,(j-0.5)*uX),
+             y=c(uY/2,1-uY/2), 
+             gp=gpar(col="#cccccc"))
+}
+
+for (i in 1:nY) {
+  for (j in 1:nX) {
+    grid.circle(x=(j-0.5)*uX, y=(i-0.5)*uY, r=0.02, gp=gpar(fill="white"))
+  }
+}
+
+
+
+popViewport(1)
+
+subVP2 <- viewport(name="subVP2", just=c("left","bottom"),
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVP2)
+
+grid.text(label="1.z\u012Bm.", x=0.5,y=0.5)
+
+popViewport(2)
+
+```
+
+
+
+```{r, fig.width=1.98, fig.height=2.2, echo=FALSE, message=FALSE, warning=FALSE}
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"),
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP1)
+#grid.rect()
+
+
+xx <- c(0.03365197, 0.50746753, 0.84812100) + 0.06
+yy <- c(0.2430370, 0.6655184, 0.7705405)
+
+
+for (i in 1:nY) {
+  grid.lines(x=c(xx[1],xx[3]),
+             y=c(yy[i],yy[i]), 
+             gp=gpar(col="#cccccc"))
+}
+for (j in 1:nX) {
+  grid.lines(x=c(xx[j],xx[j]),
+             y=c(yy[1],yy[3]), 
+             gp=gpar(col="#cccccc"))
+}
+
+
+for (i in 1:3) {
+  for (j in 1:3) {
+    grid.circle(x=xx[j], y=yy[i], r=0.02, gp=gpar(fill="red"))
+  }
+}
+
+popViewport(1)
+
+
+subVP2 <- viewport(name="subVP2", just=c("left","bottom"),
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVP2)
+
+grid.text(label="2.z\u012Bm.", x=0.5,y=0.5)
+
+popViewport(1)
+```
+
+**Atbilde:** `41`
+
+**Skaidrojums:** Lielākais skaits vertikāļu, neveidojot vienkrāsas režģi 
+$3 \times 3$
+iegūstamas tad, ja liek
+visos iespējamajos veidos pa diviem eksemplāriem
+trīs sarkanas un divas zilas virsotnes (šādu veidu ir 
+$C_5^3=10$; ja katru atkārto divreiz: $20$) un arī visos iespējamajos veidos divas sarkanas un trīs zilas (šādu veidu arī ir kopā ar atkārtojumiem $20$). 
+
+Tiklīdz kā vertikāļu būs vismaz $41$, atradīsies $\lceil 41/20 \rceil = 3$ 
+pilnīgi vienādi izkrāsotas vertikāles, kurās trīs punkti ir vienā krāsā 
+(piemēram, sarkanā), bet divi citi punkti ir citā krāsā (piemēram, zilā). 
+Tad arī būsim atraduši vienkrāsainu (piemēram, sarkanu) režģi. 
+
+
+
+<!-- maina krāsas un A,B,C skaitu -->
+## c.dirichlet.shapes.q4
+Uz taisnes ik pēc $1$ centimetra ir atzīmēts punkts, kas 
+nokrāsots vienā no trim krāsām (zils, zaļš vai sarkans).  
+Kāds mazākais punktu 
+skaits no tiem jāizvēlas, lai starp izvēlētajiem noteikti atrastos trīs punkti 
+$A,B,C$, kas visi ir vienā krāsā, un visi attālumi centimetros 
+starp tiem dalās ar $3$?
+
+**Atbilde:** `19`
+
+**Skaidrojums:** Ieviešam uz taisnes "koordinātu sākumpunktu" - kādu 
+no atzīmētajiem punktiem, kura koordināti pasludinām vienādu ar $0$. 
+Katrs cits punkts iegūst kādu veselu skaitļu koordināti (pozitīvu vai 
+negatīvu), kas izsaka, cik tālu tas ir no koordinātu sākumpunkta pa 
+labi vai pa kreisi. 
+
+Katram punktam atzīmējam, kādu atlikumu dod šī punkta koordināte, to dalot ar $3$. 
+Būrīši mūsu gadījumā ir deviņas krāsu-atlikumu kombinācijas
+(piemēram, "sarkanie punkti, kuru koordinātes dalās ar $3$" vai "zilie punkti, 
+kuru koordinātes dod atlikumu $2$, dalot ar $3$"). Tiklīdz kādā no 
+šādiem būrīšiem nonāks trīs punkti, būsim ieguvuši vēlamo rezultātu: 
+trīs punktus $A,B,C$, kas visi ir vienā krāsā un visi attālumi starp tiem 
+dalās ar $3$. 
+
+Mazākais punktu skaits, kas to nodrošina ir $19$, jo $19/9$ augšējā veselā 
+daļa ir $3$. 
+
+## c.dirichlet.shapes.q5
+Andrītis un Mārīte krāsoja šaha galdiņu $8 \times 8$, kuram 
+izņemta stūra rūtiņa trīs krāsās - t.i. tajā ir pavisam $63$ rūtiņas. 
+Andrīša krāsojumā 
+zilā krāsa lietota $22$ reizes, zaļā krāsa $21$ reizi, sarkanā krāsa $20$ reizes
+(1.zīm.). Mārītes krāsojumā visas krāsas lietotas $21$ reizi (2.zīm.).  
+Kādam lielākajam $n$ uz šī šaha galdiņa (neizmantojot izņemto 
+stūra rūtiņu) varēs novietot $n$ taisnstūrīšus $1 \times 3$? 
+
+
+
+```{r, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP)
+
+## square-board
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=0.7, height=1)
+pushViewport(subVP1)
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP12)
+N <- 8
+u2 <- 1/N
+theColors <- brewer.pal(n = 3, name = "Set1")
+for (i in 0:(N-1)) {
+  for (j in 0:(N-1)) {
+    if ((i != 0 || j != 0)) {
+      theCol <- theColors[(i+j) %% 3 + 1]
+      grid.rect(x=j*u2,y=i*u2,width=u2,height=u2,
+                  gp=gpar(fill=theCol),just=c("left","bottom"))
+    }
+  }
+}
+grid.polygon(x=c(0,0,u2,u2,1,1),y=c(1,u2,u2,0,0,1),
+             gp=gpar(lwd=2,fill=NA))
+popViewport(2)
+## end of square-board
+
+## legend
+subVP2 <- viewport(name="subVP2", just=c("left","bottom"), 
+                   x=0.7, y=0, width=0.3, height=1)
+pushViewport(subVP2)
+
+subVP21 <- viewport(name="subVP21", just=c("left","bottom"), 
+                   x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP21)
+
+uY <- u2
+uX <- uY*(7/3)
+
+grid.rect(x=0.5*uX,y=5*uY,width=uX,height=uY,
+                  gp=gpar(fill=theColors[1]),just=c("left","bottom"))
+grid.text(label="20",x=2.3*uX,y=(5+0.5)*uY)
+grid.rect(x=0.5*uX,y=3*uY,width=uX,height=uY,
+                  gp=gpar(fill=theColors[2]),just=c("left","bottom"))
+grid.text(label="22",x=2.3*uX,y=(3+0.5)*uY)
+grid.rect(x=0.5*uX,y=1*uY,width=uX,height=uY,
+                  gp=gpar(fill=theColors[3]),just=c("left","bottom"))
+grid.text(label="21",x=2.3*uX,y=(1+0.5)*uY)
+popViewport(2)
+## end of legend
+
+
+popViewport(1)
+
+
+subVPCap <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVPCap)
+grid.text("1.z\u012Bm.",x=0.5,y=0.5)
+popViewport(2)
+
+```
+
+```{r, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP)
+
+## square-board
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=0.7, height=1)
+pushViewport(subVP1)
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP12)
+N <- 8
+u2 <- 1/N
+theColors <- brewer.pal(n = 3, name = "Set1")
+for (i in 0:(N-1)) {
+  for (j in 0:(N-1)) {
+    if ((i != 0 || j != 0)) {
+      theCol <- theColors[(i-j) %% 3 + 1]
+      grid.rect(x=j*u2,y=i*u2,width=u2,height=u2,
+                  gp=gpar(fill=theCol),just=c("left","bottom"))
+    }
+  }
+}
+grid.polygon(x=c(0,0,u2,u2,1,1),y=c(1,u2,u2,0,0,1),
+             gp=gpar(lwd=2,fill=NA))
+popViewport(2)
+## end of square-board
+
+## legend
+subVP2 <- viewport(name="subVP2", just=c("left","bottom"), 
+                   x=0.7, y=0, width=0.3, height=1)
+pushViewport(subVP2)
+
+subVP21 <- viewport(name="subVP21", just=c("left","bottom"), 
+                   x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP21)
+
+uY <- u2
+uX <- uY*(7/3)
+
+grid.rect(x=0.5*uX,y=5*uY,width=uX,height=uY,
+                  gp=gpar(fill=theColors[1]),just=c("left","bottom"))
+grid.text(label="21",x=2.3*uX,y=(5+0.5)*uY)
+grid.rect(x=0.5*uX,y=3*uY,width=uX,height=uY,
+                  gp=gpar(fill=theColors[2]),just=c("left","bottom"))
+grid.text(label="21",x=2.3*uX,y=(3+0.5)*uY)
+grid.rect(x=0.5*uX,y=1*uY,width=uX,height=uY,
+                  gp=gpar(fill=theColors[3]),just=c("left","bottom"))
+grid.text(label="21",x=2.3*uX,y=(1+0.5)*uY)
+popViewport(2)
+## end of legend
+
+
+popViewport(1)
+
+
+subVPCap <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVPCap)
+grid.text("2.z\u012Bm.",x=0.5,y=0.5)
+popViewport(2)
+
+```
+
+
+
+**Atbilde:** `20`
+
+**Skaidrojums:** Pretrunas iegūšanai izdevīgāks Andrīša krāsojums, kurā 
+ir tikai $20$ sarkanas rūtiņas. Tiklīdz kā mēģināsim izvietot $21$ taisnstūrīti,
+izrādīsies, ka sarkano rūtiņu visiem taisnstūrīšiem nepietiek. 
+
+$20$ taisnstūrīšus, acīmredzot, var izvietot (3.zīm.).
+
+```{r, fig.width=1.4, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP)
+
+## square-board
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=1)
+pushViewport(subVP1)
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP12)
+N <- 8
+u2 <- 1/N
+theColors <- brewer.pal(n = 3, name = "Set1")
+for (i in 0:(N-1)) {
+  for (j in 0:(N-1)) {
+    if ((i != 0 || j != 0)) {
+      theCol <- if (((i+j) %% 3) == 0) "#ffcccc" else "white"
+      grid.rect(x=j*u2,y=i*u2,width=u2,height=u2,
+                  gp=gpar(fill=theCol,col="#cccccc"),just=c("left","bottom"))
+    }
+  }
+}
+grid.polygon(x=c(0,0,u2,u2,1,1),y=c(1,u2,u2,0,0,1),
+             gp=gpar(lwd=2,fill=NA))
+for (i in 1:(N-1)) {
+  grid.rect(x=0,y=i*u2,width=3*u2,height=u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+  grid.rect(x=3*u2,y=i*u2,width=3*u2,height=u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+}
+grid.rect(x=1*u2,y=0,width=3*u2,height=u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+grid.rect(x=4*u2,y=0,width=3*u2,height=u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+
+grid.rect(x=6*u2,y=1*u2,width=u2,height=3*u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+grid.rect(x=6*u2,y=4*u2,width=u2,height=3*u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+grid.rect(x=7*u2,y=0*u2,width=u2,height=3*u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+grid.rect(x=7*u2,y=3*u2,width=u2,height=3*u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+
+
+popViewport(2)
+## end of square-board
+
+popViewport(1)
+
+subVPCap <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVPCap)
+grid.text("3.z\u012Bm.",x=0.5,y=0.5)
+popViewport(2)
+
+```
+
+
+## c.dirichlet.shapes.q6
+Šaha galdiņu $8 \times 8$ (ar vienu izgrieztu rūtiņu "C3") 
+Andrītis un Mārīte krāsoja katrs savā virzienā pa 
+diagonālēm trīs krāsās (attālumi 
+starp vienādi krāsotām diagonālēm ir $3$ vienības). Abiem 
+sanāca vienāds rūtiņu skaits visās trīs krāsās (1.zīm. un 2.zīm.). 
+Kādam lielākajam $n$ uz šī šaha galdiņa (neizmantojot rūtiņu "C3") 
+varēs novietot $n$ taisnstūrīšus $1 \times 3$? 
+
+
+
+```{r, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP)
+
+## square-board
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=0.7, height=1)
+pushViewport(subVP1)
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP12)
+N <- 8
+u2 <- 1/N
+theColors <- brewer.pal(n = 3, name = "Set1")
+for (i in 0:(N-1)) {
+  for (j in 0:(N-1)) {
+    if ((i != 2 || j != 2)) {
+      theCol <- theColors[(i+j) %% 3 + 1]
+      grid.rect(x=j*u2,y=i*u2,width=u2,height=u2,
+                  gp=gpar(fill=theCol),just=c("left","bottom"))
+    }
+  }
+}
+grid.polygon(x=c(0,0,1,1),y=c(1,0,0,1),gp=gpar(lwd=2,fill=NA))
+grid.polygon(x=c(2,2,3,3)*u2,y=c(3,2,2,3)*u2,gp=gpar(lwd=2,fill="white"))
+popViewport(2)
+## end of square-board
+
+## legend
+subVP2 <- viewport(name="subVP2", just=c("left","bottom"), 
+                   x=0.7, y=0, width=0.3, height=1)
+pushViewport(subVP2)
+
+subVP21 <- viewport(name="subVP21", just=c("left","bottom"), 
+                   x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP21)
+
+uY <- u2
+uX <- uY*(7/3)
+
+grid.rect(x=0.5*uX,y=5*uY,width=uX,height=uY,
+                  gp=gpar(fill=theColors[1]),just=c("left","bottom"))
+grid.text(label="21",x=2.3*uX,y=(5+0.5)*uY)
+grid.rect(x=0.5*uX,y=3*uY,width=uX,height=uY,
+                  gp=gpar(fill=theColors[2]),just=c("left","bottom"))
+grid.text(label="21",x=2.3*uX,y=(3+0.5)*uY)
+grid.rect(x=0.5*uX,y=1*uY,width=uX,height=uY,
+                  gp=gpar(fill=theColors[3]),just=c("left","bottom"))
+grid.text(label="21",x=2.3*uX,y=(1+0.5)*uY)
+popViewport(2)
+## end of legend
+
+
+popViewport(1)
+
+
+subVPCap <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVPCap)
+grid.text("1.z\u012Bm.",x=0.5,y=0.5)
+popViewport(2)
+
+```
+
+
+
+```{r, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP)
+
+## square-board
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=0.7, height=1)
+pushViewport(subVP1)
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP12)
+N <- 8
+u2 <- 1/N
+theColors <- brewer.pal(n = 3, name = "Set1")
+for (i in 0:(N-1)) {
+  for (j in 0:(N-1)) {
+    if ((i != 2 || j != 2)) {
+      theCol <- theColors[(i-j) %% 3 + 1]
+      grid.rect(x=j*u2,y=i*u2,width=u2,height=u2,
+                  gp=gpar(fill=theCol),just=c("left","bottom"))
+    }
+  }
+}
+grid.polygon(x=c(0,0,1,1),y=c(1,0,0,1),gp=gpar(lwd=2,fill=NA))
+grid.polygon(x=c(2,2,3,3)*u2,y=c(3,2,2,3)*u2,gp=gpar(lwd=2,fill="white"))
+popViewport(2)
+## end of square-board
+
+## legend
+subVP2 <- viewport(name="subVP2", just=c("left","bottom"), 
+                   x=0.7, y=0, width=0.3, height=1)
+pushViewport(subVP2)
+
+subVP21 <- viewport(name="subVP21", just=c("left","bottom"), 
+                   x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP21)
+
+uY <- u2
+uX <- uY*(7/3)
+
+grid.rect(x=0.5*uX,y=5*uY,width=uX,height=uY,
+                  gp=gpar(fill=theColors[1]),just=c("left","bottom"))
+grid.text(label="21",x=2.3*uX,y=(5+0.5)*uY)
+grid.rect(x=0.5*uX,y=3*uY,width=uX,height=uY,
+                  gp=gpar(fill=theColors[2]),just=c("left","bottom"))
+grid.text(label="21",x=2.3*uX,y=(3+0.5)*uY)
+grid.rect(x=0.5*uX,y=1*uY,width=uX,height=uY,
+                  gp=gpar(fill=theColors[3]),just=c("left","bottom"))
+grid.text(label="21",x=2.3*uX,y=(1+0.5)*uY)
+popViewport(2)
+## end of legend
+
+
+popViewport(1)
+
+
+subVPCap <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVPCap)
+grid.text("2.z\u012Bm.",x=0.5,y=0.5)
+popViewport(2)
+
+```
+
+
+**Atbilde:** `21`
+
+**Skaidrojums:** Šoreiz Dirihlē princips pretrunu nedod, tādēļ 
+ir jēga mēģināt novietot $63/3=21$ taisnstūrīti. 
+Konstrukciju ar $21$ taisnstūrīti var atrast 
+ar mēģinājumu un kļūdu metodi - tā attēlota 3.zīmējumā. 
+
+
+```{r, fig.width=1.4, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP)
+
+## square-board
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=1)
+pushViewport(subVP1)
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP12)
+N <- 8
+u2 <- 1/N
+theColors <- brewer.pal(n = 3, name = "Set1")
+for (i in 0:(N-1)) {
+  for (j in 0:(N-1)) {
+    if ((i != 2 || j != 2)) {
+      theCol <- if (((i+j) %% 3) == 0) "#ffcccc" else "white"
+      grid.rect(x=j*u2,y=i*u2,width=u2,height=u2,
+                  gp=gpar(fill=theCol,col="#cccccc"),just=c("left","bottom"))
+    }
+  }
+}
+grid.polygon(x=c(0,0,1,1),y=c(1,0,0,1),gp=gpar(lwd=2,fill=NA))
+grid.polygon(x=c(2,2,3,3)*u2,y=c(3,2,2,3)*u2,gp=gpar(lwd=2,fill="#999999"))
+
+
+for (i in 3:(N-1)) {
+  grid.rect(x=0,y=i*u2,width=3*u2,height=u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+  grid.rect(x=3*u2,y=i*u2,width=3*u2,height=u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+}
+
+grid.rect(x=3*u2,y=2*u2,width=3*u2,height=u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+
+
+grid.rect(x=0*u2,y=0*u2,width=u2,height=3*u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+grid.rect(x=1*u2,y=0*u2,width=u2,height=3*u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+
+for (i in c(2,5)) {
+  grid.rect(x=i*u2,y=0*u2,width=3*u2,height=u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+  grid.rect(x=i*u2,y=1*u2,width=3*u2,height=u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+  ## two vertical
+  grid.rect(x=6*u2,y=i*u2,width=u2,height=3*u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+  grid.rect(x=7*u2,y=i*u2,width=u2,height=3*u2,
+            gp=gpar(lwd=2,fill=NA),just=c("left","bottom"))
+}
+
+
+
+popViewport(2)
+## end of square-board
+
+popViewport(1)
+
+subVPCap <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVPCap)
+grid.text("3.z\u012Bm.",x=0.5,y=0.5)
+popViewport(2)
+
+```
+
+## c.dirichlet.shapes.q7
+Uzzīmēta liela trijstūrveida figūra
+(1.zīm., to veido $16$ mazi trijstūrīši), katrā mazajā trijstūrītī 
+ierakstīts $5$ vai $7$.
+Skaitļu summa lielajā figūrā ir $94$. Kādu skaitli noteikti nepārsniedz 
+skaitļu summa 2.zīmējumā attēlotajā figūrā 
+(to veido $4$ mazie trijstūrīši, var būt dažādi pagriezta), 
+kur šī skaitļu summa ir vismazākā?
+
+```{r, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP)
+
+## square-board
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=0.7, height=1)
+pushViewport(subVP1)
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP12)
+
+N <- 4
+uX <- 1/N
+uY <- uX*(sqrt(3)/2)
+xx <- c(0,1,2,3,0,1,2,0,1,0)
+yy <- c(0,0,0,0,1,1,1,2,2,3)
+
+for (k in 1:10) {
+  grid.polygon(x=c(xx[k]+yy[k]/2, xx[k]+1+yy[k]/2,xx[k]+0.5+yy[k]/2)*uX, 
+               y=c(yy[k], yy[k], yy[k]+1)*uY)
+}
+grid.polygon(x=c(0,4,2)*uX, y=c(0,0,4)*uY, gp=gpar(lwd=2, fill=NA))
+
+
+popViewport(2)
+## end of square-board
+
+## legend
+subVP2 <- viewport(name="subVP2", just=c("left","bottom"), 
+                   x=0.7, y=0, width=0.3, height=1)
+pushViewport(subVP2)
+
+subVP21 <- viewport(name="subVP21", just=c("left","bottom"), 
+                   x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP21)
+
+N <- 2
+uX <- 1/N
+uY <- uX*(sqrt(3)/2)*(3/7)
+xx <- c(0,1,0)
+yy <- c(0,0,1)
+
+for (k in 1:3) {
+  grid.polygon(x=c(xx[k]+yy[k]/2, xx[k]+1+yy[k]/2,xx[k]+0.5+yy[k]/2)*uX, 
+               y=c(yy[k], yy[k], yy[k]+1)*uY)
+}
+grid.polygon(x=c(0,2,1)*uX, y=c(0,0,2)*uY, gp=gpar(lwd=2, fill=NA))
+
+popViewport(2)
+## end of legend
+
+
+popViewport(1)
+
+
+subVPCap <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVPCap)
+grid.text("1.z\u012Bm.",x=0.33,y=0.5)
+grid.text("2.z\u012Bm.",x=0.833,y=0.5)
+popViewport(2)
+
+```
+
+**Atbilde:** `22`
+
+**Skaidrojums:** Skaitlis $94$ izsakāms kā $9 \times 5 + 7 \times 7$; 
+citādi to izteikt nevar (palielinot skaitļu $5$ vai $7$ skaitu, to 
+summa attiecīgi samazināsies vai palielināsies). 
+Ja sadalām lielo figūru četrās mazajās figūrās (3.zīm.), iegūsim, 
+ka vismaz vienā no četrām mazajām figūrām būs vismaz trīs skaitļi $5$. 
+Tādēļ tur ierakstīto skaitļu summa nepārsniegs $5 + 5 + 5 + 7 = 22$. 
+
+
+```{r, fig.width=1.4, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP)
+
+## square-board
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=1)
+pushViewport(subVP1)
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP12)
+
+N <- 4
+uX <- 1/N
+uY <- uX*(sqrt(3)/2)
+xx <- c(0,1,2,3,0,1,2,0,1,0)
+yy <- c(0,0,0,0,1,1,1,2,2,3)
+
+for (k in 1:10) {
+  grid.polygon(x=c(xx[k]+yy[k]/2, xx[k]+1+yy[k]/2,xx[k]+0.5+yy[k]/2)*uX, 
+               y=c(yy[k], yy[k], yy[k]+1)*uY, 
+               gp=gpar(col="#cccccc"))
+}
+
+#grid.polygon(x=c(0,4,2)*uX, y=c(0,0,4)*uY, gp=gpar(lwd=2, fill=NA))
+xx <- 2*c(0,1,0)
+yy <- 2*c(0,0,1)
+
+for (k in 1:3) {
+  grid.polygon(x=c(xx[k]+yy[k]/2, xx[k]+2+yy[k]/2,xx[k]+1+yy[k]/2)*uX, 
+               y=c(yy[k], yy[k], yy[k]+2)*uY, 
+               gp=gpar(lwd=2, fill=NA))
+}
+
+
+popViewport(2)
+## end of square-board
+
+popViewport(1)
+
+subVPCap <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVPCap)
+grid.text("3.z\u012Bm.",x=0.5,y=0.5)
+popViewport(2)
+
+```
+
+
+
+## c.dirichlet.shapes.q8
+Plaknē atzīmēti $11$ punkti, nekādi trīs no tiem neatrodas uz vienas taisnes. 
+Katri divi savienoti ar nogriezni kādā no četrām krāsām - zilu, zaļu, oranžu 
+vai sarkanu. Kāds ir lielākais skaitlis $n$ ar īpašību, ka šajā zīmējumā noteikti 
+atradīsies $n$ nogriežņi vienā krāsā?
+
+**Atbilde:** `14`
+
+**Ieteikums1:** No $11$ punktiem nesakārtotu 
+$2$ virsotņu pāri var izvēlēties 
+$\frac{11 \cdot 10}{2}$ veidos. 
+
+**Skaidrojums:** Ir pavisam $55$ nogriežņi, kas kaut kā sadalīti pa četrām 
+krāsām. Tādēļ saskaņā ar Dirihlē principu atradīsies vismaz
+$\lceil 55/4 \rceil = 14$ nogriežņi vienā krāsā. 
+
+
+<!-- 74 = 10*5 + 8*3; --> 
+## c.dirichlet.shapes.q9
+Dota no sešstūrīšiem veidota figūriņa (1.zīm.), 
+kurai izņemts vidējais sešstūrītis. Katrā sešstūrītī ierakstīts 
+skaitlis $3$ vai $5$. Visu ierakstīto skaitļu summa ir $68$. 
+Kādam vismazākajam $n$ 
+noteikti atradīsies tāda trīs sešstūrīšu figūriņa (2.zīm.), 
+kurā ierakstīto trīs skaitļu summa ir vismaz $n$?
+
+
+```{r, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP)
+
+## square-board
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=0.7, height=1)
+pushViewport(subVP1)
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP12)
+
+N <- 5
+uX <- 1/N
+uY <- uX*(sqrt(3)/2)
+
+UHX <- uX/(sqrt(3)/2)
+UHY <- uY/(sqrt(3)/2)
+
+xx <- c(0,1,2,-1,0,1,2,-2,-1,0,1,2,-2,-1,0,1,-2,-1,0)
+yy <- c(0,0,0,1,1,1,1,2,2,2,2,2,3,3,3,3,4,4,4)
+
+PHI <- seq(1,11,by=2)*(pi/6)
+
+for (k in 1:19) {
+  # grid.circle(x=(xx[k]+yy[k]/2+1)*uX, 
+  #              y=(yy[k]+0.5)*uY, r=0.04)
+  hexXX <- (xx[k] + yy[k]/2 + 1.5)*uX + cos(PHI)*(UHX/2)
+  hexYY <- (yy[k] + 1/2)*uY + sin(PHI)*(UHX/2)
+  if (k != 10) {
+    grid.polygon(x=hexXX, y=hexYY, gp=gpar(fill=NA))
+  } else {
+    grid.polygon(x=hexXX, y=hexYY, gp=gpar(lwd=2,fill="#999999"))
+  }
+}
+
+
+popViewport(2)
+## end of square-board
+
+## legend
+subVP2 <- viewport(name="subVP2", just=c("left","bottom"), 
+                   x=0.7, y=0, width=0.3, height=1)
+pushViewport(subVP2)
+
+subVP21 <- viewport(name="subVP21", just=c("left","bottom"), 
+                   x=0.05, y=0.05, width=0.9, height=0.9)
+pushViewport(subVP21)
+
+N <- 2
+uX <- 1/N
+uY <- uX*(sqrt(3)/2)*(3/7)
+UHX <- uX/(sqrt(3)/2)
+UHY <- uY/(sqrt(3)/2)*(1.1)
+xx <- c(0,1,0)
+yy <- c(0,0,1)
+
+for (k in 1:3) {
+  hexXX <- (xx[k] + yy[k]/2 + 0.5)*uX + cos(PHI)*(UHX/2)
+  hexYY <- (yy[k] + 0.5)*uY + sin(PHI)*(UHY/2)
+  grid.polygon(x=hexXX, y=hexYY, gp=gpar(fill=NA))
+}
+
+popViewport(2)
+## end of legend
+
+
+popViewport(1)
+
+
+subVPCap <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0, width=1, height=0.1)
+pushViewport(subVPCap)
+grid.text("1.z\u012Bm.",x=0.33,y=0.5)
+grid.text("2.z\u012Bm.",x=0.833,y=0.5)
+popViewport(2)
+
+```
+
+
+**Atbilde:** `13`
+
+**Skaidrojums:** Summu $76$ var iegūt tad, ja skaitļi 
+$5$ un $3$ ņemti attiecīgi $11$ un $7$ reizes, jo 
+$$7 \cdot 5 + 11 \cdot 3 = 35+33 = 68.$$
+1.zīmējumā redzamo figūru var sagriezt sešos gabalos tā, 
+ka katrs gabals sakrīt ar 2.zīmējumā redzamo figūru. 
+Skaitlis $5$ ir sastopams $7$ reizes, tādēļ 
+vismaz vienā no 2.zīm. gabaliem nonāks vismaz divi skaitļi $5$. 
+Tādēļ šajā gabalā ierakstīto skaitļu summa būs vismaz $5+5+3 = 13$. 
+
+
+## c.dirichlet.shapes.q10
+Vienības kvadrātā ($1 \times 1$ garuma vienības) 
+atzīmēti $5$ punkti. Ir spēkā apgalvojums, ka neatkarīgi 
+no punktu izvietojuma atradīsies divi tādi punkti,
+kuru attālums nepārsniedz $a$.  Atrast lielāko $a$, kuram šis 
+apgalvojums ir spēkā. 
+
+a. $\sqrt{2}$
+b. $1$
+c. $\sqrt{2}/2$
+d. $1/2$
+
+**Atbilde:** `c`
+
+**Ieteikums:** Tā kā ir atzīmēt pieci punkti, ir izdevīgi 
+sadalīt kvadrātu četros gabalos.
+
+**Skaidrojums:** Attālums starp tuvākajiem punktiem nepārsniedz
+$\sqrt{2}/2$. Sadalām vienības kvadrātu četros mazākos kvadrātiņos
+(sk. zīmējumu). Pēc Dirihlē principa vismaz divi punkti atradīsies
+vienā no kvadrātiņiem ar malas garumu $1/2$. Lielākais iespējamais
+attālums ir tad, ja tie atrodas pretējās kvadrāta virsotnēs. 
+Tad to attālums ir $\sqrt{2}/2$. 
+
+Šo novērtējumu nevar uzlabot, jo var $5$ punktus novietot tā, ka četri 
+no tiem nonāk lielā kvadrāta četrās virsotnēs, bet piektais punkts - 
+lielā kvadrāta centrā. Tad visi attālumi starp punktiem ir vai nu 
+$\sqrt{2}/2$ vai $1$ (turklāt $\sqrt{2}/2 < 1$).
+
+```{r, fig.width=0.7, fig.height=0.7, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+#grid.rect()
+subVP1 <- viewport(name="subVP1", x=0.5, y=0.5, width=0.9, height=0.9)
+pushViewport(subVP1)
+
+Ux <- 1/2
+Uy <- 1/2
+for (i in 0:1) {
+  for (j in 0:1) {
+    theFill <- "white"
+    if (i == 0 && j == 0) {
+      theFill <- "#cccccc"
+    }
+    grid.rect(x=(0.5+j)*Ux,y=(0.5+i)*Uy,width=Ux,height=Uy,
+              gp=gpar(fill=theFill))
+  }
+}
+grid.circle(x=0,y=0,r=0.04,gp=gpar(fill="red"))
+grid.circle(x=0.5,y=0.5,r=0.04,gp=gpar(fill="red"))
+
+
+popViewport(2)
+
+```
+
+
+## c.dirichlet.shapes.q11
+Uz figūras $F$ atzīmēti $16$ punkti. Figūru 
+pārgriež $7$ vietās tā, ka neviens griezums nesakrīt ar 
+kādu no atzīmētajiem punktiem.
+Kāds ir mazākais iespējamais skaits punktu uz tā gabala, uz kura 
+atzīmēto punktu ir visvairāk? Aplūkot divus gadījumus:  
+(a) $F$ ir nogrieznis; (b) $F$ ir riņķa līnija.
+
+**Atbilde:** `2,3`. 
+
+**Skaidrojums:** Nogriežņa gadījumā $7$ punkti sagriež to $8$ 
+gabalos jeb "būrīšos", t.i. $16$ punktus pa tiem var sadalīt tā, ka 
+uz katra gabala ir divi atzīmētie punkti. 
+
+Riņķa līniju $7$ griezieni sadala $7$ gabalos, tādēļ uz viena no gabaliem 
+būs vismaz $\lceil 16/7 \rceil = 3$. 
+
+
+## c.dirichlet.shapes.q12
+Vai var uzzīmēt daudzstūri (varbūt neizliektu), kuram 
+ir $23$ virsotnes, no kurām $16$ virsotnes atrodas uz 
+vienas taisnes?
+
+a. Jā
+b. Nē
+
+**Atbilde:** `b`
+
+**Skaidrojums:** Ja $16$ virsotnes, kas ir uz vienas taisnes, dalītu $23-16=7$ grupiņās
+(par atdalītāju var kalpot tāda virsotne, kas neatrodas uz šīs taisnes), 
+vismaz vienā no gabaliem nonāks $\lceil 16/7 \rceil = 3$ virsotnes. 
+Bet tad šādas $3$ virsotnes $A$, $B$ un $C$, kuras visas pēc kārtas izvietotas uz 
+vienas taisnes, nevar būt daudzstūra virsotnes, jo vidējā virsotne $B$
+atradīsies uz abu malējo virsotņu veidotās malas $AC$. 
+
+## c.dirichlet.shapes.q13
+<!--questionType=MS-->
+Dots šaha galdiņš $8 \times 8$, kurā atzīmētas $n$ 
+rūtiņas. Katrai no četrām figūriņām atrast lielāko $n$ vērtību, 
+pie kuras noteikti var novietot šo figūriņu, nepārklājot 
+nevienu no atzīmētajām rūtiņām. 
+(*Atzīmēt visas figūriņas, ko noteikti var ievietot kaut vienā eksemplārā.*)
+
+a. Kvadrātiņš $1 \times 1$ (1.zīm.) 
+b. Taisnstūrītis $1 \times 2$ (2.zīm.)
+c. "Stūrītis" - ieliekta figūriņa no $3$ rūtiņām (3.zīm.)
+d. Kvadrātiņš $2 \times 2$ (4.zīm.)
+
+```{r, fig.width=1.2, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP11 <- viewport(name="subVP11", x=0, y=0.6, 
+                    width=0.5, height=0.4,
+                    just=c("left","bottom"))
+pushViewport(subVP11)
+grid.text(x=0.5,y=0.1,label="1.z\u012Bm.")
+uX <- 1/3
+uY <- uX*(5/3)
+grid.rect(x=0.5,y=0.5,width=uX,height=uY)
+
+popViewport(1)
+
+
+subVP12 <- viewport(name="subVP12", x=0.5, y=0.6, 
+                    width=0.5, height=0.4,
+                    just=c("left","bottom"))
+pushViewport(subVP12)
+grid.text(x=0.5,y=0.1,label="2.z\u012Bm.")
+uX <- 1/3
+uY <- uX*(5/3)
+grid.rect(x=0.5-0.5*uX,y=0.5,width=uX,height=uY)
+grid.rect(x=0.5+0.5*uX,y=0.5,width=uX,height=uY)
+popViewport(1)
+
+
+
+subVP21 <- viewport(name="subVP21", x=0, y=0, 
+                    width=0.5, height=0.6,
+                    just=c("left","bottom"))
+pushViewport(subVP21)
+grid.text(x=0.5,y=0.1,label="3.z\u012Bm.")
+uX <- 1/3
+uY <- uX
+grid.rect(x=0.5-0.5*uX,y=0.5-0.5*uY,width=uX,height=uY)
+grid.rect(x=0.5+0.5*uX,y=0.5-0.5*uY,width=uX,height=uY)
+grid.rect(x=0.5-0.5*uX,y=0.5+0.5*uY,width=uX,height=uY)
+popViewport(1)
+
+
+subVP22 <- viewport(name="subVP22", x=0.5, y=0, 
+                    width=0.5, height=0.6,
+                    just=c("left","bottom"))
+pushViewport(subVP22)
+grid.text(x=0.5,y=0.1,label="4.z\u012Bm.")
+uX <- 1/3
+uY <- uX
+grid.rect(x=0.5-0.5*uX,y=0.5-0.5*uY,width=uX,height=uY)
+grid.rect(x=0.5+0.5*uX,y=0.5-0.5*uY,width=uX,height=uY)
+grid.rect(x=0.5-0.5*uX,y=0.5+0.5*uY,width=uX,height=uY)
+grid.rect(x=0.5+0.5*uX,y=0.5+0.5*uY,width=uX,height=uY)
+popViewport(1)
+
+
+
+popViewport(1)
+
+```
+
+**Atbilde:** `63,31,31,15`
+
+**Skaidrojums:** Vienu rūtiņu, protams, var novietot, ja vien 
+visas $64$ nav iekrāsotas. 
+
+Divu vai trīs rūtiņu figūriņas 
+var novietot tiklīdz kā iekrāsotas ne vairāk kā $31$, t.i. stingri 
+mazāk par pusi no $64$.
+($32$ rūtiņas var iekrāsot kā šaha galdiņu - un tad 2.zīm. un 3.zīm. 
+figūriņas tur ievietot nevar.)
+
+```{r, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+require(RColorBrewer)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP1 <- viewport(name="subVP1", just=c("left","bottom"), 
+                   x=0, y=0.1, width=1, height=0.9)
+pushViewport(subVP1)
+grid.text("5.z\u012Bm.",x=0.5,y=0.05)
+subVP12 <- viewport(name="subVP12", just=c("left","bottom"), 
+                    x=0.08, y=0.12, width=0.84, height=0.84)
+pushViewport(subVP12)
+N <- 8
+u2 <- 1/N
+for (i in 0:(N-1)) {
+  for (j in 0:(N-1)) {
+    grid.rect(x=j*u2,y=i*u2,width=u2,height=u2,
+              gp=gpar(fill="white"),just=c("left","bottom"))
+  }
+}
+
+for (i in 0:4) {
+  grid.lines(x=c(0,1),y=c(2*u2*i), gp=gpar(lwd=2))
+  grid.lines(x=c(2*u2*i),y=c(0,1), gp=gpar(lwd=2))
+}
+
+popViewport(2)
+
+popViewport(1)
+
+```
+
+Ja kvadrātu $8 \times 8$ sadala
+$16$ kvadrātiņos $2 \times 2$ (sk. 5.zīm.), tad 
+vismaz vienā no $16$ kvadrātiņiem nonāks ne vairāk kā viena iekrāsotā 
+rūtiņa. Tad šajā $2 \times 2$ kvadrātiņā 
+pietiks vietas 2.zīm. vai 3.zīm. attēlotajai figūriņai.
+
+Līdzīgi, ja iekrāsotas tikai $15$ rūtiņas, tad kādā $2 \times 2$ 
+kvadrātiņā nenonāks neviena iekrāsotā rūtiņa - tur varēs ievietot 
+4.zīm. attēloto figūriņu. Ja atļauts iekrāsot $16$ rūtiņas, tad 
+katrā no 5.zīm. attēlotajiem kvadrātiņiem var iekrāsot, piemēram, 
+kreiso augšējo rūtiņu un tur nevarēs ievietot nevienu 4.zīm. figūriņu, 
+nepārklājot kādu no iekrāsotajām.
+
+
+## c.dirichlet.shapes.q14
+Doti $n$ nogriežņi, kuru garumi izsakāmi ar veselu skaitu 
+milimetru. Kādam mazākajam $n$ no tiem noteikti var izvēlēties
+dažus nogriežņus (vai varbūt tikai vienu nogriezni) tā, 
+lai to garumu summa būtu vesels skaits centimetru?
+
+**Atbilde:** `10`
+
+**Skaidrojums:** Ja ir $10$ nogriežņi ar garumiem $a_1,a_2,\ldots,a_{10}$, 
+varam veidot summas $S_1=a_1$, $S_2=a_1+a_2$, utt. $S_{10}=a_1+a_2+\ldots+a_{10}$.
+Starp šīm $10$ summām var atrasties kāda, kas izsakāma veselā skaitā 
+centimetru - tad vajadzīgais ir iegūts. Ja turpretī starp šīm $10$ summām 
+neviena nav izsakāma veselā skaitā centimetru, tad katra no tām pārsniedz
+veselu skaitu centimetru par $1$, $2$, utt. $9$ milimetriem. 
+Šo vērtību ir tikai $9$, tādēļ divas no šīm summām beigsies ar vienādu 
+skaitu milimetru. Pieņemsim, ka tās ir, teiksim summas $S_3$ un $S_5$. 
+Tad starpība $S_5-S_3 = a_4 + a_5$ ir vesels skaits centimetru, jo milimetri, 
+atņemot abus lielumus, iznīcinās.
+
+Ja izvēlamies deviņus nogriežņus, kuru garumi 
+ir $0.1$ milimetrs, tad nekāda summa ar tiem neveidos 
+veselu skaitu centimetru. Tādēļ $10$ ir labākais novērtējums.
+
+<!-- 5, 7, 9 dažādi reizinājumi pa pāriem --> 
+## c.dirichlet.shapes.q15
+Kādu lielāko skaitu $n$ tetromino (1.zīm.) var izgriezt no kvadrāta 
+$9 \times 9$? Visi griezumi iet pa rūtiņu līnijām.
+
+```{r, fig.width=0.7, fig.height=0.7, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+
+subVP1 <- viewport(name="subVP1", x=0.5, y=0.7, width=0.9, height=0.6)
+pushViewport(subVP1)
+#grid.rect()
+
+Nx <- 3
+Ny <- 2
+Ux <- 1/Nx
+Uy <- 1/Ny
+
+xx <- c(0,1,1,2)
+yy <- c(1,1,0,0)
+for (i in 1:4) {
+  grid.rect(x=(0.5+xx[i])*Ux,y=(0.4+yy[i])*Uy,width=Ux,height=Uy,
+              gp=gpar(fill=theFill))
+}
+
+popViewport(2)
+```
+
+**Atbilde:** `16`
+
+**Skaidrojums:** Katra tetromino figūriņa pārklāj tieši vienu pelēko 
+rūtiņu (2.zīm.). Ja figūriņu būtu vairāk par $16$, tad pelēko rūtiņu 
+visām figūriņām nepietiktu. (Novērtējot vienkārši pēc rūtiņu 
+skaita, varētu šķist, ka pietiek vietas $\lfloor 81/4 \rfloor = 20$ figūriņām, 
+bet šāds spriedums ignorētu to, ka daudzie tetromino ir blīvi 
+jāsapako bez pārklāšanās.)
+
+Ar $16$ figūriņām uzdevumu, acīmredzot var veikt - pietiek ievietot 
+vienu no figūriņām kā parādīts ar sarkano kontūru - un pēc tam 
+citas iegūt, nobīdot šo figūriņu $2$,$4$ vai $6$ rūtiņas pa labi un/vai uz leju.
+
+```{r, fig.width=2, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+#grid.rect()
+subVP1 <- viewport(name="subVP1", x=0.5, y=0.5, width=0.9, height=0.9)
+pushViewport(subVP1)
+
+N <- 9
+Ux <- 1/N
+Uy <- 1/N
+for (i in 0:(N-1)) {
+  for (j in 0:(N-1)) {
+    theFill <- "white"
+    if (i %%2 ==1 && j %% 2 == 1) {
+      theFill <- "#cccccc"
+    }
+    grid.rect(x=(0.5+j)*Ux,y=(0.5+i)*Uy,width=Ux,height=Uy,
+              gp=gpar(fill=theFill))
+  }
+}
+
+xx <- c(0,2,2,3,3,1,1,0)
+yy <- c(2,2,1,1,0,0,1,1)
+grid.polygon(x=(xx)*Ux,y=c(yy+(N-2))*Uy,
+             gp=gpar(fill=NA, col="red", lwd=2))
+popViewport(2)
+
+```
+

@@ -1,0 +1,479 @@
+---
+title: Dirihlē princips (5) - Skaitļu teorija
+date: "December 20, 2017"
+output: pdf_document
+---
+
+# Dirihlē princips (5) - Skaitļu teorija
+
+* **Anotācija:** Tests par Dirihlē principa lietojumiem apgalvojumos par naturāliem skaitļiem,
+dalāmību, iespēju iegūt noteikta veida summas vai starpības.
+
+
+## c.dirichlet.nt.q1
+<!--questionType=MC--> 
+Pēterītis iedomājās $9$ naturālus skaitļus. Vai noteikti kāds no šiem 
+skaitļiem (vai arī dažu iedomāto skaitļu summa) dalās ar $10$?
+
+a. Jā
+b. Nē
+
+**Atbilde:** `b`
+
+**Skaidrojums:** Var iedomāties visus $9$ skaitļus, kuri dod 
+vienādu atlikumu $1$, dalot ar $10$ (vai arī atlikumu $3$, $7$, $9$). 
+Šajā gadījumā jebkura šo skaitļu summa dos atlikumu $1,2,\ldots,9$, 
+dalot ar $10$.
+
+
+## c.dirichlet.nt.q2
+<!--questionType=MC--> 
+Pēterītis iedomājās $10$ naturālus skaitļus. Vai noteikti kāds no šiem 
+skaitļiem (vai arī dažu iedomāto skaitļu summa) dalās ar $10$?
+
+a. Jā
+b. Nē
+
+**Atbilde:** `a`
+
+**Skaidrojums:** Veidojam summas, pievienojot arvien
+jaunus iedomātos skaitļus: $a_1$, $a_1+a_2$, $\ldots$, $a_1+a_2+\ldots+a_{10}$. 
+Ja kāda no šīm summām dalās ar $10$, tad apgalvojums ir pierādīts. 
+Ja neviena no summām nedalās ar $10$, tad iespējamie atlikumi, dalot ar $10$,
+var būt $1,2,\ldots,9$. Summu pavisam ir $10$, bet atlikumu ir $9$, tādēļ 
+divas no summām dos vienādus atlikumus, dalot ar $10$. 
+(Piemēram $a_1+a_2$ un $a_1+a_2+a_3+a_4$.)
+No lielākās summas atņemot 
+mazāko, iegūsim dažu iedomāto skaitļu summu, kas dalās ar $10$. 
+(Mūsu piemērā $(a_1+a_2+a_3+a_4)-(a_1+a_2)=a_3+a_4$.)
+
+
+## c.dirichlet.nt.q3
+Tabulā apkopoti naturāli skaitļi, to atlikumi, dalot ar $7$, arī 
+to kubi un kubu atlikumi, dalot ar $7$. 
+Cik naturāli skaitļi jāizvēlas, lai starp tiem noteikti varētu atrast
+divus, kuru kubi dod vienādus atlikumus dalot ar $7$?
+
+```{r, fig.width=3.5, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+#grid.rect()
+subVP1 <- viewport(name="subVP1", x=0.5, y=0.5, width=0.95, height=0.95)
+pushViewport(subVP1)
+
+
+theData <- list()
+theData[[1]] <- (0:7)
+theData[[2]] <- ((0:7)^3)
+theData[[3]] <- ((0:7)^3 %% 7)
+
+
+Nx <- 7
+TitleWidth <- 3
+Ux <- 1/(Nx+TitleWidth)
+
+Ny <- 3
+Uy <- 1/Ny
+
+titles <- c("n (mod 7)", "n^3", "n^3 (mod 7)")
+for (i in 0:(Ny-1)) {
+  grid.rect(x=0,y=i*Uy,width=TitleWidth*Ux,height=Uy,
+            gp=gpar(fill="white"),just=c("left","bottom"))
+  grid.text(label=titles[Ny-i],gp=gpar(fontsize=10),
+            x=(TitleWidth/2)*Ux,y=(i+0.5)*Uy)
+  for (j in 0:(Nx-1)) {
+    grid.rect(x=(j+TitleWidth)*Ux,y=i*Uy,width=Ux,height=Uy,
+              gp=gpar(fill="white"),just=c("left","bottom"))
+    grid.text(label=sprintf("%d",theData[[Ny-i]][j+1]),gp=gpar(fontsize=10),
+              x=(j+TitleWidth+0.5)*Ux,y=(i+0.5)*Uy)
+
+  }
+}
+
+popViewport(2)
+
+```
+
+**Atbilde:** `4`
+
+**Skaidrojums:** Pavisam ir $3$ dažādi atlikumi, dalot naturālu skaitļu 
+kubus ar $7$. Ja izvēlēsimies $4$ skaitļus, tad Dirihlē princips nodrošina, 
+ka vismaz diviem no tiem būs vienādi atlikumi, ja skaitļa kubu dala ar $7$.
+
+Ievērosim, ka arī naturāliem skaitļiem $n \geq 7$ atlikumi visu 
+laiku periodiski atkārto mūsu tabuliņu. Jo 
+$$(n+7)^3 = n^3 + 3 \cdot n^2 \cdot 7 + 3 \cdot n \cdot 7^2 + 7^3,$$
+t.i. $(n+7)^3$ var izteikt kā četrus saskaitāmos, no kuriem tikai $n^3$
+iespaido atlikumu, dalot ar $7$ (jo citi izdalās bez atlikuma). 
+Tādēļ $(n+7)^3$ un $n^3$ dod vienādus atlikumus, dalot
+ar $7$. To var apzīmēt svešvārdā: $(n+7)^3$ un $n^3$ ir *kongruenti* pēc 
+$7$ moduļa jeb $(n+7)^3 \equiv n^3\;(\operatorname{mod}\,7)$).
+
+
+
+## c.dirichlet.nt.q4
+Tabulā apkopoti naturāli skaitļi, to kubi un kubu atlikumi, dalot ar $7$. 
+Cik naturāli skaitļi (no kuriem neviens nedalās ar $7$) 
+jāizvēlas, lai starp tiem noteikti varētu atrast
+trīs, kuru kubi dod vienādus atlikumus dalot ar $7$? 
+
+```{r, fig.width=3.5, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+#grid.rect()
+subVP1 <- viewport(name="subVP1", x=0.5, y=0.5, width=0.95, height=0.95)
+pushViewport(subVP1)
+
+
+theData <- list()
+theData[[1]] <- (0:7)
+theData[[2]] <- ((0:7)^3)
+theData[[3]] <- ((0:7)^3 %% 7)
+
+
+Nx <- 7
+TitleWidth <- 3
+Ux <- 1/(Nx+TitleWidth)
+
+Ny <- 3
+Uy <- 1/Ny
+
+titles <- c("n (mod 7)", "n^3", "n^3 (mod 7)")
+for (i in 0:(Ny-1)) {
+  grid.rect(x=0,y=i*Uy,width=TitleWidth*Ux,height=Uy,
+            gp=gpar(fill="white"),just=c("left","bottom"))
+  grid.text(label=titles[Ny-i],gp=gpar(fontsize=10),
+            x=(TitleWidth/2)*Ux,y=(i+0.5)*Uy)
+  for (j in 0:(Nx-1)) {
+    grid.rect(x=(j+TitleWidth)*Ux,y=i*Uy,width=Ux,height=Uy,
+              gp=gpar(fill="white"),just=c("left","bottom"))
+    grid.text(label=sprintf("%d",theData[[Ny-i]][j+1]),gp=gpar(fontsize=10),
+              x=(j+TitleWidth+0.5)*Ux,y=(i+0.5)*Uy)
+
+  }
+}
+
+popViewport(2)
+
+```
+
+**Atbilde:** `4`
+
+**Skaidrojums:** Pavisam ir $3$ dažādi atlikumi, dalot naturālu skaitļu 
+kubus ar $7$. Tādēļ, izvēloties $4$ šādus atlikumus, vismaz divi sakritīs.
+
+Ievērosim, ka arī naturāliem skaitļiem $n \geq 7$ ir tādi 
+paši atlikumi, jo $(n+7)^3 = n^3 + 3 \cdot n^2 \cdot 7 + 3 \cdot n \cdot 7^2 + 7^3$, 
+t.i. $(n+7)^3$ var izteikt kā četrus saskaitāmos, no kuriem visi dalās ar $7$, 
+izņemot varbūt $n^3$. Tādēļ $(n+7)^3$ un $n^3$ dod vienādus atlikumus, dalot
+ar $7$. 
+
+
+## c.dirichlet.nt.q5
+Tabulā apkopoti naturāli skaitļi, to atlikumi, dalot ar $7$, arī 
+to kubi un kubu atlikumi, dalot ar $7$. 
+Cik naturāli skaitļi (kas visi dod dažādus atlikumus, dalot ar $7$) 
+jāizvēlas, lai starp tiem noteikti varētu atrast skaitļus 
+$a$ un $b$, kuriem $a^2 + ab + b^2$ dalās ar $7$?  
+
+```{r, fig.width=3.5, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
+require(grid)
+grid.newpage()
+mainVP <- viewport(name="mainVP", width = 1, height = 1)
+pushViewport(mainVP)
+#grid.rect()
+subVP1 <- viewport(name="subVP1", x=0.5, y=0.5, width=0.95, height=0.95)
+pushViewport(subVP1)
+
+
+theData <- list()
+theData[[1]] <- (0:7)
+theData[[2]] <- ((0:7)^3)
+theData[[3]] <- ((0:7)^3 %% 7)
+
+
+Nx <- 7
+TitleWidth <- 3
+Ux <- 1/(Nx+TitleWidth)
+
+Ny <- 3
+Uy <- 1/Ny
+
+titles <- c("n (mod 7)", "n^3", "n^3 (mod 7)")
+for (i in 0:(Ny-1)) {
+  grid.rect(x=0,y=i*Uy,width=TitleWidth*Ux,height=Uy,
+            gp=gpar(fill="white"),just=c("left","bottom"))
+  grid.text(label=titles[Ny-i],gp=gpar(fontsize=10),
+            x=(TitleWidth/2)*Ux,y=(i+0.5)*Uy)
+  for (j in 0:(Nx-1)) {
+    grid.rect(x=(j+TitleWidth)*Ux,y=i*Uy,width=Ux,height=Uy,
+              gp=gpar(fill="white"),just=c("left","bottom"))
+    grid.text(label=sprintf("%d",theData[[Ny-i]][j+1]),gp=gpar(fontsize=10),
+              x=(j+TitleWidth+0.5)*Ux,y=(i+0.5)*Uy)
+
+  }
+}
+
+popViewport(2)
+
+```
+
+**Ieteikums1:** Var izmantot algebrisku identitāti 
+$a^3-b^3=(a-b)(a^2+ab+b^2)$.
+
+**Ieteikums2:** Ja $a^3 - b^3$ dalās ar $7$, bet $a - b$ nedalās ar $7$, 
+tad $a^2+ab+b^2$ dalās ar $7$, jo ar $7$ dalās reizinājums
+$(a-b)(a^2+ab+b^2)$. 
+
+
+**Atbilde:** `4`
+
+**Skaidrojums:** Izvēloties $4$ skaitļus, būs vismaz 
+divi vienādi atlikumi $a^3$ un $b^3$, dalot ar $7$, jo 
+naturālu skaitļu kubi dod tikai trīs dažādus atlikumus. 
+Tā kā $a$ un $b$ dod dažādus atlikumus, dalot ar $7$ (tas bija dots), 
+tad $a-b$ nedalās ar $7$. 
+
+Tādēļ iegūstam, ka $a^3 - b^3$ dalās ar $7$, bet $a - b$ nedalās ar $7$. 
+Ir spēkā sadalījums reizinātājos $a^3-b^3=(a-b)(a^2+ab+b^2)$ - tādēļ 
+iekava $(a^2+ab+b^2)$ noteikti dalās ar $7$. 
+
+
+## c.dirichlet.nt.q6 
+Miķelītis izvēlējās dažus skaitļus no $1$ līdz $11$, 
+kuru kvadrāti dod dažādus atlikumus, dalot ar $11$. 
+Zināms, ka viens no Miķelīša izvēlētajiem skaitļiem ir $4$. 
+Kādu skaitli Miķelītis noteikti nedrīkst izvēlēties?
+
+**Ieteikums1:** $n^2$ dod tādu pašu atlikumu kā $(-n)^2$, 
+ja to dala ar $11$. 
+
+
+**Atbilde:** `7`
+
+**Skaidrojums:** Skaitļa $4$ kvadrāts $4^2=16$ 
+dod atlikumu $5$, dalot ar $11$. Arī $(-4)^2 = 16$ dod tādu pašu 
+atlikumu. Arī pieskaitot skaitlim $-4$ iegūsim skaitli $-4+11 = 7$, 
+kas dos atlikumu $5$. Tiešām: $7^2 = 49$ dod atlikumu $5$. To 
+pašu var iegūt, atverot iekavas izteiksmē $(-4 + 11)^2$ - un 
+pārliecinoties, ka vienīgais saskaitāmais, kas nedalās ar $11$ ir 
+$(-4)^2$. 
+
+
+
+## c.dirichlet.nt.q7
+Skaitļi no $1$ līdz $100$ sadalīti ģeometriskās progresijās ar kvocientu $3$: katra
+progresija sākas ar skaitli, kas nedalās ar $3$, katrs nākamais skaitlis
+progresijā iegūstams, iepriekšējo reizinot ar $3$. Skaitļus, kas pārsniedz $100$, 
+neraksta; dažās progresijās (ja tās sākas ar $34$ vai vēl lielāku skaitli) 
+ir tikai viens loceklis. Šādi izskatās dažas pirmās progresijas:
+$$\{1,3,9,27,81\}$$
+$$\{2,6,18,54\}$$
+$$\{4,12,36\}$$
+Kāds ir mazākais skaits skaitļu no $1$ līdz $100$, kas jāizvēlas, lai 
+kaut kādi divi no tiem noteikti nonāktu vienā progresijā?
+
+**Atbilde:** `68`
+
+**Skaidrojums:** Tā kā katrā progresijā ir tieši viens skaitlis, 
+kurš nedalās ar $3$ (un ir tieši $33$ skaitļi līdz $100$, kas dalās ar $3$), 
+tad to kopskaits ir $100-33=67$. Izvēloties par vienu skaitli vairāk (jeb
+tieši $68$ skaitļus) vismaz vienā progresijā nonāks vismaz divi skaitļi. 
+
+## c.dirichlet.nt.q8 
+Kāds ir lielākais skaitļu skaits no $1$ līdz $100$, ko var izvēlēties 
+tā, lai nekādiem diviem no izvēlētajiem skaitļiem $m$ un $n$, to 
+dalījums $k=m/n$ nebūtu vesels skaitlis, kas lielāks par $2$?
+
+**Ieteikums1:** Mums jāizmanto fakts, ka divu izvēlēto skaitļu 
+attiecība drīkst būt VIENĀDA ar $3$. 
+Varbūt pietiek atrast lielāko skaitu, ko var izvēlēties
+tā, lai divu skaitļu dalījums nebūtu skaitļa $3$ pakāpe. 
+
+**Atbilde:** `68`
+
+**Skaidrojums:** Sadalām naturālos skaitļus no $1$ līdz $100$ 
+ģeometriskās progresijās ar kvocientu $3$ (līdzīgi kā iepriekšējā uzdevumā). 
+Pavisam ir $67$ šādas ģeometriskas progresijas. 
+Ja skaitļu ir par vienu vairāk, tad vismaz divi skaitļi nonāks tanī pašā 
+ģeometriskajā progresijā, t.i. to attiecība būs vesels skaitlis, 
+kas lielāks par $2$ (konkrēti $3,9,27$ vai $81$). 
+
+## c.dirichlet.nt.q9
+Kāds ir mazākais skaitļu skaits, ko izvēloties no $1$ līdz $100$, 
+starp izvēlētajiem noteikti atradīsim divus tādus, kuru dalījums ir
+divnieka pakāpe augstāka par $0$-to? (T.i. dalījums ir $2,4,8,16,\ldots$)
+
+**Atbilde:** `51`
+
+**Skaidrojums:** 
+Sadalām skaitļus no $1$ līdz $100$ vairākās ģeometriskās progresijās 
+ar kvocientu $2$:
+$$\{1,2,4,8,16,32,64\}$$
+$$\{3,6,12,24,48,96\}$$
+$$\{5,10,20,40,80\}$$
+Katra šī progresija sākas ar kādu nepāru skaitli no $1$ līdz $99$; 
+turpmākie locekļi tiek iegūti, iepriekšējos reizinot ar $2$. 
+Pavisam ir tieši $50$ šādu progresiju. Ja ievietosim 
+$51$ skaitļus, tad noteikti divi no tiem izrādīsies vienā 
+no progresijām. Tātad to attiecība būs kvocienta $q=2$ pilna pakāpe. 
+
+
+## c.dirichlet.nt.q10
+Virknē uzrakstīti daži pēc kārtas sekojoši 
+skaitļi, kas dod atlikumu 3, dalot ar $13$. Piemēram, 
+$$29, 42, \ldots$$
+Kāds mazākais skaits šo skaitļu jāuzraksta, lai starp tiem noteikti atrastos 
+tāds, kurš dod atlikumu $2$, dalot ar $17$ (neatkarīgi no tā, ar kuru 
+skaitli virkne sākas)?
+
+**Atbilde:** `17` 
+
+**Skaidrojums:** Ja virknē, kur visi dod atlikumu $3$, dalot ar $13$ 
+būs $17$ pēc kārtas sekojoši locekļi, no kuriem neviens nedod atlikumu 
+$2$, dalot ar $17$, tad sanāks, ka iespējamie atlikumi ir 
+no $0$ līdz $16$ (izlaižot $2$), t.i. tieši $16$ vērtības. 
+Pēc Dirihlē principa atradīsies divi locekļi, kuri dod vienādus atlikumus, 
+bet atšķiras kā divi aritmētiskas progresijas locekļi par 
+$k \cdot 13$, kur $k < 17$. Bet šāds skaitlis nevar dalīties ar $17$. 
+Vispārinot šo spriedumu citiem skaitļiem (izņemot $13$ un $17$), citiem 
+atlikumiem kā arī lielākam skaitļu skaitam, varam iegūt 
+*ķīniešu atlikumu teorēmu* vispārīgajā veidā. 
+
+
+<!-- n, m doti --> 
+## c.dirichlet.nt.q11
+Sportistam $50$ dienu laikā ir $64$ treniņi - katru dienu vismaz viens
+treniņš. Vai noteikti atradīsies dažas pēc kārtas sekojošas dienas, 
+kurās ir tieši $k$ treniņi dotajām $k$ vērtībām?
+
+1. $k=34$
+    a. Jā
+    b. Nē
+2. $k=35$
+    a. Jā
+    b. Nē
+
+
+**Atbilde:** `a,a`
+
+**Skaidrojums:** Ja jāatrod tieši $34$ vai $35$ treniņi dažās pēc kārtas 
+sekojošās dienās, tad to vienmēr var izdarīt. 
+Ar $a_1,\ldots,a_{50}$ apzīmējam treniņu skaitu katrā no dienām. Veidojam 
+summas: cik treniņu bija pirmajā, pirmajās divās, pirmajās trijās utt. dienās: 
+$$S_1=a_1,\;S_2=a_1+a_2,\;\ldots$$
+Šī virkne katrā solī aug (jo katru dienu bija vismaz viens treniņš). Tās
+vērtības ir skaitļi no $1$ līdz $64$. 
+
+Katrai no vērtībām $S_i$ pieskaitām skaitli $k$ (t.i. $34$ vai $35$). Iegūsim 
+$50$ citu  skaitļu virkni, kam visi locekļi ir robežās no $1+k$ līdz $64+k < 100$. 
+Tā kā arī pēc pieskaitīšanas virkne katr solī aug, tad $S_i + k < S_j + k$, 
+ja $i < j$.
+
+Ņemot vērā, ka abās virknēs $(S_i)$ un $(S_i + k)$ ir pavisam $100$ locekļu, 
+bet dažādo vērtību ir no $1$ līdz $64+k<100$ (mazāk par $100$), tad
+kādā no vērtībām nonāks divi locekļi. Tie nevar būt abi ņemti no tās pašas 
+virknes (jo abas virknes aug). Tādēļ atradīsies loceklis no pirmās, kas vienāds
+ar citu locekli no otrās, piemēram, $S_i + k = S_j$. Bet tad uzdevuma apgalvojums
+izpildās: sākot no dienas ar numuru $i$ (neieskaitot) līdz dienai 
+ar numuru $j$ (ieskaitot) notika tieši $k$ treniņi.
+
+
+
+## c.dirichlet.nt.q12
+Dots ļoti liels skaitlis $N$. No tiem izvēlas iespējami daudzus 
+skaitļus $M$ tā, lai nekādu divu skaitļu starpība nebūtu $1$ vai $2$. 
+Kurai no minētajām daļām ir vistuvākais skaitlis $M/N$?
+
+a. $1/2$
+b. $1/3$
+c. $2/3$
+d. $1/4$
+
+**Atbilde:** `b`
+
+**Skaidrojums:** No katriem $3$ pēc kārtas ņemtiem naturāliem 
+skaitļiem drīkst izvēlēties ne vairāk kā vienu (citādi šajā 
+skaitļu trijniekā kāda no starpībām ir $1$ vai $2$). 
+Varam izvēlēties aritmētisku progresiju ar diferenci $3$, piemēram, 
+$1,4,7,10,13,\ldots$ (to turpinot ldz sasniegts skaitlis $N$). 
+Šajā progresijā ietilpst aptuveni katrs trešais skaitlis, t.i. 
+$1/3$ no visiem. Ja turklāt $N$ dalās ar $3$, tad var pamatot, 
+ka lielākais $M/N$ ir precīzi vienāds ar $1/3$. 
+
+
+<!-- vajadzētu visādas iespējas, ne tikai, kur 3=2+1 vai 4=3+1 utml. -->
+## c.dirichlet.nt.q13
+Kādu lielāko skaitu naturālu skaitļu no $1$ līdz $840$ var izvēlēties tā, 
+lai nekādiem diviem izvēlētajiem skaitļiem to starpība nebūtu ne $2$, 
+ne $3$, ne $5$. 
+
+**Atbilde:** `240`
+
+**Skaidrojums:** No katriem $7$ pēc kārtas ņemtiem skaitļiem var 
+izvēlēties ne vairāk kā $2$ skaitļus. 
+Aplūkosim, piemēram, $(1,2,3,4,5,6,7)$ (var ņemt arī citu, nobīdītu 
+$7$ skaitļu virknīti, katram 
+elementam pieskaitot vienu un to pašu). Acīmredzot, nevar izvēlēties
+vairāk par vienu skaitli no trijniekiem $(1,3,6)$ un $(2,4,7)$, 
+jo visas starpības starp skaitļiem
+šajos trijniekos ir "neatļautās" (t.i. $2$, $3$ vai $5$). 
+
+Tādēļ vienīgā iespēja izvēlēties trīs skaitļus no septiņnieka 
+$(1,2,3,4,5,6,7)$ būtu - izvēlēties skaitli $5$ kā arī pa vienam no katra
+trijnieka $(1,3,6)$ un $(2,4,7)$. Tā kā skaitlis $5$ konfliktē ar $2$ un $7$, 
+tad jāizvēlas atlikušais skaitlis no trijnieka: $4$. Savukārt $4$ konfliktē 
+ar $1$ un ar $6$ - t.i. jāizvēlas atlikušais skaitlis no trijnieka: $3$. 
+Bet $5$ un $3$ reizē nevar ņemt, jo starp tiem starpība ir $2$. 
+
+Esam ieguvuši pretrunu (no pieņēmuma, ka var izvēlēties $3$ skaitļus 
+no septiņnieka). Tādēļ katrā no $120$ "septiņniekiem", kuros var sadalīt
+skaitļus no $1$ līdz $840$ varēs izvēlēties divus skaitļus. 
+Maksimums būs $2 \cdot 120 = 240$. 
+
+
+<!-- atzīmēt visas atbildes --> 
+## c.dirichlet.nt.q14
+<!--questionType=MS-->
+Dota naturālu skaitļu kopa $S$, kas satur dažus 
+skaitļus no kopas $\{1,2,3,\ldots,100\}$. 
+Kopa $S$ apmierina īpašību: ja tai pieder skaitļi $a$ un $b$ un $a>b$, 
+tad $a+b$ nedalās ar $a-b$.  
+(*Atzīmēt visus patiesos apgalvojumus par kopu $S$.*)
+
+a. Kopa $S$ var saturēt skaitļus $a$ un $b$, kam $a=b+1$?
+b. Kopa $S$ var saturēt skaitļus $a$ un $b$, kam $a=b+2$? 
+c. Kopa $S$ var saturēt skaitļus $a$ un $b$, kam $a=b+3$?
+d. Kopa $S$ var saturēt skaitļus $a$ un $b$, kam $a=b+4$?
+
+**Atbilde:** `c,d`
+
+**Skaidrojums:** Starpības $1$ un $2$ starp $a,b \in S$ 
+ir neiespējamas: jebkurš skaitlis
+dalās ar $1$, un jebkuriem diviem skaitļiem $a, b$, kam $a=b+2$ summa 
+būs pāru skaitlis, t.i. dalīsies arī ar $2$.
+
+Starpības $3$ un $4$ starp skaitļiem ir iespējamas. 
+Ja, piemēram, $a,b$ paši nedalās ar $3$ un $a = b+3$, tad $a+b=2b+3$ 
+nedalīsies ar $3$, jo $2b$ arī nedalās ar $3$. Savukārt, ja $a=b+4$ un 
+pie tam $a,b$ ir nepāru skaitļi, tad to summa nedalās ar $4$. 
+
+## c.dirichlet.nt.q15
+Dota naturālu skaitļu kopa $S$, kas satur dažus 
+skaitļus no kopas $\{1,2,3,\ldots,100\}$. 
+Kopa $S$ apmierina īpašību: ja tai pieder skaitļi $a$ un $b$ un $a>b$, 
+tad $a+b$ nedalās ar $a-b$.  
+Kāds lielākais elementu skaits var būt kopā $S$?
+
+**Atbilde:** `34`
+
+**Skaidrojums:** Var izvēlēties kopu $S$, kurā ietilpst visi tie 
+skaitļi no $1$ līdz $100$, kas dod atlikumu $1$, dalot ar $3$. T.i. 
+$$S = \{ 1,4,7,10,13,\ldots,97,100 \}.$$
+Jebkuru divu skaitļu summa no šīs kopas dos atlikumu $2$, dalot ar $3$. 
+Savukārt to starpība dalīsies ar $3$. Tādēļ summa $a+b$ nekad nevarēs
+dalīties ar $a-b$, jo $a+b$ nedalās ar $3$, bet $a-b$ dalās ar $3$. 

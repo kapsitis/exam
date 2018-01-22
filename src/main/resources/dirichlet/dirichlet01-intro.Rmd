@@ -241,7 +241,7 @@ neviens mēnesis ar mazāk nekā 31 dienu.
 c. Eksistē tieši divas nedēļas dienas, kurās 
 sākas divi tā paša gada mēneši.
 
-```{r, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.intro.q15.fig1, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()

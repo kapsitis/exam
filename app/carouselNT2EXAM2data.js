@@ -31,7 +31,9 @@ var examData = {
             "('$0$' uz galvenās diagonāles, '$1$' visur citur). " +
             "Uz tā var $4! = 24$ veidos izvietot $4$ torņus, lai tie cits citu neapdraudētu. " +
             "Cik no šiem torņu novietojumiem ir tādi, ka zem tiem ierakstīto skaitļu reizinājums NAV $0$?",
-            "imgSrc": "http://www.dudajevagatve.lv:8080/exam/images/chessboard4x4.png",
+            "imgSrc": [
+                "http://www.dudajevagatve.lv:8080/exam/images/chessboard4x4.png"
+            ],
             "instruction": "Zīmējumā attēlotā torņu konfigurācija neder, jo daži no tiem ir uz galvenās diagonāles."
         },
 
@@ -114,8 +116,6 @@ var examData = {
             ]
         }
     ]
-
-
 
 };
 

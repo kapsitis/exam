@@ -54,7 +54,6 @@ $4 \cdot 4 < 17$.
 ## c.dirichlet.generalizations.q4
 <!--questionType=INPUT|length=5--> Kāds ir mazākais skaits skolēnu, kam jābūt klasē,
 lai varētu apgalvot, ka vismaz 5 no tiem ir dzimuši vienā nedēļas dienā?
-(**Norāde:** *Ierakstīt veselu pozitīvu skaitli.*)
 
 **Atbilde:** `29`
 
@@ -72,9 +71,9 @@ noteikti ir dzimuši vienā nedēļas dienā, bet var gadīties, ka neeksistē �
 kuri visi dzimuši vienā nedēļas dienā.  
 Atrast mazāko un lielāko $n$ vērtību, kurai šis apgalvojums ir patiess.
 
-**Atbilde:** mazākā: `15`, lielākā: `21`
+**Atbilde:** (Mazākā $n$ vērtība): `15`, (Lielākā $n$ vērtība): `21`
 
-**Skaidrojums:** Ja $n <15$, tad ne vairāk kā $14$ cilvēkus var sadalīt 
+**Skaidrojums:** Ja $n<15$, tad ne vairāk kā $14$ cilvēkus var sadalīt
 pa nedēļas dienām tā, lai katrā būtu dzimuši ne vairāk kā $2$.  
 Ja cilvēku ir no $15$ līdz $21$ (abus galapunktus ieskaitot), tad
 pēc vispārinātā Dirihlē principa iegūsim $\lceil n/7 \rceil = 3$ - vismaz
@@ -87,7 +86,7 @@ Tortes dekorēšanai nepieciešami vai nu divi apelsīni, vai trīs āboli,
 vai piecas aprikozes, vai septiņi ķirši. 
 Mazā Mija atnesa no veikala $n$ augļus, ikviens no kuriem 
 ir apelsīns, ābols, aprikoze vai ķirsis. 
-Kādam mazākajam $n$ ar atnestajiem augļetriem
+Kādam mazākajam $n$ ar atnestajiem augļiem
 noteikti pietiek tortes dekorēšanai?
 
 **Atbilde:** `14`
@@ -184,7 +183,7 @@ nosaukumiem, piemēram, ("2";"3") vai ("10","J") vai ("K","A")?
 
 **Atbilde:** `29`
 
-**Skaidrojums:** Izveidosim 7 Dirihlē "būrīšus": ("2";"3"), 
+**Skaidrojums:** Izveidosim $7$ Dirihlē "būrīšus": ("2";"3"),
 ("4", "5"), ("6", "7"), ("8", "9"), ("10", "J"), ("Q", "K"), 
 ("A"). Izvēloties $29$ kārtis, vismaz $\lceil 29/7 \rceil = 5$
 nonāks vienā būrītī. Tā kā ar vienu nosaukumu ir tikai $4$ kārtis, 
@@ -288,7 +287,7 @@ Ja turpretī izvēlas $18$ baltos punktus, tad arī melno būs $18$ un tos
 režģī $6 \times 6$ varēs iekrāsot pārmaiņus līdzīgi šaha galdiņa krāsojumam.
 
 
-```{r, fig.width=2, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.generalizations.q14.fig1, fig.width=2, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)
@@ -347,7 +346,7 @@ otram, jo $N+i+j$ (kur $i,j$ ir naturāli skaitļi, kas nepārsniedz $5$)
 nevar dot atlikumu $N$, dalot ar $12$.
 
 
-```{r, fig.width=1.98, fig.height=2.2, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.generalizations.q15.fig1, fig.width=1.98, fig.height=2.2, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)

@@ -91,7 +91,10 @@ class Carousel7 extends React.Component {
                             }
 
                             if (qq.hasOwnProperty('imgSrc') && qq.imgSrc != "") {
-                                webImage = <img src={qq.imgSrc}/>;
+                                webImage = <div>{qq.imgSrc.map(function(iiss,i) {
+                                    return <span><img src={iiss}/><br/></span>
+                                })}</div>
+                                //webImage = <img src={qq.imgSrc}/>;
                             } else {
                                 webImage = ""
                             }

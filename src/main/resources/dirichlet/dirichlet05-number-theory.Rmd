@@ -54,7 +54,7 @@ to kubi un kubu atlikumi, dalot ar $7$.
 Cik naturāli skaitļi jāizvēlas, lai starp tiem noteikti varētu atrast
 divus, kuru kubi dod vienādus atlikumus dalot ar $7$?
 
-```{r, fig.width=3.5, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.nt.q3.fig1, fig.width=3.5, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)
@@ -119,7 +119,7 @@ Cik naturāli skaitļi (no kuriem neviens nedalās ar $7$)
 jāizvēlas, lai starp tiem noteikti varētu atrast
 trīs, kuru kubi dod vienādus atlikumus dalot ar $7$? 
 
-```{r, fig.width=3.5, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.nt.q4.fig1, fig.width=3.5, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)
@@ -180,7 +180,7 @@ Cik naturāli skaitļi (kas visi dod dažādus atlikumus, dalot ar $7$)
 jāizvēlas, lai starp tiem noteikti varētu atrast skaitļus 
 $a$ un $b$, kuriem $a^2 + ab + b^2$ dalās ar $7$?  
 
-```{r, fig.width=3.5, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.nt.q5.fig1, fig.width=3.5, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)

@@ -15,7 +15,7 @@ Kāds ir lielākais taisnstūrīšu $1 \times 2$ skaits, kuros var sagriezt
 kvadrātu $6 \times 6$, kam noņemtas divas rūtiņas kvadrāta pretējos stūros? 
 Griešana jāveic pa rūtiņu līnijām.
 
-```{r, fig.width=2, fig.height=1.2, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q1.fig1, fig.width=2, fig.height=1.2, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)
@@ -75,7 +75,7 @@ Pie kāda mazākā $n$ tajā noteikti var atrast taisnstūri ar
 malām paralēlām režģa malām, kuram visas virsotnes ir 
 vienā krāsā?
 
-```{r, fig.width=2, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q2.fig1, fig.width=2, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)
@@ -131,7 +131,7 @@ Pie kāda $n$ tajā noteikti var atrast režģi $3 \times 3$, kurā visas virsot
 vienā krāsā (2.zīm.)?
 
 
-```{r, fig.width=1.98, fig.height=2.2, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q3.fig1, fig.width=1.98, fig.height=2.2, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)
@@ -180,7 +180,7 @@ popViewport(2)
 
 
 
-```{r, fig.width=1.98, fig.height=2.2, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q3.fig2, fig.width=1.98, fig.height=2.2, echo=FALSE, message=FALSE, warning=FALSE}
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)
 pushViewport(mainVP)
@@ -281,7 +281,7 @@ stūra rūtiņu) varēs novietot $n$ taisnstūrīšus $1 \times 3$?
 
 
 
-```{r, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q5.fig1, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()
@@ -352,7 +352,7 @@ popViewport(2)
 
 ```
 
-```{r, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q5.fig2, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()
@@ -429,11 +429,10 @@ popViewport(2)
 
 **Skaidrojums:** Pretrunas iegūšanai izdevīgāks Andrīša krāsojums, kurā 
 ir tikai $20$ sarkanas rūtiņas. Tiklīdz kā mēģināsim izvietot $21$ taisnstūrīti,
-izrādīsies, ka sarkano rūtiņu visiem taisnstūrīšiem nepietiek. 
-
+izrādīsies, ka sarkano rūtiņu visiem taisnstūrīšiem nepietiek.
 $20$ taisnstūrīšus, acīmredzot, var izvietot (3.zīm.).
 
-```{r, fig.width=1.4, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q5.fig3, fig.width=1.4, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()
@@ -511,7 +510,7 @@ varēs novietot $n$ taisnstūrīšus $1 \times 3$?
 
 
 
-```{r, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q6.fig1, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()
@@ -584,7 +583,7 @@ popViewport(2)
 
 
 
-```{r, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q6.fig2, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()
@@ -664,7 +663,7 @@ Konstrukciju ar $21$ taisnstūrīti var atrast
 ar mēģinājumu un kļūdu metodi - tā attēlota 3.zīmējumā. 
 
 
-```{r, fig.width=1.4, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q6.fig3, fig.width=1.4, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()
@@ -750,7 +749,7 @@ skaitļu summa 2.zīmējumā attēlotajā figūrā
 (to veido $4$ mazie trijstūrīši, var būt dažādi pagriezta), 
 kur šī skaitļu summa ir vismazākā?
 
-```{r, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q7.fig1, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()
@@ -832,7 +831,7 @@ ka vismaz vienā no četrām mazajām figūrām būs vismaz trīs skaitļi $5$.
 Tādēļ tur ierakstīto skaitļu summa nepārsniegs $5 + 5 + 5 + 7 = 22$. 
 
 
-```{r, fig.width=1.4, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q7.fig3, fig.width=1.4, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()
@@ -916,7 +915,7 @@ noteikti atradīsies tāda trīs sešstūrīšu figūriņa (2.zīm.),
 kurā ierakstīto trīs skaitļu summa ir vismaz $n$?
 
 
-```{r, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q9.fig1, fig.width=2, fig.height=1.555555, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()
@@ -1044,7 +1043,7 @@ no tiem nonāk lielā kvadrāta četrās virsotnēs, bet piektais punkts -
 lielā kvadrāta centrā. Tad visi attālumi starp punktiem ir vai nu 
 $\sqrt{2}/2$ vai $1$ (turklāt $\sqrt{2}/2 < 1$).
 
-```{r, fig.width=0.7, fig.height=0.7, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q10.fig1, fig.width=0.7, fig.height=0.7, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)
@@ -1122,7 +1121,7 @@ b. Taisnstūrītis $1 \times 2$ (2.zīm.)
 c. "Stūrītis" - ieliekta figūriņa no $3$ rūtiņām (3.zīm.)
 d. Kvadrātiņš $2 \times 2$ (4.zīm.)
 
-```{r, fig.width=1.2, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q13.fig1, fig.width=1.2, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)
@@ -1196,7 +1195,7 @@ mazāk par pusi no $64$.
 ($32$ rūtiņas var iekrāsot kā šaha galdiņu - un tad 2.zīm. un 3.zīm. 
 figūriņas tur ievietot nevar.)
 
-```{r, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q13.fig5, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()
@@ -1272,7 +1271,7 @@ veselu skaitu centimetru. Tādēļ $10$ ir labākais novērtējums.
 Kādu lielāko skaitu $n$ tetromino (1.zīm.) var izgriezt no kvadrāta 
 $9 \times 9$? Visi griezumi iet pa rūtiņu līnijām.
 
-```{r, fig.width=0.7, fig.height=0.7, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q15.fig1, fig.width=0.7, fig.height=0.7, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)
@@ -1310,7 +1309,7 @@ Ar $16$ figūriņām uzdevumu, acīmredzot var veikt - pietiek ievietot
 vienu no figūriņām kā parādīts ar sarkano kontūru - un pēc tam 
 citas iegūt, nobīdot šo figūriņu $2$,$4$ vai $6$ rūtiņas pa labi un/vai uz leju.
 
-```{r, fig.width=2, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.shapes.q15.fig2, fig.width=2, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 grid.newpage()
 mainVP <- viewport(name="mainVP", width = 1, height = 1)

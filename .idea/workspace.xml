@@ -2,26 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f27da2f3-347b-49a9-af6b-e10d5ffd2370" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/carousel4.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/carousel4data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/carousel5.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/carousel5data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/carousel6.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/carousel6data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/carousel7.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/carousel7data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/carousel4.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/carousel5.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/carousel6.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/carousel7.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.jsx" afterPath="$PROJECT_DIR$/app/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/radioButtons.jsx" afterPath="$PROJECT_DIR$/app/radioButtons.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/bundle.js" afterPath="$PROJECT_DIR$/src/main/webapp/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/bundle.js.map" afterPath="$PROJECT_DIR$/src/main/webapp/bundle.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/exam.html" afterPath="$PROJECT_DIR$/src/main/webapp/exam.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/examlist.html" afterPath="$PROJECT_DIR$/src/main/webapp/examlist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/carousel7.jsx" afterPath="$PROJECT_DIR$/app/carousel7.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/carousel7data.js" afterPath="$PROJECT_DIR$/app/carousel7data.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/carouselNT2EXAM2.jsx" afterPath="$PROJECT_DIR$/app/carouselNT2EXAM2.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/carouselNT2EXAM2data.js" afterPath="$PROJECT_DIR$/app/carouselNT2EXAM2data.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet01-intro.Rmd" afterPath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet01-intro.Rmd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet02-generalizations.Rmd" afterPath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet02-generalizations.Rmd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet03-combinatorics.Rmd" afterPath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet03-combinatorics.Rmd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet04-shapes.Rmd" afterPath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet04-shapes.Rmd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet05-number-theory.Rmd" afterPath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet05-number-theory.Rmd" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,108 +28,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="carousel7.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/carousel7.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="93" column="62" lean-forward="false" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="carousel6data.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/carousel6data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="carousel5data.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/carousel5data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
-              <caret line="105" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="carousel4data.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/carousel4data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-19">
-              <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="carouselNT2EXAM2data.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/carouselNT2EXAM2data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="87" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="carousel7data.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/carousel7data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="273" column="8" lean-forward="false" selection-start-line="273" selection-start-column="8" selection-end-line="273" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dirichlet03-combinatorics.Rmd" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet03-combinatorics.Rmd">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
-              <caret line="408" column="0" lean-forward="false" selection-start-line="408" selection-start-column="0" selection-end-line="408" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dirichlet04-shapes.Rmd" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet04-shapes.Rmd">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="686">
-              <caret line="1343" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="1343" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dirichlet05-number-theory.Rmd" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet05-number-theory.Rmd">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1496">
-              <caret line="458" column="0" lean-forward="true" selection-start-line="458" selection-start-column="0" selection-end-line="458" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dirichlet02-generalizations.Rmd" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet02-generalizations.Rmd">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="408" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -178,9 +67,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/examlist.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/app.html" />
-        <option value="$PROJECT_DIR$/app/app.jsx" />
         <option value="$PROJECT_DIR$/util/examlistApi.js" />
         <option value="$PROJECT_DIR$/app/examlist-mock.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/carousel1.html" />
@@ -205,10 +91,8 @@
         <option value="$PROJECT_DIR$/app/CarouselNT2EXAM2data.js" />
         <option value="$PROJECT_DIR$/app/carousel2.jsx" />
         <option value="$PROJECT_DIR$/app/carousel1.jsx" />
-        <option value="$PROJECT_DIR$/app/carouselNT2EXAM2.jsx" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/carousel.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/carouselNT2EXAM2.html" />
-        <option value="$PROJECT_DIR$/app/carouselNT2EXAM2data.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/carousel4.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/carousel5.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/carousel6.html" />
@@ -223,12 +107,17 @@
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/carousel7.html" />
         <option value="$PROJECT_DIR$/app/carousel6data.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet01-intro.Rmd" />
         <option value="$PROJECT_DIR$/app/index.jsx" />
         <option value="$PROJECT_DIR$/app/radioButtons.jsx" />
         <option value="$PROJECT_DIR$/app/carousel7.jsx" />
-        <option value="$PROJECT_DIR$/app/carousel7data.js" />
+        <option value="$PROJECT_DIR$/app/carouselNT2EXAM2.jsx" />
+        <option value="$PROJECT_DIR$/app/carouselNT2EXAM2data.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet05-number-theory.Rmd" />
         <option value="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet03-combinatorics.Rmd" />
+        <option value="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet02-generalizations.Rmd" />
+        <option value="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet01-intro.Rmd" />
+        <option value="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet04-shapes.Rmd" />
+        <option value="$PROJECT_DIR$/app/carousel7data.js" />
       </list>
     </option>
   </component>
@@ -263,6 +152,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -402,66 +293,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dirichlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dirichlet02-generalizations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dirichlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dirichlet01-intro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -479,8 +310,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -619,7 +448,8 @@
       <workItem from="1516378833984" duration="1203000" />
       <workItem from="1516440125574" duration="14200000" />
       <workItem from="1516530156449" duration="4353000" />
-      <workItem from="1516549797105" duration="6495000" />
+      <workItem from="1516549797105" duration="6934000" />
+      <workItem from="1516611684855" duration="21519000" />
     </task>
     <task id="LOCAL-00001" summary="It has 2 exams now">
       <created>1509533516375</created>
@@ -639,7 +469,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215124000" />
+    <option name="totallyTimeSpent" value="237082000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -652,9 +482,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1603" height="867" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25031766" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25031766" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3181208" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -951,48 +781,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/carouselNT2EXAM2.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="26" column="13" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/radioButtons.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="56" column="81" lean-forward="false" selection-start-line="56" selection-start-column="81" selection-end-line="56" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet01-intro.Rmd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="314" column="17" lean-forward="true" selection-start-line="314" selection-start-column="17" selection-end-line="318" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/carousel7.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="93" column="62" lean-forward="false" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/carousel6data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        <state relative-caret-position="75">
+          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/carousel5data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
+        <state relative-caret-position="1575">
           <caret line="105" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
           <folding />
         </state>
@@ -1000,56 +806,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/carousel4data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+        <state relative-caret-position="1230">
+          <caret line="82" column="5" lean-forward="false" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/carousel7.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="94" column="58" lean-forward="true" selection-start-line="92" selection-start-column="28" selection-end-line="99" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/carouselNT2EXAM2.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="76" column="29" lean-forward="false" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/carouselNT2EXAM2data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet02-generalizations.Rmd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="408" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/carousel7data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="273" column="8" lean-forward="false" selection-start-line="273" selection-start-column="8" selection-end-line="273" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet03-combinatorics.Rmd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="408" column="0" lean-forward="false" selection-start-line="408" selection-start-column="0" selection-end-line="408" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet04-shapes.Rmd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="686">
-          <caret line="1343" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="1343" selection-end-column="0" />
+        <state relative-caret-position="581">
+          <caret line="117" column="4" lean-forward="false" selection-start-line="117" selection-start-column="4" selection-end-line="117" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet05-number-theory.Rmd">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="458" column="0" lean-forward="true" selection-start-line="458" selection-start-column="0" selection-end-line="458" selection-end-column="0" />
+        <state relative-caret-position="491">
+          <caret line="56" column="28" lean-forward="false" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet03-combinatorics.Rmd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-258">
+          <caret line="293" column="40" lean-forward="false" selection-start-line="293" selection-start-column="40" selection-end-line="293" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet02-generalizations.Rmd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="289" column="42" lean-forward="false" selection-start-line="289" selection-start-column="42" selection-end-line="289" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet01-intro.Rmd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="243" column="32" lean-forward="false" selection-start-line="243" selection-start-column="32" selection-end-line="243" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet04-shapes.Rmd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="431" column="62" lean-forward="false" selection-start-line="431" selection-start-column="62" selection-end-line="431" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/carousel7data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="1057" column="134" lean-forward="false" selection-start-line="1057" selection-start-column="134" selection-end-line="1057" selection-end-column="134" />
           <folding />
         </state>
       </provider>

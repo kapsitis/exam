@@ -159,7 +159,7 @@ ar vienu vai vairākām svītriņām, kas ved no smagākās uz jebkuru citu.
 Nedrīkst palikt izolēti gabali, kas nekad nav salīdzināti ar to 
 monētu, kuru esam pasludinājuši par smagāko. 
 
-Ja pirms visām svēršanām katra monēta veido "izolētu gabalu", tad 
+Pirms visām svēršanām katra monēta veido "izolētu gabalu", tādēļ
 veicot $6$ svēršanas gabalu skaits var samazināties no $8$ līdz $2$
 (katra svēršana var sasaistīt kopā divus gabalus). Bet ar to 
 nepietiek, lai nonāktu līdz vienam gabalam. 
@@ -172,7 +172,7 @@ vai smagāka par tām. Doti sviras svari ar diviem svaru kausiem un
 bez atsvariem; var noskaidrot vai kreisais svaru kauss ir smagāks/vienāds/vieglāks
 par labo svaru kausu.  
 Atrast lielāko $n$, kuram var pamatot, ka ar $n$ svēršanām uz sviru 
-svariem NEPIETIEK, lai atrastu viltoto monētu un uzzinātu 
+svariem **nepietiek**, lai atrastu viltoto monētu un uzzinātu
 vai tā smagāka/vieglāka par citām.
 
 **Atbilde:** `2`
@@ -234,7 +234,7 @@ nevis $6$ - sk. pelēkās bultiņas 1.zīmējumā). Uz katras no $5$ diagonālē
 var novietot ne vairāk par vienu laidni. Tas pats sakāms arī par 
 baltajām diagonālēm. Tādēļ laidņu nevar būt vairāk par $5+5=10$. 
 
-```{r, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.combinatorics.q12.fig1, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()
@@ -291,7 +291,7 @@ popViewport(1)
 
 Veids, kā izvietot $10$ laidņus ir parādīts 2.zīmējumā.
 
-```{r, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
+```{r c.dirichlet.combinatorics.q12.fig2, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
 grid.newpage()
@@ -386,11 +386,11 @@ Lielākā summa, ko var iegūt, ir $90+\ldots+99 = 945$.
 
 ## c.dirichlet.combinatorics.q15
 Spēlētājs $A$ izvēlas $10$ divciparu skaitļus. Spēlētājs $B$
-no tiem izvēlas netukšu apakškopu (t.i. vienu vai vairākus 
-skaitļus; varbūt arī visus $10$).   
-1. Cik dažādos veidos $B$ to var izdarīt? 
-2. Vai noteikti atradīsies divas dažādas apakškopas, kurās
-skaitļu summas ir vienādas?
+no tiem izvēlas netukšu apakškopu, t.i. vienu vai vairākus
+skaitļus (varbūt arī visus $10$) no tiem, ko paņēma $A$.
+1. Cik dažādos veidos $B$ to var izdarīt?
+2. Vai neatkarīgi no $A$ izvēles, $B$ noteikti varēs atrast divas dažādas apakškopas, kurās
+skaitļu summas ir vienādas?"
     a. Jā
     b. Nē
 

@@ -1040,8 +1040,8 @@ Tad to attālums ir $\sqrt{2}/2$.
 
 Šo novērtējumu nevar uzlabot, jo var $5$ punktus novietot tā, ka četri 
 no tiem nonāk lielā kvadrāta četrās virsotnēs, bet piektais punkts - 
-lielā kvadrāta centrā. Tad visi attālumi starp punktiem ir vai nu 
-$\sqrt{2}/2$ vai $1$ (turklāt $\sqrt{2}/2 < 1$).
+lielā kvadrāta centrā. Tad visi attālumi starp punktiem nepārsniedz
+$\sqrt{2}/2$.
 
 ```{r c.dirichlet.shapes.q10.fig1, fig.width=0.7, fig.height=0.7, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
@@ -1110,15 +1110,14 @@ atradīsies uz abu malējo virsotņu veidotās malas $AC$.
 
 ## c.dirichlet.shapes.q13
 <!--questionType=MS-->
-Dots šaha galdiņš $8 \times 8$, kurā atzīmētas $n$ 
+Dots šaha galdiņš $8 \times 8$, kurā kaut kā atzīmētas $n$
 rūtiņas. Katrai no četrām figūriņām atrast lielāko $n$ vērtību, 
 pie kuras noteikti var novietot šo figūriņu, nepārklājot 
-nevienu no atzīmētajām rūtiņām. 
-(*Atzīmēt visas figūriņas, ko noteikti var ievietot kaut vienā eksemplārā.*)
+nevienu no atzīmētajām rūtiņām.
 
 a. Kvadrātiņš $1 \times 1$ (1.zīm.) 
 b. Taisnstūrītis $1 \times 2$ (2.zīm.)
-c. "Stūrītis" - ieliekta figūriņa no $3$ rūtiņām (3.zīm.)
+c. "Stūrītis" - figūriņa no $3$ rūtiņām (3.zīm.)
 d. Kvadrātiņš $2 \times 2$ (4.zīm.)
 
 ```{r c.dirichlet.shapes.q13.fig1, fig.width=1.2, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
@@ -1191,7 +1190,7 @@ visas $64$ nav iekrāsotas.
 
 Divu vai trīs rūtiņu figūriņas 
 var novietot tiklīdz kā iekrāsotas ne vairāk kā $31$, t.i. stingri 
-mazāk par pusi no $64$.
+mazāk par pusi no $64$, jo tad vismaz vienā kvadrātiņā 2x2 būs tikai viena iekrāsotā.
 ($32$ rūtiņas var iekrāsot kā šaha galdiņu - un tad 2.zīm. un 3.zīm. 
 figūriņas tur ievietot nevar.)
 

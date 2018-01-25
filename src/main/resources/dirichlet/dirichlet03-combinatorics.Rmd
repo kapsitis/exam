@@ -21,14 +21,14 @@ Cik konfekšu jāiesaiņo (vienalga kura lieluma pakās) tā, lai noteikti
 atrastos vai nu divas pakas ar vienādu 
 konfekšu skaitu vai arī divas pakas ar konfekšu summu $31$?
 
-**Atbilde:** `106`
+**Atbilde:** `91`
 
 **Skaidrojums:** Ir spēkā vienādība:
-$$15+16+17+18+19+20 = 3 \cdot (15+20) = 105.$$
-Tiklīdz kā konfekšu skaits pārsniedz $105$, tad tās nevar iesaiņot $6$ pakās. 
-Ir nepieciešamas vismaz $7$ pakas, kas nozīmē to, ka vismaz divas 
+$$16+17+18+19+20 = 90.$$
+Tiklīdz kā konfekšu skaits pārsniedz $90$, tad tās nevar iesaiņot $5$ pakās.
+Ir nepieciešamas vismaz $6$ pakas, kas nozīmē to, ka vismaz divas
 no pakām izrādīsies vienādas vai arī nonāks vienādos attālumos no virknītes
-$10,\ldots,20$ galiem (t.i. dod summā $31$). 
+$11,\ldots,20$ galiem (t.i. dod summā $31$).
 
 
 ## c.dirichlet.combinatorics.q2

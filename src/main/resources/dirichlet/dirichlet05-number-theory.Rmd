@@ -161,10 +161,10 @@ popViewport(2)
 
 ```
 
-**Atbilde:** `4`
+**Atbilde:** `7`
 
-**Skaidrojums:** Pavisam ir $3$ dažādi atlikumi, dalot naturālu skaitļu 
-kubus ar $7$. Tādēļ, izvēloties $4$ šādus atlikumus, vismaz divi sakritīs.
+**Skaidrojums:** Pavisam iespējami $3$ dažādi atlikumi, dalot naturālu skaitļu
+kubus ar $7$. Tādēļ, izvēloties septiņus šādus atlikumus, vismaz trīs no tiem sakritīs.
 
 Ievērosim, ka arī naturāliem skaitļiem $n \geq 7$ ir tādi 
 paši atlikumi, jo $(n+7)^3 = n^3 + 3 \cdot n^2 \cdot 7 + 3 \cdot n \cdot 7^2 + 7^3$, 
@@ -281,7 +281,7 @@ kaut kādi divi no tiem noteikti nonāktu vienā progresijā?
 
 **Skaidrojums:** Tā kā katrā progresijā ir tieši viens skaitlis, 
 kurš nedalās ar $3$ (un ir tieši $33$ skaitļi līdz $100$, kas dalās ar $3$), 
-tad to kopskaits ir $100-33=67$. Izvēloties par vienu skaitli vairāk (jeb
+tad progresiju kopskaits ir $100-33=67$. Izvēloties par vienu skaitli vairāk (jeb
 tieši $68$ skaitļus) vismaz vienā progresijā nonāks vismaz divi skaitļi. 
 
 ## c.dirichlet.nt.q8 
@@ -289,19 +289,20 @@ Kāds ir lielākais skaitļu skaits no $1$ līdz $100$, ko var izvēlēties
 tā, lai nekādiem diviem no izvēlētajiem skaitļiem $m$ un $n$, to 
 dalījums $k=m/n$ nebūtu vesels skaitlis, kas lielāks par $2$?
 
-**Ieteikums1:** Mums jāizmanto fakts, ka divu izvēlēto skaitļu 
+**Ieteikums1:** Jāizmanto fakts, ka divu izvēlēto skaitļu
 attiecība drīkst būt VIENĀDA ar $3$. 
 Varbūt pietiek atrast lielāko skaitu, ko var izvēlēties
 tā, lai divu skaitļu dalījums nebūtu skaitļa $3$ pakāpe. 
 
-**Atbilde:** `68`
+**Atbilde:** `67`
 
-**Skaidrojums:** Sadalām naturālos skaitļus no $1$ līdz $100$ 
-ģeometriskās progresijās ar kvocientu $3$ (līdzīgi kā iepriekšējā uzdevumā). 
+**Skaidrojums:** Piemērs, ko var izvēlēties - visi naturālie skaitļi no 34 līdz 100.
+Uzlabot to nevar: Sadalām naturālos skaitļus no $1$ līdz $100$
+ģeometriskās progresijās ar kvocientu $3$ (katra progresija sākas ar citu skaitli, kas nedalās ar $3$).
 Pavisam ir $67$ šādas ģeometriskas progresijas. 
 Ja skaitļu ir par vienu vairāk, tad vismaz divi skaitļi nonāks tanī pašā 
 ģeometriskajā progresijā, t.i. to attiecība būs vesels skaitlis, 
-kas lielāks par $2$ (konkrēti $3,9,27$ vai $81$). 
+kas lielāks par $2$ (konkrēti $3,9,27$ vai $81$).
 
 ## c.dirichlet.nt.q9
 Kāds ir mazākais skaitļu skaits, ko izvēloties no $1$ līdz $100$, 
@@ -342,7 +343,7 @@ bet atšķiras kā divi aritmētiskas progresijas locekļi par
 $k \cdot 13$, kur $k < 17$. Bet šāds skaitlis nevar dalīties ar $17$. 
 Vispārinot šo spriedumu citiem skaitļiem (izņemot $13$ un $17$), citiem 
 atlikumiem kā arī lielākam skaitļu skaitam, varam iegūt 
-*ķīniešu atlikumu teorēmu* vispārīgajā veidā. 
+ķīniešu atlikumu teorēmu vispārīgajā veidā.
 
 
 <!-- n, m doti --> 
@@ -351,10 +352,10 @@ Sportistam $50$ dienu laikā ir $64$ treniņi - katru dienu vismaz viens
 treniņš. Vai noteikti atradīsies dažas pēc kārtas sekojošas dienas, 
 kurās ir tieši $k$ treniņi dotajām $k$ vērtībām?
 
-1. $k=34$
+1. Ja $k=34$:
     a. Jā
     b. Nē
-2. $k=35$
+2. Ja $k=35$:
     a. Jā
     b. Nē
 

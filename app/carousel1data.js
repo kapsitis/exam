@@ -1,5 +1,5 @@
 var carousel1data = {
-    count: 1200,
+    count: 1800,
     "questions": [
         {
             "id": "nt-part1-02.q1",

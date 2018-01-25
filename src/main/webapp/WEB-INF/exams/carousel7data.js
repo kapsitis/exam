@@ -1704,7 +1704,7 @@ var examData = {
             + "Jebkuru divu skaitļu summa no šīs kopas dos atlikumu $2$, dalot ar $3$. "
             + "Savukārt to starpība dalīsies ar $3$. Tādēļ summa $a+b$ nekad nevarēs "
             + "dalīties ar $a-b$, jo $a+b$ nedalās ar $3$, bet $a-b$ dalās ar $3$."
-        }
+        },
         /* THE END */
     ]
 };

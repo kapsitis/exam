@@ -5,14 +5,16 @@ import {RadiobuttonGroup, CheckboxGroup, CheckboxSingle} from './radioButtons.js
 import getMinutesSeconds from './jsutils.js'
 //import examData from './carousel7data.js'
 
-import {getExamlist, getExamItems} from './examlistApi.js'
+
+import {getCompleteExamItems} from './examlistApi2.js'
 
 
-class Carousel7 extends React.Component {
+
+class Carousel7Solutions extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            "count": "1200",
+            "yourAnswers": ["","","","","","","","","","","","","","",""],
             "seed": "1",
             "questions": []
         }
@@ -20,19 +22,14 @@ class Carousel7 extends React.Component {
 
 
     componentDidMount() {
-        getExamItems()
+        getCompleteExamItems()
             .then(data => {
                 this.setState({
-                    count: data.count,
+                    yourAnswers: data.yourAnswers,
                     seed: data.seed,
                     questions: data.questions
                 })
             });
-        setInterval(() => {
-            this.setState({
-                count: this.state.count - 1
-            })
-        }, 1000);
     }
 
 
@@ -46,7 +43,7 @@ class Carousel7 extends React.Component {
                     <a href="#myCarousel" role="button" data-slide="next">
                         <button type="button" className="btn btn-primary" id="nextButton"><b>Next</b></button>
                     </a>&nbsp;&nbsp;
-                    {getMinutesSeconds(this.state.count)}
+                    <span style={{color:"blue"}}>ATBILDES</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="hidden" name="testId" value="pigeonhole"/>
                     <input type="hidden" name="seed" value={this.state.seed}/>
@@ -60,45 +57,11 @@ class Carousel7 extends React.Component {
                             let webForm = null;
                             let theInstruction = "";
                             let webImage = "";
-                            if (qq.questionType == "INPUT") {
-                                webForm = <div><input size={qq.length} maxLength={qq.length}
-                                                      className="webFormInput" type="text" name={"q" + i}/></div>;
-                            } else if (qq.questionType == "MS") {
-                                webForm = <CheckboxGroup prefix="q" alternatives={qq.alternatives} i={i}/>;
-                            } else if (qq.questionType == "MC") {
-                                webForm = <RadiobuttonGroup prefix="q" alternatives={qq.alternatives} i={i}/>;
-                            } else if (qq.questionType == "MULTIPART") {
-
-
-                                webForm = qq.parts.map(function(qqqq,iiii) {
-
-                                    if (qqqq.questionType=="MC") {
-                                        return <div><i style={{color:"blue"}}>{qqqq.cue}</i><br/>
-                                            <RadiobuttonGroup prefix={"q" + i + "p"} alternatives={qqqq.alternatives} i={iiii}/>
-                                        </div>
-                                    } else if (qqqq.questionType=="MS") {
-                                        return <div><i style={{color:"blue"}}>{qqqq.cue}</i><br/>
-                                            <CheckboxGroup prefix={"q" + i + "p"} alternatives={qqqq.alternatives} i={iiii}/>
-                                        </div>
-                                    } else {
-                                        return <div><i style={{color:"blue"}}>{qqqq.cue}</i><br/><input size={qqqq.length} maxLength={qqqq.length}
-                                               className="webFormInput" type="text" name={"q" + i + "p" + iiii}/>
-                                        </div>
-                                    }
-
-                                })
-
-                            } else {
-                                webForm = <div>Not Supported Question Type {i}</div>;
-                            }
+                            let webImage2 = "";
+                            let theAlternatives = "";
 
 
 
-                            if (qq.hasOwnProperty('instruction') && qq.instruction != "") {
-                                theInstruction = <i>({qq.instruction})</i>
-                            } else {
-                                theInstruction = ""
-                            }
 
                             if (qq.hasOwnProperty('imgSrc') && qq.imgSrc != "") {
                                 webImage = <div>{qq.imgSrc.map(function(iiss,i) {
@@ -110,6 +73,21 @@ class Carousel7 extends React.Component {
                             }
 
 
+                            if (qq.hasOwnProperty('imgSrc2') && qq.imgSrc2 != "") {
+                                webImage2 = <div>{qq.imgSrc2.map(function(iiss,i) {
+                                    return <span><img src={iiss}/><br/></span>
+                                })}</div>
+                                //webImage = <img src={qq.imgSrc}/>;
+                            } else {
+                                webImage2 = ""
+                            }
+
+                            if (qq.questionType == "MC" || qq.questionType == "MC" ) {
+                                theAlternatives = <ol>{qq.alternatives.map(function(alter, i) {
+                                    return <li>{alter}</li>
+                                })}</ol>
+                            }
+
 
                             return <div className={(i==0) ? "item active" : "item"}>
                                 <div className="container">
@@ -119,7 +97,11 @@ class Carousel7 extends React.Component {
                                             {(theInstruction == "") ? "" : <span><br />{theInstruction}</span>}
                                             {(webImage == "") ? "" : <span><br/>{webImage}<br /></span>}
                                             <br/>
-                                            {webForm}
+                                            {(theAlternatives == "") ? "" : <div>{theAlternatives}</div>}
+                                            Atbilde: '{qq.answer}'
+                                            <br/>
+                                            <b>Skaidrojums:</b> {qq.explanation}
+                                            {(webImage2 == "") ? "" : <span><br/>{webImage2}<br /></span>}
                                         </div>
                                     </div>
                                 </div>
@@ -134,4 +116,4 @@ class Carousel7 extends React.Component {
 
 
 
-module.exports = Carousel7;
+module.exports = Carousel7Solutions;

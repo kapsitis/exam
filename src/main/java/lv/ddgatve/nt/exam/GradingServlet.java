@@ -25,31 +25,53 @@ public class GradingServlet extends HttpServlet {
 	public final int MAXQUESTIONS = 20;
 
 	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException {
 		PrintWriter out = resp.getWriter();
 
 		resp.setContentType("text/html;charset=utf-8");
-		List<String> correct1 = Arrays.asList("a", "c", "a", "b", "d", 
-				"c", "d", "c", "b", "a",
-				"1/25", "6,7,11"
-				);
-		List<String> correct2 = Arrays.asList("c", "d", "c", "a", "a", 
-				"b", "a", "d", "b", "c", 
-				"c", "0000", "5");
-		
-		List<String> correct3 = Arrays.asList("79","799999999","16","9","24","97",
-				"25,225,625","18","1,2,4,7,14,28","2","0","b,c");
-		Map<String,List<String>> allCorrect = new HashMap<String,List<String>>();
+		List<String> correct1 = Arrays.asList("a", "c", "a", "b", "d", "c",
+				"d", "c", "b", "a", "1/25", "6,7,11");
+		List<String> correct2 = Arrays.asList("c", "d", "c", "a", "a", "b",
+				"a", "d", "b", "c", "c", "0000", "5");
+
+		List<String> correct3 = Arrays.asList("79", "799999999", "16", "9",
+				"24", "97", "25,225,625", "18", "1,2,4,7,14,28", "2", "0",
+				"b,c");
+
+		List<String> correct7 = Arrays.asList(
+				// intro
+				"13", "302", "4", "a,b", "c", "b", "8", "366", "b", "103", "9",
+				"5",
+				"110",
+				"a",
+				"a",
+				// generalizations
+				"a", "b", "17", "29", "15,21", "14", "3", "14", "b", "29", "a",
+				"23", "62",
+				"17",
+				"6",
+				// combinatorics
+				"106", "73", "5", "4", "a", "b", "b", "6", "2", "1090", "11",
+				"10", "13", "10,945",
+				"1023,a",
+				// shapes
+				"16", "7", "41", "19", "20", "21", "22", "14", "13", "c",
+				"2,3", "b", "63,31,31,15", "10", "16",
+				// number-theory
+				"b", "a", "4", "7", "4", "7", "68", "68", "51", "17", "a,a",
+				"b", "240", "c,d", "34");
+
+		Map<String, List<String>> allCorrect = new HashMap<String, List<String>>();
 		allCorrect.put("carousel1", correct1);
 		allCorrect.put("carousel2", correct2);
 		allCorrect.put("carouselNT2EXAM2", correct3);
 
-
 		String testId = req.getParameter("testId");
-		List<String> correct = allCorrect.get(testId);		
+		List<String> correct = allCorrect.get(testId);
 		HttpSession session = req.getSession();
 
-		String loginID = (String)session.getAttribute("loginID");
+		String loginID = (String) session.getAttribute("loginID");
 		String loginName = (String) session.getAttribute("loginName");
 		String[] answers = new String[correct.size()];
 
@@ -58,14 +80,16 @@ public class GradingServlet extends HttpServlet {
 			String elt = ee.nextElement();
 			if (elt.startsWith("q")) {
 				String[] vals = req.getParameterValues(elt);
-				
+
 				int qNum = 0;
 				char currentLetter = 'z';
 				boolean checkboxes = false;
-				if (elt.endsWith("a") || elt.endsWith("b") || elt.endsWith("c") 
-						|| elt.endsWith("d") || elt.endsWith("e") || elt.endsWith("f")) {
-					qNum = Integer.parseInt(elt.substring(1,elt.length()-1));
-					currentLetter = elt.substring(elt.length()-1, elt.length()).charAt(0);
+				if (elt.endsWith("a") || elt.endsWith("b") || elt.endsWith("c")
+						|| elt.endsWith("d") || elt.endsWith("e")
+						|| elt.endsWith("f")) {
+					qNum = Integer.parseInt(elt.substring(1, elt.length() - 1));
+					currentLetter = elt.substring(elt.length() - 1,
+							elt.length()).charAt(0);
 					checkboxes = true;
 				} else {
 					qNum = Integer.parseInt(elt.substring(1));
@@ -73,7 +97,7 @@ public class GradingServlet extends HttpServlet {
 				if (qNum >= 0 && qNum < answers.length) {
 					if (checkboxes) {
 						if (answers[qNum] == null) {
-							answers[qNum] = "" + currentLetter; 
+							answers[qNum] = "" + currentLetter;
 						} else {
 							answers[qNum] = answers[qNum] + "," + currentLetter;
 						}
@@ -82,44 +106,32 @@ public class GradingServlet extends HttpServlet {
 					}
 					// canonize, if there are commas
 					if (answers[qNum].indexOf(",") > -1) {
-						answers[qNum] = NumericSortCanonizer.canonize(answers[qNum]);
+						answers[qNum] = NumericSortCanonizer
+								.canonize(answers[qNum]);
 					}
 				}
 			}
 		}
 
-		int answerCount = 0; 
+		int answerCount = 0;
 		for (int i = 0; i < answers.length; i++) {
 			if (answers[i] != null) {
 				answerCount++;
 			}
 		}
 
-		//		if (loginID == null) {
-		//			out.println(
-		//			"<p>You should <a href='http://www.dudajevagatve.lv:8080/exam/login.jsp'>Log "
-		//					+ "in</a> before taking the test</p>");
-		//		} else if (answerCount < correct.size()) {
-		//			out.println(
-		//			"<p>You should fill in all " + correct.size() + " answers. "
-		//					+ "Either press <b>Back</b> button in your browser or "
-		//					+ "<a href='http://www.dudajevagatve.lv:8080/exam/index.html'>"
-		//					+ "fill the form from the scratch.</a></p>");
-		//
-		//		} else {
-
 		String[] evals = new String[correct.size()];
-		int totalGrade = 0; 
+		int totalGrade = 0;
 		for (int j = 0; j < correct.size(); j++) {
 			if (answers[j] != null && answers[j].equals(correct.get(j))) {
 				evals[j] = "TRUE";
-				totalGrade++; 
+				totalGrade++;
 			} else {
 				evals[j] = "FALSE";
 			}
 		}
 
-		FileOutputStream fis = new FileOutputStream(testId + "/" + loginID 
+		FileOutputStream fis = new FileOutputStream(testId + "/" + loginID
 				+ "." + (new Date()).getTime() + ".txt");
 		OutputStreamWriter osw = new OutputStreamWriter(fis, "UTF-8");
 		BufferedWriter bw = new BufferedWriter(osw);
@@ -143,7 +155,6 @@ public class GradingServlet extends HttpServlet {
 
 		out.println("<p>Total grade: " + totalGrade + "<p>");
 		out.println("<p>Back to the "
-				+"<a href='http://www.dudajevagatve.lv/nt/index.html'>Home Page</a></p>");
+				+ "<a href='http://www.dudajevagatve.lv/nt/index.html'>Home Page</a></p>");
 	}
 }
-

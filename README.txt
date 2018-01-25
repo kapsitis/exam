@@ -16,7 +16,6 @@ npm install --save-dev webpack-dev-server
 
 
 nmp run build
-ant copy
 mvn clean package
 ... upload to tomcat ... 
 

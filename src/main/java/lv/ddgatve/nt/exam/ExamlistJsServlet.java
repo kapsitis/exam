@@ -26,24 +26,29 @@ public class ExamlistJsServlet extends HttpServlet {
 		out.println("\"name\": \"" + JSONValue.escape(loginName) + "\",");
 		out.println("	    \"exams\": ");
 		out.println("[");
-		out.println("       {");
-		out.println("          \"id\": \"carouselNT2EXAM2\",");
-		out.println("         \"title\": \"NT.2.2: (NT.Izlase) Modul\u0101r\u0101 aritm\u0113tika\",");
-		out.println("         \"url\": \"http://www.dudajevagatve.lv:8080/exam/carouselNT2EXAM2.html\"");
-		out.println("       },");
+//		out.println("       {");
+//		out.println("          \"id\": \"carouselNT2EXAM2\",");
+//		out.println("         \"title\": \"NT.2.2: (NT.Izlase) Modul\u0101r\u0101 aritm\u0113tika\",");
+//		out.println("         \"url\": \"http://www.dudajevagatve.lv:8080/exam/carouselNT2EXAM2.html\"");
+//		out.println("       },");
 		out.println("       {");
 		out.println("          \"id\": \"carousel1\",");
-		out.println("         \"title\": \"NT.1.2: (NT.Ievads) Algebras metodes skait\u013Cu teorij\u0101\",");
-		out.println("         \"url\": \"http://www.dudajevagatve.lv:8080/exam/carousel1.html\"");
+		out.println("         \"title\": \"NT.1.1: Algebras metodes skait\u013Cu teorij\u0101\",");
+		out.println("         \"url\": \"http://www.dudajevagatve.lv:8080/exam/carousel1.html\",");
+		out.println("         \"qCount\": \"12\",");
+		out.println("         \"minutes\": \"30\"");
+		
 		out.println("       },");
 		out.println("       {");
 		out.println("         \"id\": \"carousel2\",");
-		out.println("         \"title\": \"NT.1.4: (NT.Ievads) Dal\u0101m\u012Bbas paz\u012Bmes\",");
-		out.println("         \"url\": \"http://www.dudajevagatve.lv:8080/exam/carousel2.html\"");
+		out.println("         \"title\": \"NT.1.2: Dal\u0101m\u012Bbas paz\u012Bmes\",");
+		out.println("         \"url\": \"http://www.dudajevagatve.lv:8080/exam/carousel2.html\",");
+		out.println("         \"qCount\": \"13\",");
+		out.println("         \"minutes\": \"30\"");
 		out.println("       }");
 		out.println("    ]");
 		out.println("}");
-		
+		out.close();
 	}
 }
 

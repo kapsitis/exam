@@ -1,0 +1,252 @@
+\documentclass[a4paper]{article}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+
+
+\bibliographystyle{alpha}
+
+
+\newenvironment{uzdevums}[1][\unskip]{%
+\vspace{3mm}
+\noindent
+\textbf{#1 uzdevums:}
+\noindent}
+{}
+
+
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{url}
+\usepackage[unicode=true,pdfusetitle,
+bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2,
+breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+{hyperref}
+\renewcommand{\abstractname}{Anotācija}
+\renewcommand{\figurename}{Attēls}
+\renewcommand{\tablename}{Tabula}
+\renewcommand{\refname}{Atsauces}
+\setlength{\parindent}{0cm}
+
+
+\hypersetup{
+pdfstartview={XYZ null null 1}}
+\begin{document}
+<<setup22, include=FALSE, warning=FALSE, cache=FALSE>>=
+library(knitr)
+# set global chunk options
+opts_chunk$set(fig.path='figure/minimal-', fig.align='center', fig.show='hold')
+options(formatR.arrow=TRUE,width=90)
+@
+
+
+\title{Dirihlē principa testu pārskats (2018-01-29)}
+
+\author{}
+\date{}
+
+\maketitle
+
+\begin{abstract}
+Šeit apkopota statistika par lietotājiem, kas kārtojuši Dirihlē principa testu - 
+sk. \url{http://www.dudajevagatve.lv:8080/exam/examlist.html}. Mūsu mērķis
+ir labāk saprast testu kārtotāju uzvedību un arī saprast, kuri testu jautājumi 
+ir labāk vai sliktāk sastādīti, ņemot vērā iesūtītās atbildes. 
+\end{abstract}
+
+\section{Testu kārtošanas aktivitāte}
+
+<<external-code, cache=FALSE, warning=FALSE, echo=FALSE, results='hide', message=FALSE>>=
+setwd("/Users/kapsitis/workspace/exam/pigeonhole-reports/")
+
+require(plyr)
+require(Unicode)
+require(ggplot2)
+require(RColorBrewer)
+@
+
+1.\ Attēlā parādīts nosūtīto testu kopskaits katrā no dienām (katrā stabiņā eksāmeni grupēti 
+atbilstoši pieprasītā eksāmena tipam). Populārākie testi ir divi: 
+"random" (10 nejaušie jautājumi) un arī "intro" (Dirihlē principa ievads - pirmais
+no pilnajiem testiem).
+
+2.\ Attēlā parādīts iesūtīto testu īpatsvars atkarībā no kopvērtējuma (to iegūst
+izdalot iegūto punktu skaitu ar maksimālo, kas ir $10$ vai $15$ atkarībā no testa veida).  
+Ievērojama daļa iesūtīto testu formu ir tukšas vai bez nevienas pareizas atbildes.
+
+3.\ Attēlā sazīmētas histogrammas visiem 6 testu veidiem - katra vērtējuma 
+biežums. (Varbūt vajag izmest tās testu sesijas, kur nekas nav atbildēts.)
+
+<<sessionReport, warning=FALSE, echo=FALSE, fig.width=6, fig.height=4, fig.cap="Aktivit\u0101te pa dien\u0101m", dev='CairoPDF'>>=
+sessionsALL <- read.table(
+  file="sessions.csv", 
+  sep=",",
+  header=TRUE,
+  row.names=NULL,  
+  fileEncoding="UTF-8")
+
+myPalette <- brewer.pal(6, "Set1")
+
+sessionsALL$examCount = rep(1,times=nrow(sessionsALL))
+
+sessionsALL$examType <- factor(sessionsALL$examType, 
+                                     levels = c("random","intro","generalizations","combinatorics", "shapes", "number-theory"))
+
+sessionsAggregate <- 
+  aggregate(examCount ~ YyyyMmDd + examType, 
+            data = sessionsALL, 
+            FUN=sum)
+
+barPlot <- 
+  ggplot(data = sessionsALL, 
+         aes(x = YyyyMmDd, y=examCount, fill = examType)) + 
+  geom_bar(stat="identity") +
+  scale_fill_manual(values=myPalette) + 
+  theme_minimal()
+barPlot
+@
+
+
+<<pieChartReport, warning=FALSE, echo=FALSE, fig.width=6, fig.height=4, fig.cap="V\u0113rt\u0113jumu sadal\u012Bjums", dev='CairoPDF'>>=
+setwd("/Users/kapsitis/workspace/exam/pigeonhole-reports/")
+
+require(plyr)
+require(Unicode)
+require(ggplot2)
+require(RColorBrewer)
+
+sessionsALL <- read.table(
+  file="sessions.csv", 
+  sep=",",
+  header=TRUE,
+  row.names=NULL,  
+  fileEncoding="UTF-8")
+
+#myPalette <- brewer.pal(6, "Set1")
+myPalette <- rainbow(6)
+
+## add dummy column with all ones
+sessionsALL$examCount = rep(1,times=nrow(sessionsALL))
+
+sessionsALL$examType <- factor(sessionsALL$examType, 
+                               levels = c("random","intro","generalizations","combinatorics", "shapes", "number-theory"))
+
+sessionsALL$percentage <- round(100*sessionsALL$totalGrade/sessionsALL$maxGrade, digits=2)
+
+# scoreGroup
+xx <- character()
+for (i in 1:nrow(sessionsALL)) {
+  if (sessionsALL$percentage[i] < 0.1) {
+    tt <- "0%"
+  } else if (sessionsALL$percentage[i] < 20.1) {
+    tt <- "(0%;20%]"
+  } else if (sessionsALL$percentage[i] < 40.1) {
+    tt <- "(20%;40%]"
+  } else if (sessionsALL$percentage[i] < 60.1) {
+    tt <- "(40%;60%]"
+  } else if (sessionsALL$percentage[i] < 80.1) {
+    tt <- "(60%;80%]"
+  } else {
+    tt <- "(80%;100%]"
+  }
+  xx <- c(xx,tt)
+}
+
+sessionsALL$scoreGroup <- xx
+sessionsALL$scoreGroup <- factor(sessionsALL$scoreGroup, 
+                               levels = rev(c("0%","(0%;20%]","(20%;40%]","(40%;60%]", "(60%;80%]", "(80%;100%]")))
+
+
+sessionsAggregate <- 
+  aggregate(examCount ~ scoreGroup, 
+            data = sessionsALL, 
+            FUN=sum)
+
+
+bp<- ggplot(sessionsAggregate, aes(x="", y=examCount, fill=scoreGroup)) +
+  geom_bar(width = 1, stat = "identity") + 
+  coord_polar("y", start=-pi/2, direction=-1) + 
+  scale_fill_manual(values=rev(myPalette)) +
+  theme_minimal()
+
+bp
+@
+
+
+
+\section{Lineārais pacietības modelis}
+
+Apmēram $n$ procenti no visiem iesūtītajiem testu jautājumiem palika vispār
+neatbildēti (t.i. radopogas vai rūtiņas palika neiezīmētas, ievades
+lodziņos nekas nebija ierakstīts, vai arī bija ierakstīti tukšumi 
+vajadzīgā skaitļa vietā). Testa jautājuma izredzes palikt neatbildētam 
+ir atkarīgas gan no jautājuma grūtības pakāpes (mēģinām salīdzināt 
+neatbildētības procentu ar pareizuma procentu starp tiem, kas to 
+atbildējuši), gan arī no jautājuma kārtas numura (jautājumi, kuri 
+bija testa beigās, biežāk palika neatbildēti).
+
+Lai saprastu, kā testu kārtotāju pacietība saistāma ar jautājuma kārtas 
+numuru, uzzīmējam visu 6 veidu testus ("random", "intro", 
+"generalizations", "combinatorics", "shapes", "number-theory") - uz horizontālās 
+ass atzīmēts jautājuma kārtas numurs testā, uz vertikālās ass - mūsuprāt, 
+atkarīgais mainīgais: varbūtība, ka jautājums ar attiecīgo kārtas
+numuru saņem netukšu atbildi. 
+
+TBD: 6 grafiki, kur nomērīta korelācija kārtas numuram un netukšai atbildei.
+
+Vēl cits grafiks: "random" testos varbūtība, ka jautājums atbildēts
+pareizi arī ir atkarīga no jautājuma kārtas numura. 
+Pacietības beigšanās ne vienmēr izpaužas kā tukšu atbilžu iesniegšana. 
+Reizēm skolēni ieraksta tur kaut ko nejaušu. 
+
+TBD: Grafiks, kur atbildēto jautājumu atbilžu pareizība "random" testos. 
+
+Atbilžu alternatīvas arī netika samaisītas. Zīmējumā attēloti 
+testi ar $2, 3, 4$ atbilžu alternatīvām - zilie stabiņi rāda  
+pareizo atbilžu īpatsvaru; sarkanie stabiņi rāda attiecīgās atbildes
+("a", "b", "c", "d") īpatsvaru faktiski saņemtajās atbildēs. 
+
+TBD: Alternatīvu testi. 
+
+Arī ierakstāmajām atbildēm ir noteikta veida mīļākie skaitļi, 
+kas tiek ierakstīti lodziņos. Skaitļi, kuru testu kārtotāji ierakstīja 
+stipri mazāk nekā tie bija pelnījuši: $n_1,n_2,n_3$. 
+
+Savukārt skaitļi, kurus rakstīja stipri biežāk nekā tie faktiski 
+bija pareizās atbildes bija $m_1,m_2,m_3$.
+
+TBD: Ierakstītie skaitļi: Pareizais un ierakstītais biežuma sadalījums. 
+
+
+
+\section{Atbaidoši, grūti vai slikti sastādīti jautājumi}
+
+Piemēri jautājumiem, kam ir neparasti augsta/zema atbildēšanas
+varbūtība (pēc "pacietības modeļa" korekcijas). 
+
+\section{Korelācija starp jautājumu un testa koprezultātu}
+
+Piemēri jautājumiem ar izteikti vāju korelāciju.
+
+\section{Labi testu jautājumu piemēri}
+
+Daži piemēri testu jautājumiem, kuri nav pārāk viegli, pārāk grūti, 
+atbaidoši vai ar vāju korelāciju. 
+
+
+\section{Secinājumi}
+
+\begin{itemize}
+\item Jautājumi viena testa ietvaros ir nejauši jāsajauc. 
+Tādā gadījumā objektīvāk varam salīdzināt jautājumu grūtības pakāpes; 
+mums nebūs jāizdara papildu pieņēmumi par to kā jautājuma 
+grūtumu iespaidoja 
+\item Skolēnu spēja atbildēt uz testa jautājumu var būt būtiski 
+atkarīga no vecuma vai klases. Iespējams, jāveido atsevišķi testi 
+dažādām vecuma grupām.  
+\end{itemize}
+
+\end{document}

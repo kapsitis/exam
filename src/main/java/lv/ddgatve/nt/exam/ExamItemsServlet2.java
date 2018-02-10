@@ -21,12 +21,6 @@ public class ExamItemsServlet2  extends HttpServlet {
 	
 	public static Map<String,String> allItems = null;
 	
-	public static List<String> peel(String pretty) {
-		pretty = pretty.trim();
-		pretty = pretty.substring(1,pretty.length()-1).trim();
-		String[] result = pretty.split("|");
-		return Arrays.asList(result);
-	}
 	
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -54,7 +48,7 @@ public class ExamItemsServlet2  extends HttpServlet {
 		out.println("    \"seed\": \"" + seed + "\",");
 		out.println("    \"questions\": [");
 		
-		List<String> yourAnswerList = peel(yourAnswers); 
+//		List<String> yourAnswerList = peel(yourAnswers); 
 		int count = 0; 
 		for (String ss: theList) {
 			count++; 

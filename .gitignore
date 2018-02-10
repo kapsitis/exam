@@ -1,8 +1,14 @@
 *.class
-/package-lock.json
-
+/*.pdf
 /bin
 /build/bundle.js
 /node_modules
+/package-lock.json
+/pigeonhole
+/pigeonhole-reports/*.tex
+/pigeonhole-reports/*.gz
+/pigeonhole-reports/*.log
+/pigeonhole-reports/.Rhistory
+/pigeonhole-reports/figure/
 /target
 

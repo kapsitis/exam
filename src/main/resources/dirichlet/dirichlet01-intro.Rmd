@@ -6,11 +6,10 @@ output: pdf_document
 
 # Dirihlē princips (1) - Ievads
 
+**Anotācija:** Tests par Dirihlē principa vienkāršāko gadījumu ($N+1$ aplīši, $N$ būrīši). 
 
-* **Anotācija:** Tests par Dirihlē principa vienkāršāko gadījumu ($N+1$ aplīši, $N$ būrīši). 
-
-## c.dirichlet.intro.q1
-<!--questionType=INPUT|length=5--> Tumšā skapī ir zeķes 12 krāsās - pa 20 zeķēm katrā no krāsām. 
+## c.dirichlet.intro.q1 (INPUT,5)
+Tumšā skapī ir zeķes 12 krāsās - pa 20 zeķēm katrā no krāsām. 
 Kāds mazākais zeķu skaits jāizvelk, lai starp tām noteikti atrastos divas zeķes vienādā krāsā?
 
 **Atbilde:** `13`
@@ -20,8 +19,8 @@ Tā kā grupu ir tieši $N=12$, tad izvelkot  $N+1 = 13$ zeķes, starp tām note
 divas vienādā krāsā. Ar $12$ zeķēm nepietiek, jo var neveikties: katra no pirmajām $12$ zeķēm 
 var būt citā krāsā.
 
-## c.dirichlet.intro.q2
-<!--questionType=INPUT|length=8--> Rūpnīca ražo ķieģeļus, no kuriem neviens nav 
+## c.dirichlet.intro.q2 (INPUT,8)
+Rūpnīca ražo ķieģeļus, no kuriem neviens nav 
 smagāks par 3kg, neviens nav vieglāks par 2.7kg. 
 Kāds mazākais ķieģeļu skaits jānopērk, lai 
 starp tiem noteikti atrastos divi tādi, kuru masu starpība ir mazāka par 1g 
@@ -40,8 +39,7 @@ nepietiek, jo var ņemt $w_0 = 2700$, $\ldots$, $w_{300} = 3000$ (un tad visas m
 atšķirības ir vismaz $1\operatorname{g}$). 
 
 
-## c.dirichlet.intro.q3
-<!--questionType=INPUT|length=1--> 
+## c.dirichlet.intro.q3 (INPUT,1)
 Kāds mazākais skaits no naturāliem skaitļiem $1,2,3,4,5,6,7,8$ jāizsvītro, lai 
 starp palikušajiem skaitļiem neatrastos tādi divi, kuru summa ir $9$?
 
@@ -52,18 +50,20 @@ skaitļu pāri dod summā $9$. Izsvītrojot no katra vienu ir pietiekami. Ja sv�
 tad paliek pāri būrītis ar diviem skaitļiem, kuri summā dod $9$. 
 
 
-## c.dirichlet.intro.q4 
-<!--questionType=MC-->
+## c.dirichlet.intro.q4 (MULTIPART)
 Vai skaitļus $1,2,3,4,5,6,7,8$ var uzrakstīt (1) rindiņā, (2) pa apli 
 tā, lai katru divu blakusesošo 
 skaitļu starpības būtu dažādas? (Skaitļu starpību aprēķina, no lielākā skaitļa atņemot mazāko.)
 
-1. Rakstot rindiņā:
-    a. Jā
-    b. Nē
-2. Rakstot pa apli
-    a. Jā
-    b. Nē
+__Rakstot rindiņā:__ (MC)
+
+a. Jā
+b. Nē
+    
+__Rakstot pa apli:__ (MC)
+
+a. Jā
+b. Nē
 
 **Atbilde:** `a,b`
 
@@ -75,8 +75,7 @@ bet veselas $8$ vietas, kur saskaras blakusesošie skaitļi. Tādēļ vismaz
 divas starpības sakritīs.
 
 
-## c.dirichlet.intro.q5
-<!--questionType=MC--> 
+## c.dirichlet.intro.q5 (MC)
 Atzīmēt, kurš no apgalvojumiem ir vienmēr patiess, ja $6$ objektus kaut kā izvieto $5$ būros. 
 
 a. Eksistē tieši viens būris, kurā ir vismaz divi objekti. 
@@ -90,8 +89,7 @@ d. Eksistē tieši viens būris, kurā ir tieši divi objekti.
 Tas nesola, ka būs tieši viens tāds būris vai arī, ka tajā būs tieši divi elementi.
 
 
-## c.dirichlet.intro.q6
-<!--questionType=MC--> 
+## c.dirichlet.intro.q6 (MC)
 $3$ trušus kaut kā izvieto $4$ būros. Kāds apgalvojums ir vienmēr patiess? 
 
 a. Eksistē būris, kurā ir tieši divi truši.
@@ -106,8 +104,8 @@ d. Eksistē vismaz divi būri, kuros ir vismaz pa vienam trusim.
 katram būrim truša nepietiek.) Citiem apgalvojumiem viegli atrast pretpiemērus - 
 var, piemēram, visus trušus salikt vienā no būriem. 
 
-## c.dirichlet.intro.q7
-<!--questionType=INPUT|length=5--> Uz galda ir $15$ spēļu kārtis. 
+## c.dirichlet.intro.q7 (INPUT,5)
+Uz galda ir $15$ spēļu kārtis. 
 Kāds lielākais skaits no tām noteikti ir vienā krāsā?
 
 **Atbilde:** `8`
@@ -119,8 +117,8 @@ Tāpēc vismaz $8$ ir vienādā krāsā (nav zināms kādā).
 Nav obligāti, lai lielāks skaits būtu vienādā krāsā, jo var būt $8$ kārtis 
 vienā krāsā, bet $7$ kārtis - otrā krāsā.
 
-## c.dirichlet.intro.q8 
-<!--questionType=INPUT|length=5--> Kāds ir mazākais skaits skolēnu, kam jābūt skolā,
+## c.dirichlet.intro.q8 (INPUT,5)
+Kāds ir mazākais skaits skolēnu, kam jābūt skolā,
 lai divi no tiem noteikti būtu dzimuši vienā datumā (dd.mm).
 (Garajos gados esošo datumu 29.februāri te neaplūkojam - pieņemam, ka neviens skolēns tajā nav dzimis.)
 
@@ -131,8 +129,7 @@ Ja skolēnu skaits būs $366 > 365$, tad noteikti kāds no datumiem atkārtosies
 Ja skolēnu ir $365$ vai mazāk, tad katram var būt cits dzimšanas datums.
 
 
-## c.dirichlet.intro.q9
-<!--questionType=CONDITIONAL_INPUT|length=10|condition=radio.a--> 
+## c.dirichlet.intro.q9 (MULTIPART)
 $4$ trušus dažādos veidos izvietoja pa $3$ būriem. Katram no veidiem 
 būrus sakārtoja trušu skaita dilšanas secībā. 
 Ieguva šādas iespējas $(4,0,0)$ (visi četri vienā būrī, abi citi būri ir tukši), 
@@ -141,18 +138,20 @@ kurš te nav parādīts?
 (**Norāde:** *Ja atzīmējāt atbildi "eksistē", tad ierakstiet trūkstošo 
 veidu lodziņā, formā `(a,b,c)`, burtu vietā norādot veselus skaitļus.*)
 
+__Vai eksistē trušu izvietojums, kas nav minēts?__ (MC)
 a. eksistē
-b. neeksistē. 
+b. neeksistē.
 
-**Atbilde:** `b`
+__Ja eksistē, norādīt trūkstošo veidu formā (a,b,c)__ (INPUT,10)
+
+**Atbilde:** `b,`
 
 **Skaidrojums:** Ir tikai viens veids, kā divi būri var būt tukši ($(4,0,0)$), 
 un divi veidi, kā viens būris var būt tukšs ($(3,1,0)$ un $(2,2,0)$). 
 Kā arī viens veids, kurā neviens būris nav tukšs: $(2,1,1)$. 
 Uzdevumā visi tie ir norādīti. 
 
-## c.dirichlet.intro.q10
-<!--questionType=INPUT|length=5-->
+## c.dirichlet.intro.q10 (INPUT,5)
 Tumšā skapī ir 100 melnas, 100 zilas un 100 zaļas zeķes. 
 Kāds mazākais skaits zeķu neskatoties ir jāizvelk, lai noteikti starp tām būtu 
 divas melnas vai divas zilas zeķes?
@@ -166,8 +165,7 @@ Ar $103$ izvilktām zeķēm vienmēr pietiek, jo vismaz $3$ no tām nebūs zaļa
 un varēs lietot Dirihlē principu - jebkādi piekārtojot $3$ zeķes divām krāsām, 
 divas no zeķēm nonāks vienā krāsā.
 
-## c.dirichlet.intro.q11
-<!--questionType=INPUT|length=5-->
+## c.dirichlet.intro.q11 (INPUT,5)
 Valoda $L$ satur visus $3$-burtu vārdus no burtiem "A" un "B" 
 (ieskaitot vārdus, kur vienādi burti ir blakus, piemēram "AAA" vai "BBA"). 
 Cik vārdi šajā valodā jāpasaka, lai noteikti būtu pateikti divi 
@@ -180,21 +178,20 @@ Valodā $L$ ir $8$ dažādi vārdi. Pasakot $9$ vārdus, vismaz viens no tiem
 būs pateikts divas reizes.
 
 
-## c.dirichlet.intro.q12
-<!--questionType=INPUT|length=1-->
+## c.dirichlet.intro.q12 (INPUT,1)
 Kāds mazākais daudzums skaitļu no $1$ līdz $9$ jāizvēlas, 
 lai starp tiem atrastos divi, kuru summa ir $10$?
 
-**Atbilde:** `5`
+**Atbilde:** `6`
 
 **Skaidrojums:**
-Var izvēlēties skaitli $5$ un arī pa vienam no katra pārīša
+Lai nerastos divi skaitļi, kuru summa ir $10$, 
+var izvēlēties skaitli $5$ un arī pa vienam no katra pārīša
 $(1,9)$, $(2,8)$, $(3,7)$, $(4,6)$. Ja izvēlas vairāk nekā 
 piecus, tad vismaz divi no izvēlētajiem nonāk vienā no 
 minētajiem pārīšiem, t.i. summā dod $10$. 
 
-## c.dirichlet.intro.q13
-<!--questionType=INPUT|length=5-->
+## c.dirichlet.intro.q13 (INPUT,5)
 Auditorijā ir $10$ gari soli, uz kuriem kaut kādā veidā 
 jau sasēdušās $100$ meitenes. 
 Kādu lielāko skaitu zēnu var sasēdināt šajā auditorijā, ja 
@@ -212,9 +209,7 @@ un 10 meitenes:
 $$(Z,M,Z,M,\ldots,M,Z,M,Z)$$
 
 
-
-## c.dirichlet.intro.q14
-<!--questionType=MC-->
+## c.dirichlet.intro.q14 (MC)
 Vienā gadā noteikti var atrast divus tādus mēnešus, kuriem 30. datums ir 
 vienā nedēļas dienā. 
 
@@ -227,7 +222,7 @@ b. Nē
 Tā kā nedēļas dienu ir tikai septiņas, tad atradīsies divi mēneši, kuriem 
 šis datums ir vienā dienā. 
 
-## c.dirichlet.intro.q15
+## c.dirichlet.intro.q15 (MC)
 Visos gados, kuros ir $365$ dienas (t.i. tajos, kuri 
 nav garie gadi), janvāra un oktobra tabulu kalendārs
 sakrīt (1.zīm. attēlots 2018.g. kalendārs). 
@@ -317,3 +312,4 @@ popViewport(1)
 Ja zināms, ka divi no tiem (janvāris un oktobris) sākas vienā
 nedēļas dienā, tad uz pārējām $6$ nedēļas dienām atliek 
 tikai $5$ mēneši, t.i. vienai nedēļas dienai mēneša nepietiks.
+

@@ -1073,13 +1073,17 @@ popViewport(2)
 ```
 
 
-## c.dirichlet.shapes.q11
+## c.dirichlet.shapes.q11 (MULTIPART)
 Uz figūras $F$ atzīmēti $16$ punkti. Figūru 
 pārgriež $7$ vietās tā, ka neviens griezums nesakrīt ar 
 kādu no atzīmētajiem punktiem.
 Kāds ir mazākais iespējamais skaits punktu uz tā gabala, uz kura 
 atzīmēto punktu ir visvairāk? Aplūkot divus gadījumus:  
 (a) $F$ ir nogrieznis; (b) $F$ ir riņķa līnija.
+
+__$F$ ir nogrieznis__ (INPUT,2)
+
+__$F$ ir riņķa līnija__ (INPUT,2)
 
 **Atbilde:** `2,3`. 
 
@@ -1091,7 +1095,7 @@ Riņķa līniju $7$ griezieni sadala $7$ gabalos, tādēļ uz viena no gabaliem
 būs vismaz $\lceil 16/7 \rceil = 3$. 
 
 
-## c.dirichlet.shapes.q12
+## c.dirichlet.shapes.q12 (MC)
 Vai var uzzīmēt daudzstūri (varbūt neizliektu), kuram 
 ir $23$ virsotnes, no kurām $16$ virsotnes atrodas uz 
 vienas taisnes?
@@ -1108,17 +1112,19 @@ Bet tad šādas $3$ virsotnes $A$, $B$ un $C$, kuras visas pēc kārtas izvietot
 vienas taisnes, nevar būt daudzstūra virsotnes, jo vidējā virsotne $B$
 atradīsies uz abu malējo virsotņu veidotās malas $AC$. 
 
-## c.dirichlet.shapes.q13
-<!--questionType=MS-->
+## c.dirichlet.shapes.q13 (MULTIPART)
 Dots šaha galdiņš $8 \times 8$, kurā kaut kā atzīmētas $n$
 rūtiņas. Katrai no četrām figūriņām atrast lielāko $n$ vērtību, 
 pie kuras noteikti var novietot šo figūriņu, nepārklājot 
 nevienu no atzīmētajām rūtiņām.
 
-a. Kvadrātiņš $1 \times 1$ (1.zīm.) 
-b. Taisnstūrītis $1 \times 2$ (2.zīm.)
-c. "Stūrītis" - figūriņa no $3$ rūtiņām (3.zīm.)
-d. Kvadrātiņš $2 \times 2$ (4.zīm.)
+__Kvadrātiņš $1 \times 1$ (1.zīm.)__ (INPUT,2)
+
+__Taisnstūrītis $1 \times 2$ (2.zīm.)__ (INPUT,2)
+
+__"Stūrītis" - figūriņa no $3$ rūtiņām (3.zīm.)__ (INPUT,2)
+
+__Kvadrātiņš $2 \times 2$ (4.zīm.)__ (INPUT,2)
 
 ```{r c.dirichlet.shapes.q13.fig1, fig.width=1.2, fig.height=1, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
@@ -1194,6 +1200,19 @@ mazāk par pusi no $64$, jo tad vismaz vienā kvadrātiņā 2x2 būs tikai viena
 ($32$ rūtiņas var iekrāsot kā šaha galdiņu - un tad 2.zīm. un 3.zīm. 
 figūriņas tur ievietot nevar.)
 
+Ja kvadrātu $8 \times 8$ sadala
+$16$ kvadrātiņos $2 \times 2$ (sk. 5.zīm.), tad 
+vismaz vienā no $16$ kvadrātiņiem nonāks ne vairāk kā viena iekrāsotā 
+rūtiņa. Tad šajā $2 \times 2$ kvadrātiņā 
+pietiks vietas 2.zīm. vai 3.zīm. attēlotajai figūriņai.
+
+Līdzīgi, ja iekrāsotas tikai $15$ rūtiņas, tad kādā $2 \times 2$ 
+kvadrātiņā nenonāks neviena iekrāsotā rūtiņa - tur varēs ievietot 
+4.zīm. attēloto figūriņu. Ja atļauts iekrāsot $16$ rūtiņas, tad 
+katrā no 5.zīm. attēlotajiem kvadrātiņiem var iekrāsot, piemēram, 
+kreiso augšējo rūtiņu un tur nevarēs ievietot nevienu 4.zīm. figūriņu, 
+nepārklājot kādu no iekrāsotajām.
+
 ```{r c.dirichlet.shapes.q13.fig5, fig.width=1.8, fig.height=2, echo=FALSE, message=FALSE, warning=FALSE}
 require(grid)
 require(RColorBrewer)
@@ -1227,19 +1246,6 @@ popViewport(2)
 popViewport(1)
 
 ```
-
-Ja kvadrātu $8 \times 8$ sadala
-$16$ kvadrātiņos $2 \times 2$ (sk. 5.zīm.), tad 
-vismaz vienā no $16$ kvadrātiņiem nonāks ne vairāk kā viena iekrāsotā 
-rūtiņa. Tad šajā $2 \times 2$ kvadrātiņā 
-pietiks vietas 2.zīm. vai 3.zīm. attēlotajai figūriņai.
-
-Līdzīgi, ja iekrāsotas tikai $15$ rūtiņas, tad kādā $2 \times 2$ 
-kvadrātiņā nenonāks neviena iekrāsotā rūtiņa - tur varēs ievietot 
-4.zīm. attēloto figūriņu. Ja atļauts iekrāsot $16$ rūtiņas, tad 
-katrā no 5.zīm. attēlotajiem kvadrātiņiem var iekrāsot, piemēram, 
-kreiso augšējo rūtiņu un tur nevarēs ievietot nevienu 4.zīm. figūriņu, 
-nepārklājot kādu no iekrāsotajām.
 
 
 ## c.dirichlet.shapes.q14

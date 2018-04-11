@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f27da2f3-347b-49a9-af6b-e10d5ffd2370" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/carousel7solutions.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/examlistApi2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/exams/carousel7data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pigeonhole-combinatorics.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pigeonhole-generalizations.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pigeonhole-intro.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pigeonhole-number-theory.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pigeonhole-random.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pigeonhole-shapes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.txt" afterPath="$PROJECT_DIR$/README.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/carousel1data.js" afterPath="$PROJECT_DIR$/app/carousel1data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/carousel2data.js" afterPath="$PROJECT_DIR$/app/carousel2data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/carousel7.jsx" afterPath="$PROJECT_DIR$/app/carousel7.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/carousel7data.js" afterPath="$PROJECT_DIR$/app/carousel7data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/examlist.jsx" afterPath="$PROJECT_DIR$/app/examlist.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/examlistApi.js" afterPath="$PROJECT_DIR$/app/examlistApi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.jsx" afterPath="$PROJECT_DIR$/app/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lv/ddgatve/nt/exam/ExamlistJsServlet.java" afterPath="$PROJECT_DIR$/src/main/java/lv/ddgatve/nt/exam/ExamlistJsServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lv/ddgatve/nt/exam/GradingServlet.java" afterPath="$PROJECT_DIR$/src/main/java/lv/ddgatve/nt/exam/GradingServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet03-combinatorics.Rmd" afterPath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet03-combinatorics.Rmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet04-shapes.Rmd" afterPath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet04-shapes.Rmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet05-number-theory.Rmd" afterPath="$PROJECT_DIR$/src/main/resources/dirichlet/dirichlet05-number-theory.Rmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/bundle.js" afterPath="$PROJECT_DIR$/src/main/webapp/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/examlist.html" afterPath="$PROJECT_DIR$/src/main/webapp/examlist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
-    </list>
+    <list default="true" id="f27da2f3-347b-49a9-af6b-e10d5ffd2370" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -589,7 +561,7 @@
       <workItem from="1516693815212" duration="9075000" />
       <workItem from="1516783265756" duration="24142000" />
       <workItem from="1516827867501" duration="1553000" />
-      <workItem from="1516872436299" duration="13772000" />
+      <workItem from="1516872436299" duration="14143000" />
     </task>
     <task id="LOCAL-00001" summary="It has 2 exams now">
       <created>1509533516375</created>
@@ -609,7 +581,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285624000" />
+    <option name="totallyTimeSpent" value="285995000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -622,7 +594,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1603" height="867" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25031766" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

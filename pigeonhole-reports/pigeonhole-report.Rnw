@@ -43,7 +43,7 @@ options(formatR.arrow=TRUE,width=90)
 @
 
 
-\title{Dirihlē principa testu pārskats (2018-01-29)}
+\title{Dirihlē principa testi un video}
 
 \author{}
 \date{}
@@ -56,6 +56,33 @@ sk. \url{http://www.dudajevagatve.lv:8080/exam/examlist.html}. Mūsu mērķis
 ir labāk saprast testu kārtotāju uzvedību un arī saprast, kuri testu jautājumi 
 ir labāk vai sliktāk sastādīti, ņemot vērā iesūtītās atbildes. 
 \end{abstract}
+
+
+\section{YouTube klipi}
+
+Pavisam ir 5 klipi par Dirihlē principu. Tabulā parādīts, cik 
+reizes katrs video pieprasīts laika posmā no 
+2018-01-18 (kad norādi ievietoja NMS mājaslapā) 
+līdz 2018-01-16 (kad notika novadu olimpiāde 
+jaunākajai klašu grupai 5.-8.g.), arī cik minūtes tas vidēji skatīts
+pirms lietotājs pārgāja uz kaut ko citu. Visiem 5 video klipiem 
+garums ir apmēram 12-15 minūtes. Skatītās minūtes nozīmē to, ka 
+lietotājs noskatījies vidēji 40-50\% no pilna video garuma. 
+
+\begin{center}
+\begin{tabular}{|c|c|c|} \hline
+{\bf Klipa nosaukums} & {\bf Skatījumi} & {\bf Minūtes 1 skatījumā}\\ \hline
+Dirihlē princips (1): Ievads & 1936 & 6:05 \\ 
+Dirihlē princips (2): Vispārinājumi & 1068 & 5:38 \\ 
+Dirihlē princips (3): Lietojumi kombinatorikā & 781 & 6:29 \\ 
+Dirihlē princips (4): Figūriņas & 564 & 5:41 \\ 
+Dirihlē princips (5): Skaitļu teorija & 494 & 6:06 \\ \hline
+\end{tabular}
+\end{center}
+
+
+
+
 
 \section{Testu kārtošanas aktivitāte}
 
@@ -77,10 +104,9 @@ no pilnajiem testiem).
 izdalot iegūto punktu skaitu ar maksimālo, kas ir $10$ vai $15$ atkarībā no testa veida).  
 Ievērojama daļa iesūtīto testu formu ir tukšas vai bez nevienas pareizas atbildes.
 
-3.\ Attēlā sazīmētas histogrammas visiem 6 testu veidiem - katra vērtējuma 
-biežums. (Varbūt vajag izmest tās testu sesijas, kur nekas nav atbildēts.)
 
 <<sessionReport, warning=FALSE, echo=FALSE, fig.width=6, fig.height=4, fig.cap="Aktivit\u0101te pa dien\u0101m", dev='CairoPDF'>>=
+
 sessionsALL <- read.table(
   file="sessions.csv", 
   sep=",",
@@ -95,18 +121,19 @@ sessionsALL$examCount = rep(1,times=nrow(sessionsALL))
 sessionsALL$examType <- factor(sessionsALL$examType, 
                                      levels = c("random","intro","generalizations","combinatorics", "shapes", "number-theory"))
 
-sessionsAggregate <- 
-  aggregate(examCount ~ YyyyMmDd + examType, 
-            data = sessionsALL, 
-            FUN=sum)
 
 barPlot <- 
   ggplot(data = sessionsALL, 
          aes(x = YyyyMmDd, y=examCount, fill = examType)) + 
   geom_bar(stat="identity") +
-  scale_fill_manual(values=myPalette) + 
+  scale_fill_manual(values=myPalette) +
+  scale_x_discrete(limits = rev(levels(sessionsALL$YyyyMmDd))) +
+  labs(x = "Datums", y="Testu skaits") +
+  guides(fill=guide_legend(title="Testa veids"))+
+  coord_flip() +
   theme_minimal()
 barPlot
+
 @
 
 
@@ -176,77 +203,55 @@ bp
 @
 
 
+\section{Grūti vai slikti sastādīti jautājumi}
 
-\section{Lineārais pacietības modelis}
+Piemēri jautājumiem, kam ir neparasti zema vai neparasti augsta 
+pareizas atbildēšanas varbūtība. 
 
-Apmēram $n$ procenti no visiem iesūtītajiem testu jautājumiem palika vispār
-neatbildēti (t.i. radopogas vai rūtiņas palika neiezīmētas, ievades
-lodziņos nekas nebija ierakstīts, vai arī bija ierakstīti tukšumi 
-vajadzīgā skaitļa vietā). Testa jautājuma izredzes palikt neatbildētam 
-ir atkarīgas gan no jautājuma grūtības pakāpes (mēģinām salīdzināt 
-neatbildētības procentu ar pareizuma procentu starp tiem, kas to 
-atbildējuši), gan arī no jautājuma kārtas numura (jautājumi, kuri 
-bija testa beigās, biežāk palika neatbildēti).
-
-Lai saprastu, kā testu kārtotāju pacietība saistāma ar jautājuma kārtas 
-numuru, uzzīmējam visu 6 veidu testus ("random", "intro", 
-"generalizations", "combinatorics", "shapes", "number-theory") - uz horizontālās 
-ass atzīmēts jautājuma kārtas numurs testā, uz vertikālās ass - mūsuprāt, 
-atkarīgais mainīgais: varbūtība, ka jautājums ar attiecīgo kārtas
-numuru saņem netukšu atbildi. 
-
-TBD: 6 grafiki, kur nomērīta korelācija kārtas numuram un netukšai atbildei.
-
-Vēl cits grafiks: "random" testos varbūtība, ka jautājums atbildēts
-pareizi arī ir atkarīga no jautājuma kārtas numura. 
-Pacietības beigšanās ne vienmēr izpaužas kā tukšu atbilžu iesniegšana. 
-Reizēm skolēni ieraksta tur kaut ko nejaušu. 
-
-TBD: Grafiks, kur atbildēto jautājumu atbilžu pareizība "random" testos. 
-
-Atbilžu alternatīvas arī netika samaisītas. Zīmējumā attēloti 
-testi ar $2, 3, 4$ atbilžu alternatīvām - zilie stabiņi rāda  
-pareizo atbilžu īpatsvaru; sarkanie stabiņi rāda attiecīgās atbildes
-("a", "b", "c", "d") īpatsvaru faktiski saņemtajās atbildēs. 
-
-TBD: Alternatīvu testi. 
-
-Arī ierakstāmajām atbildēm ir noteikta veida mīļākie skaitļi, 
-kas tiek ierakstīti lodziņos. Skaitļi, kuru testu kārtotāji ierakstīja 
-stipri mazāk nekā tie bija pelnījuši: $n_1,n_2,n_3$. 
-
-Savukārt skaitļi, kurus rakstīja stipri biežāk nekā tie faktiski 
-bija pareizās atbildes bija $m_1,m_2,m_3$.
-
-TBD: Ierakstītie skaitļi: Pareizais un ierakstītais biežuma sadalījums. 
+\begin{center}
+\begin{tabular}{|c|c|c|} \hline
+{\bf Nr.} & {\bf Vid.punkti} & {\bf Visas netukšās atbildes}\\ \hline
+31 & 0.07594937 & 79\\
+43 & 0.00000000 & 21\\
+45 & 0.00000000 & 20\\
+48 & 0.00000000 & 19\\
+49 & 0.00000000 & 10\\
+54 & 0.08333333 & 12\\
+68 & 0.00000000 & 10\\ \hline\hline
+9 & 0.9381443 & 291\\
+14 & 0.8831776 & 214\\
+16 & 0.8608059 & 273\\
+17 & 0.8583691 & 233\\ \hline
+\end{tabular}
+\end{center}
 
 
 
-\section{Atbaidoši, grūti vai slikti sastādīti jautājumi}
 
-Piemēri jautājumiem, kam ir neparasti augsta/zema atbildēšanas
-varbūtība (pēc "pacietības modeļa" korekcijas). 
 
-\section{Korelācija starp jautājumu un testa koprezultātu}
-
-Piemēri jautājumiem ar izteikti vāju korelāciju.
-
-\section{Labi testu jautājumu piemēri}
-
-Daži piemēri testu jautājumiem, kuri nav pārāk viegli, pārāk grūti, 
-atbaidoši vai ar vāju korelāciju. 
 
 
 \section{Secinājumi}
 
 \begin{itemize}
-\item Jautājumi viena testa ietvaros ir nejauši jāsajauc. 
-Tādā gadījumā objektīvāk varam salīdzināt jautājumu grūtības pakāpes; 
-mums nebūs jāizdara papildu pieņēmumi par to kā jautājuma 
-grūtumu iespaidoja 
-\item Skolēnu spēja atbildēt uz testa jautājumu var būt būtiski 
+\item Pašā augšā novietotajam video un augstāk novietotajam testa 
+linkam ir vislielākās izredzes tikt apmeklētam (video klipu vidū 
+populārākais ir "Dirihlē princips (1): Ievads", kas otro numuru pārsniedz
+apmēram divas reizes, bet pašu pēdējo - četras reizes; līdzīgs 
+sadalījums arī testiem). 
+\item Jautājumi viena testa ietvaros ir nejauši jāsajauc
+(alternatīvu jautājumiem jāsajauc arī alternatīvas).
+Mūsu līdzšinējā pieejā daudzi lietotāji sāka pildīt testu, 
+bet pusceļā apstājās un iesūtīja to nepabeigtu - tādēļ 
+iesūtīto atbilžu skaits ir būtiski atkarīgs no testa jautājuma 
+kārtas numura.
+\item Skolēnu spēja atbildēt uz testa jautājumu varētu būt 
 atkarīga no vecuma vai klases. Iespējams, jāveido atsevišķi testi 
-dažādām vecuma grupām.  
+dažādām vecuma grupām. Ģimnāzijās uzņemšana parasti notiek 7. un 
+10. klasēs, tādēļ varētu būt 
+ērti dalīt skolēnus divās mērķauditorijās: 7.-9.kl. un 10.-12.kl. 
 \end{itemize}
 
 \end{document}
+
+

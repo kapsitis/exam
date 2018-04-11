@@ -8,7 +8,7 @@
 /pigeonhole-reports/*.tex
 /pigeonhole-reports/*.gz
 /pigeonhole-reports/*.log
-/pigeonhole-reports/.Rhistory
+/pigeonhole-reports/.*
 /pigeonhole-reports/figure/
 /target
 

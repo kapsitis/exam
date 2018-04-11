@@ -19,15 +19,19 @@ sessionsALL$examCount = rep(1,times=nrow(sessionsALL))
 sessionsALL$examType <- factor(sessionsALL$examType, 
                                      levels = c("random","intro","generalizations","combinatorics", "shapes", "number-theory"))
 
-sessionsAggregate <- 
-  aggregate(examCount ~ YyyyMmDd + examType, 
-            data = sessionsALL, 
-            FUN=sum)
+# sessionsAggregate <- 
+#   aggregate(examCount ~ YyyyMmDd + examType, 
+#             data = sessionsALL, 
+#             FUN=sum)
 
 barPlot <- 
   ggplot(data = sessionsALL, 
          aes(x = YyyyMmDd, y=examCount, fill = examType)) + 
   geom_bar(stat="identity") +
-  scale_fill_manual(values=myPalette)+
+  scale_fill_manual(values=myPalette) +
+  scale_x_discrete(limits = rev(levels(sessionsALL$YyyyMmDd))) +
+  labs(x = "Datums", y="Testu skaits") +
+  guides(fill=guide_legend(title="Testa veids"))+
+  coord_flip() +
   theme_minimal()
 barPlot

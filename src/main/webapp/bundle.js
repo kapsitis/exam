@@ -556,7 +556,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 var _prodInvariant = __webpack_require__(3);
 
-var DOMProperty = __webpack_require__(19);
+var DOMProperty = __webpack_require__(20);
 var ReactDOMComponentFlags = __webpack_require__(73);
 
 var invariant = __webpack_require__(1);
@@ -849,6 +849,16 @@ module.exports = warning;
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(122);
+
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1231,16 +1241,6 @@ var ReactComponentTreeHook = {
 
 module.exports = ReactComponentTreeHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(122);
-
 
 /***/ }),
 /* 11 */
@@ -1708,6 +1708,202 @@ module.exports = ReactUpdates;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(9);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var RadiobuttonGroup = function (_React$Component) {
+    _inherits(RadiobuttonGroup, _React$Component);
+
+    function RadiobuttonGroup(props) {
+        _classCallCheck(this, RadiobuttonGroup);
+
+        var _this = _possibleConstructorReturn(this, (RadiobuttonGroup.__proto__ || Object.getPrototypeOf(RadiobuttonGroup)).call(this, props));
+
+        _this.state = {
+            "prefix": props.prefix,
+            "i": props.i,
+            "alternatives": props.alternatives
+        };
+        return _this;
+    }
+
+    _createClass(RadiobuttonGroup, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'btn-group btn-group-vertical', 'data-toggle': 'buttons' },
+                _react2.default.createElement(
+                    'table',
+                    { className: 'c17' },
+                    _react2.default.createElement(
+                        'tbody',
+                        null,
+                        this.state.alternatives.map(function (object, ii) {
+                            return _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    _react2.default.createElement(
+                                        'label',
+                                        { className: this.state.i == 0 ? "btn active" : "btn" },
+                                        _react2.default.createElement('input', { type: 'radio', name: this.state.prefix + this.state.i, value: ["a", "b", "c", "d", "e", "f"][ii] }),
+                                        _react2.default.createElement('i', { className: 'fa fa-circle-o fa-2x' }),
+                                        _react2.default.createElement('i', { className: 'fa fa-dot-circle-o fa-2x' }),
+                                        _react2.default.createElement(
+                                            'span',
+                                            { style: { fontSize: "100%", color: "black" } },
+                                            '(',
+                                            ["a", "b", "c", "d", "e", "f"][ii],
+                                            ')'
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    object
+                                )
+                            );
+                        }.bind(this))
+                    )
+                )
+            );
+        }
+    }]);
+
+    return RadiobuttonGroup;
+}(_react2.default.Component);
+
+var CheckboxGroup = function (_React$Component2) {
+    _inherits(CheckboxGroup, _React$Component2);
+
+    function CheckboxGroup(props) {
+        _classCallCheck(this, CheckboxGroup);
+
+        var _this2 = _possibleConstructorReturn(this, (CheckboxGroup.__proto__ || Object.getPrototypeOf(CheckboxGroup)).call(this, props));
+
+        _this2.state = {
+            "prefix": props.prefix,
+            "i": props.i,
+            "alternatives": props.alternatives
+        };
+        return _this2;
+    }
+
+    _createClass(CheckboxGroup, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'btn-group btn-group-vertical', 'data-toggle': 'buttons' },
+                _react2.default.createElement(
+                    'table',
+                    { className: 'c17' },
+                    _react2.default.createElement(
+                        'tbody',
+                        null,
+                        this.state.alternatives.map(function (object, ii) {
+                            return _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    _react2.default.createElement(
+                                        'label',
+                                        { className: 'btn active' },
+                                        _react2.default.createElement('input', { type: 'checkbox', name: this.state.prefix + this.state.i + ["a", "b", "c", "d", "e", "f"][ii] }),
+                                        _react2.default.createElement('i', { className: 'fa fa-square-o fa-2x' }),
+                                        _react2.default.createElement('i', { className: 'fa fa-check-square-o fa-2x' }),
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '(',
+                                            ["a", "b", "c", "d", "e", "f"][ii],
+                                            ')'
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    object
+                                )
+                            );
+                        }.bind(this))
+                    )
+                )
+            );
+        }
+    }]);
+
+    return CheckboxGroup;
+}(_react2.default.Component);
+
+var CheckboxSingle = function (_React$Component3) {
+    _inherits(CheckboxSingle, _React$Component3);
+
+    function CheckboxSingle(props) {
+        _classCallCheck(this, CheckboxSingle);
+
+        var _this3 = _possibleConstructorReturn(this, (CheckboxSingle.__proto__ || Object.getPrototypeOf(CheckboxSingle)).call(this, props));
+
+        _this3.state = {
+            "options": props.options
+        };
+        return _this3;
+    }
+
+    _createClass(CheckboxSingle, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'btn-group btn-group-vertical', 'data-toggle': 'buttons' },
+                _react2.default.createElement(
+                    'label',
+                    { className: 'btn active' },
+                    _react2.default.createElement('input', { type: 'checkbox', name: this.props.name, onClick: this.props.onClick, value: 'on' }),
+                    _react2.default.createElement('i', { className: 'fa fa-square-o fa-2x' }),
+                    _react2.default.createElement('i', { className: 'fa fa-check-square-o fa-2x' }),
+                    _react2.default.createElement(
+                        'span',
+                        null,
+                        this.state.options[0]
+                    )
+                )
+            );
+        }
+    }]);
+
+    return CheckboxSingle;
+}(_react2.default.Component);
+
+module.exports = { RadiobuttonGroup: RadiobuttonGroup, CheckboxGroup: CheckboxGroup, CheckboxSingle: CheckboxSingle };
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -1976,203 +2172,30 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(4);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(10);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var RadiobuttonGroup = function (_React$Component) {
-    _inherits(RadiobuttonGroup, _React$Component);
-
-    function RadiobuttonGroup(props) {
-        _classCallCheck(this, RadiobuttonGroup);
-
-        var _this = _possibleConstructorReturn(this, (RadiobuttonGroup.__proto__ || Object.getPrototypeOf(RadiobuttonGroup)).call(this, props));
-
-        _this.state = {
-            "prefix": props.prefix,
-            "i": props.i,
-            "alternatives": props.alternatives
-        };
-        return _this;
+var getMinutesSeconds = function getMinutesSeconds(counter) {
+    var ss = counter % 60;
+    var mm = (counter - ss) / 60;
+    var ssText = "" + ss;
+    if (ss < 10) {
+        ssText = "0" + ssText;
     }
-
-    _createClass(RadiobuttonGroup, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'btn-group btn-group-vertical', 'data-toggle': 'buttons' },
-                _react2.default.createElement(
-                    'table',
-                    { className: 'c17' },
-                    _react2.default.createElement(
-                        'tbody',
-                        null,
-                        this.state.alternatives.map(function (object, ii) {
-                            return _react2.default.createElement(
-                                'tr',
-                                null,
-                                _react2.default.createElement(
-                                    'td',
-                                    null,
-                                    _react2.default.createElement(
-                                        'label',
-                                        { className: this.state.i == 0 ? "btn active" : "btn" },
-                                        _react2.default.createElement('input', { type: 'radio', name: this.state.prefix + this.state.i, value: ["a", "b", "c", "d", "e", "f"][ii] }),
-                                        _react2.default.createElement('i', { className: 'fa fa-circle-o fa-2x' }),
-                                        _react2.default.createElement('i', { className: 'fa fa-dot-circle-o fa-2x' }),
-                                        _react2.default.createElement(
-                                            'span',
-                                            { style: { fontSize: "100%", color: "black" } },
-                                            '(',
-                                            ["a", "b", "c", "d", "e", "f"][ii],
-                                            ')'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'td',
-                                    null,
-                                    object
-                                )
-                            );
-                        }.bind(this))
-                    )
-                )
-            );
-        }
-    }]);
-
-    return RadiobuttonGroup;
-}(_react2.default.Component);
-
-var CheckboxGroup = function (_React$Component2) {
-    _inherits(CheckboxGroup, _React$Component2);
-
-    function CheckboxGroup(props) {
-        _classCallCheck(this, CheckboxGroup);
-
-        var _this2 = _possibleConstructorReturn(this, (CheckboxGroup.__proto__ || Object.getPrototypeOf(CheckboxGroup)).call(this, props));
-
-        _this2.state = {
-            "prefix": props.prefix,
-            "i": props.i,
-            "alternatives": props.alternatives
-        };
-        return _this2;
+    var mmText = "" + mm.toFixed(0);
+    if (mm < 10) {
+        mmText = "0" + mmText;
     }
+    return "" + mmText + ":" + ssText;
+};
 
-    _createClass(CheckboxGroup, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'btn-group btn-group-vertical', 'data-toggle': 'buttons' },
-                _react2.default.createElement(
-                    'table',
-                    { className: 'c17' },
-                    _react2.default.createElement(
-                        'tbody',
-                        null,
-                        this.state.alternatives.map(function (object, ii) {
-                            return _react2.default.createElement(
-                                'tr',
-                                null,
-                                _react2.default.createElement(
-                                    'td',
-                                    null,
-                                    _react2.default.createElement(
-                                        'label',
-                                        { className: 'btn active' },
-                                        _react2.default.createElement('input', { type: 'checkbox', name: this.state.prefix + this.state.i + ["a", "b", "c", "d", "e", "f"][ii] }),
-                                        _react2.default.createElement('i', { className: 'fa fa-square-o fa-2x' }),
-                                        _react2.default.createElement('i', { className: 'fa fa-check-square-o fa-2x' }),
-                                        _react2.default.createElement(
-                                            'span',
-                                            null,
-                                            '(',
-                                            ["a", "b", "c", "d", "e", "f"][ii],
-                                            ')'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'td',
-                                    null,
-                                    object
-                                )
-                            );
-                        }.bind(this))
-                    )
-                )
-            );
-        }
-    }]);
-
-    return CheckboxGroup;
-}(_react2.default.Component);
-
-var CheckboxSingle = function (_React$Component3) {
-    _inherits(CheckboxSingle, _React$Component3);
-
-    function CheckboxSingle(props) {
-        _classCallCheck(this, CheckboxSingle);
-
-        var _this3 = _possibleConstructorReturn(this, (CheckboxSingle.__proto__ || Object.getPrototypeOf(CheckboxSingle)).call(this, props));
-
-        _this3.state = {
-            "options": props.options
-        };
-        return _this3;
-    }
-
-    _createClass(CheckboxSingle, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'btn-group btn-group-vertical', 'data-toggle': 'buttons' },
-                _react2.default.createElement(
-                    'label',
-                    { className: 'btn active' },
-                    _react2.default.createElement('input', { type: 'checkbox', name: this.props.name, onClick: this.props.onClick, value: 'on' }),
-                    _react2.default.createElement('i', { className: 'fa fa-square-o fa-2x' }),
-                    _react2.default.createElement('i', { className: 'fa fa-check-square-o fa-2x' }),
-                    _react2.default.createElement(
-                        'span',
-                        null,
-                        this.state.options[0]
-                    )
-                )
-            );
-        }
-    }]);
-
-    return CheckboxSingle;
-}(_react2.default.Component);
-
-module.exports = { RadiobuttonGroup: RadiobuttonGroup, CheckboxGroup: CheckboxGroup, CheckboxSingle: CheckboxSingle };
+module.exports = getMinutesSeconds;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2385,29 +2408,6 @@ var DOMProperty = {
 
 module.exports = DOMProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var getMinutesSeconds = function getMinutesSeconds(counter) {
-    var ss = counter % 60;
-    var mm = (counter - ss) / 60;
-    var ssText = "" + ss;
-    if (ss < 10) {
-        ssText = "0" + ssText;
-    }
-    var mmText = "" + mm.toFixed(0);
-    if (mm < 10) {
-        mmText = "0" + mmText;
-    }
-    return "" + mmText + ":" + ssText;
-};
-
-module.exports = getMinutesSeconds;
 
 /***/ }),
 /* 21 */
@@ -3788,7 +3788,7 @@ module.exports = EventPluginHub;
 
 
 
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(18);
 
 var getEventTarget = __webpack_require__(46);
 
@@ -8003,7 +8003,7 @@ module.exports = getIteratorFn;
 
 
 var ReactCurrentOwner = __webpack_require__(15);
-var ReactComponentTreeHook = __webpack_require__(9);
+var ReactComponentTreeHook = __webpack_require__(10);
 var ReactElement = __webpack_require__(21);
 
 var checkReactTypeSpec = __webpack_require__(113);
@@ -9579,7 +9579,7 @@ module.exports = CSSProperty;
 
 
 
-var DOMProperty = __webpack_require__(19);
+var DOMProperty = __webpack_require__(20);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(12);
 
@@ -10778,7 +10778,7 @@ module.exports = getActiveElement;
 var _prodInvariant = __webpack_require__(3);
 
 var DOMLazyTree = __webpack_require__(26);
-var DOMProperty = __webpack_require__(19);
+var DOMProperty = __webpack_require__(20);
 var React = __webpack_require__(23);
 var ReactBrowserEventEmitter = __webpack_require__(40);
 var ReactCurrentOwner = __webpack_require__(15);
@@ -11869,9 +11869,9 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(10);
+var _reactDom = __webpack_require__(9);
 
-var _radioButtons = __webpack_require__(18);
+var _radioButtons = __webpack_require__(17);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12062,7 +12062,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(10);
+var _reactDom = __webpack_require__(9);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -12110,6 +12110,10 @@ var _carousel7solutions = __webpack_require__(250);
 
 var _carousel7solutions2 = _interopRequireDefault(_carousel7solutions);
 
+var _carousel13 = __webpack_require__(252);
+
+var _carousel14 = _interopRequireDefault(_carousel13);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 if (document.getElementById("index")) {
@@ -12142,6 +12146,10 @@ if (document.getElementById('carousel6') != null) {
 
 if (document.getElementById('carousel7') != null) {
     _reactDom2.default.render(_react2.default.createElement(_carousel12.default, null), document.getElementById('carousel7'));
+}
+
+if (document.getElementById('carousel11') != null) {
+    _reactDom2.default.render(_react2.default.createElement(_carousel14.default, null), document.getElementById('carousel11'));
 }
 
 if (document.getElementById('carousel7Solutions') != null) {
@@ -12924,7 +12932,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(9);
+  ReactComponentTreeHook = __webpack_require__(10);
 }
 
 var loggedTypeFailures = {};
@@ -12966,7 +12974,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
         if (process.env.NODE_ENV !== 'production') {
           if (!ReactComponentTreeHook) {
-            ReactComponentTreeHook = __webpack_require__(9);
+            ReactComponentTreeHook = __webpack_require__(10);
           }
           if (debugID !== null) {
             componentStackInfo = ReactComponentTreeHook.getStackAddendumByID(debugID);
@@ -14894,7 +14902,7 @@ module.exports = FallbackCompositionState;
 
 
 
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(18);
 
 /**
  * @interface Event
@@ -14935,7 +14943,7 @@ module.exports = SyntheticCompositionEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(18);
 
 /**
  * @interface Event
@@ -14982,7 +14990,7 @@ var EventPropagators = __webpack_require__(27);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(16);
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(18);
 
 var inputValueTracking = __webpack_require__(79);
 var getEventTarget = __webpack_require__(46);
@@ -15490,7 +15498,7 @@ module.exports = ReactOwner;
 
 var ReactInvalidSetStateWarningHook = __webpack_require__(133);
 var ReactHostOperationHistoryHook = __webpack_require__(134);
-var ReactComponentTreeHook = __webpack_require__(9);
+var ReactComponentTreeHook = __webpack_require__(10);
 var ExecutionEnvironment = __webpack_require__(7);
 
 var performanceNow = __webpack_require__(135);
@@ -16137,7 +16145,7 @@ module.exports = EnterLeaveEventPlugin;
 
 
 
-var DOMProperty = __webpack_require__(19);
+var DOMProperty = __webpack_require__(20);
 
 var MUST_USE_PROPERTY = DOMProperty.injection.MUST_USE_PROPERTY;
 var HAS_BOOLEAN_VALUE = DOMProperty.injection.HAS_BOOLEAN_VALUE;
@@ -16834,7 +16842,7 @@ var AutoFocusUtils = __webpack_require__(147);
 var CSSPropertyOperations = __webpack_require__(148);
 var DOMLazyTree = __webpack_require__(26);
 var DOMNamespaces = __webpack_require__(50);
-var DOMProperty = __webpack_require__(19);
+var DOMProperty = __webpack_require__(20);
 var DOMPropertyOperations = __webpack_require__(85);
 var EventPluginHub = __webpack_require__(28);
 var EventPluginRegistry = __webpack_require__(35);
@@ -19604,7 +19612,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(9);
+  ReactComponentTreeHook = __webpack_require__(10);
 }
 
 function instantiateChild(childInstances, child, name, selfDebugID) {
@@ -19612,7 +19620,7 @@ function instantiateChild(childInstances, child, name, selfDebugID) {
   var keyUnique = childInstances[name] === undefined;
   if (process.env.NODE_ENV !== 'production') {
     if (!ReactComponentTreeHook) {
-      ReactComponentTreeHook = __webpack_require__(9);
+      ReactComponentTreeHook = __webpack_require__(10);
     }
     if (!keyUnique) {
       process.env.NODE_ENV !== 'production' ? warning(false, 'flattenChildren(...): Encountered two children with the same key, ' + '`%s`. Child keys must be unique; when two children share a key, only ' + 'the first child will be used.%s', KeyEscapeUtils.unescape(name), ReactComponentTreeHook.getStackAddendumByID(selfDebugID)) : void 0;
@@ -20669,7 +20677,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(9);
+  ReactComponentTreeHook = __webpack_require__(10);
 }
 
 var loggedTypeFailures = {};
@@ -20711,7 +20719,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
         if (process.env.NODE_ENV !== 'production') {
           if (!ReactComponentTreeHook) {
-            ReactComponentTreeHook = __webpack_require__(9);
+            ReactComponentTreeHook = __webpack_require__(10);
           }
           if (debugID !== null) {
             componentStackInfo = ReactComponentTreeHook.getStackAddendumByID(debugID);
@@ -20887,7 +20895,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(9);
+  ReactComponentTreeHook = __webpack_require__(10);
 }
 
 /**
@@ -20903,7 +20911,7 @@ function flattenSingleChildIntoContext(traverseContext, child, name, selfDebugID
     var keyUnique = result[name] === undefined;
     if (process.env.NODE_ENV !== 'production') {
       if (!ReactComponentTreeHook) {
-        ReactComponentTreeHook = __webpack_require__(9);
+        ReactComponentTreeHook = __webpack_require__(10);
       }
       if (!keyUnique) {
         process.env.NODE_ENV !== 'production' ? warning(false, 'flattenChildren(...): Encountered two children with the same key, ' + '`%s`. Child keys must be unique; when two children share a key, only ' + 'the first child will be used.%s', KeyEscapeUtils.unescape(name), ReactComponentTreeHook.getStackAddendumByID(selfDebugID)) : void 0;
@@ -21849,7 +21857,7 @@ module.exports = getUnboundedScrollPosition;
 
 
 
-var DOMProperty = __webpack_require__(19);
+var DOMProperty = __webpack_require__(20);
 var EventPluginHub = __webpack_require__(28);
 var EventPluginUtils = __webpack_require__(44);
 var ReactComponentEnvironment = __webpack_require__(53);
@@ -22784,7 +22792,7 @@ var EventPropagators = __webpack_require__(27);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInputSelection = __webpack_require__(94);
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(18);
 
 var getActiveElement = __webpack_require__(95);
 var isTextInputElement = __webpack_require__(80);
@@ -22981,7 +22989,7 @@ var EventPropagators = __webpack_require__(27);
 var ReactDOMComponentTree = __webpack_require__(6);
 var SyntheticAnimationEvent = __webpack_require__(188);
 var SyntheticClipboardEvent = __webpack_require__(189);
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(18);
 var SyntheticFocusEvent = __webpack_require__(190);
 var SyntheticKeyboardEvent = __webpack_require__(191);
 var SyntheticMouseEvent = __webpack_require__(37);
@@ -23205,7 +23213,7 @@ module.exports = SimpleEventPlugin;
 
 
 
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(18);
 
 /**
  * @interface Event
@@ -23249,7 +23257,7 @@ module.exports = SyntheticAnimationEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(18);
 
 /**
  * @interface Event
@@ -23630,7 +23638,7 @@ module.exports = SyntheticTouchEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(18);
 
 /**
  * @interface Event
@@ -24003,9 +24011,9 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 
-var DOMProperty = __webpack_require__(19);
+var DOMProperty = __webpack_require__(20);
 var EventPluginRegistry = __webpack_require__(35);
-var ReactComponentTreeHook = __webpack_require__(9);
+var ReactComponentTreeHook = __webpack_require__(10);
 
 var warning = __webpack_require__(2);
 
@@ -24121,7 +24129,7 @@ module.exports = ReactDOMUnknownPropertyHook;
 
 
 
-var ReactComponentTreeHook = __webpack_require__(9);
+var ReactComponentTreeHook = __webpack_require__(10);
 
 var warning = __webpack_require__(2);
 
@@ -24170,8 +24178,8 @@ module.exports = ReactDOMNullInputValuePropHook;
 
 
 
-var DOMProperty = __webpack_require__(19);
-var ReactComponentTreeHook = __webpack_require__(9);
+var DOMProperty = __webpack_require__(20);
+var ReactComponentTreeHook = __webpack_require__(10);
 
 var warning = __webpack_require__(2);
 
@@ -24263,7 +24271,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(10);
+var _reactDom = __webpack_require__(9);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -27557,13 +27565,13 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(10);
+var _reactDom = __webpack_require__(9);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _radioButtons = __webpack_require__(18);
+var _radioButtons = __webpack_require__(17);
 
-var _jsutils = __webpack_require__(20);
+var _jsutils = __webpack_require__(19);
 
 var _jsutils2 = _interopRequireDefault(_jsutils);
 
@@ -27824,13 +27832,13 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(10);
+var _reactDom = __webpack_require__(9);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _radioButtons = __webpack_require__(18);
+var _radioButtons = __webpack_require__(17);
 
-var _jsutils = __webpack_require__(20);
+var _jsutils = __webpack_require__(19);
 
 var _jsutils2 = _interopRequireDefault(_jsutils);
 
@@ -28097,13 +28105,13 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(10);
+var _reactDom = __webpack_require__(9);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _radioButtons = __webpack_require__(18);
+var _radioButtons = __webpack_require__(17);
 
-var _jsutils = __webpack_require__(20);
+var _jsutils = __webpack_require__(19);
 
 var _jsutils2 = _interopRequireDefault(_jsutils);
 
@@ -28394,7 +28402,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(10);
+var _reactDom = __webpack_require__(9);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -28545,13 +28553,13 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(10);
+var _reactDom = __webpack_require__(9);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _radioButtons = __webpack_require__(18);
+var _radioButtons = __webpack_require__(17);
 
-var _jsutils = __webpack_require__(20);
+var _jsutils = __webpack_require__(19);
 
 var _jsutils2 = _interopRequireDefault(_jsutils);
 
@@ -28793,13 +28801,13 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(10);
+var _reactDom = __webpack_require__(9);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _radioButtons = __webpack_require__(18);
+var _radioButtons = __webpack_require__(17);
 
-var _jsutils = __webpack_require__(20);
+var _jsutils = __webpack_require__(19);
 
 var _jsutils2 = _interopRequireDefault(_jsutils);
 
@@ -29046,13 +29054,13 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(10);
+var _reactDom = __webpack_require__(9);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _radioButtons = __webpack_require__(18);
+var _radioButtons = __webpack_require__(17);
 
-var _jsutils = __webpack_require__(20);
+var _jsutils = __webpack_require__(19);
 
 var _jsutils2 = _interopRequireDefault(_jsutils);
 
@@ -29319,13 +29327,13 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(10);
+var _reactDom = __webpack_require__(9);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _radioButtons = __webpack_require__(18);
+var _radioButtons = __webpack_require__(17);
 
-var _jsutils = __webpack_require__(20);
+var _jsutils = __webpack_require__(19);
 
 var _jsutils2 = _interopRequireDefault(_jsutils);
 
@@ -29587,13 +29595,13 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(10);
+var _reactDom = __webpack_require__(9);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _radioButtons = __webpack_require__(18);
+var _radioButtons = __webpack_require__(17);
 
-var _jsutils = __webpack_require__(20);
+var _jsutils = __webpack_require__(19);
 
 var _jsutils2 = _interopRequireDefault(_jsutils);
 
@@ -29839,6 +29847,306 @@ function getCompleteExamItems() {
     var ll = window.location.pathname.length;
     var dash = window.location.pathname.indexOf("-");
     var endpoint = "http://" + window.location.hostname + ":8080/exam/examItems2.js?subtype=" + window.location.pathname.substring(dash + 1, ll - 5);
+    return fetch(endpoint, { method: "GET", credentials: 'same-origin' }).then(function (res) {
+        return res.json();
+    }).catch(function (err) {
+        console.log(err);
+    });
+};
+
+/***/ }),
+/* 252 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(9);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _radioButtons = __webpack_require__(17);
+
+var _jsutils = __webpack_require__(19);
+
+var _jsutils2 = _interopRequireDefault(_jsutils);
+
+var _examlistApi = __webpack_require__(253);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import examData from './carousel7data.js'
+
+var Carousel11 = function (_React$Component) {
+    _inherits(Carousel11, _React$Component);
+
+    function Carousel11(props) {
+        _classCallCheck(this, Carousel11);
+
+        var _this = _possibleConstructorReturn(this, (Carousel11.__proto__ || Object.getPrototypeOf(Carousel11)).call(this, props));
+
+        _this.state = {
+            "count": "1200",
+            "seed": "1",
+            "questions": []
+        };
+        return _this;
+    }
+
+    _createClass(Carousel11, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            (0, _examlistApi.getExamItems)().then(function (data) {
+                _this2.setState({
+                    count: data.count,
+                    seed: data.seed,
+                    questions: data.questions
+                });
+            });
+            setInterval(function () {
+                _this2.setState({
+                    count: _this2.state.count - 1
+                });
+            }, 1000);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'form',
+                { action: 'grading11', method: 'GET' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'container' },
+                    _react2.default.createElement(
+                        'a',
+                        { href: '#myCarousel', role: 'button', 'data-slide': 'prev' },
+                        _react2.default.createElement(
+                            'button',
+                            { type: 'button', className: 'btn btn-primary', id: 'prevButton' },
+                            _react2.default.createElement(
+                                'b',
+                                null,
+                                'Prev'
+                            )
+                        )
+                    ),
+                    '\xA0\xA0',
+                    _react2.default.createElement(
+                        'a',
+                        { href: '#myCarousel', role: 'button', 'data-slide': 'next' },
+                        _react2.default.createElement(
+                            'button',
+                            { type: 'button', className: 'btn btn-primary', id: 'nextButton' },
+                            _react2.default.createElement(
+                                'b',
+                                null,
+                                'Next'
+                            )
+                        )
+                    ),
+                    '\xA0\xA0',
+                    (0, _jsutils2.default)(this.state.count),
+                    '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+                    _react2.default.createElement('input', { type: 'hidden', name: 'testId', value: 'recurrent-sequences' }),
+                    _react2.default.createElement('input', { type: 'hidden', name: 'seed', value: this.state.seed }),
+                    _react2.default.createElement('input', { type: 'submit', value: 'Nos\u016Bt\u012Bt' }),
+                    _react2.default.createElement('br', null)
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'myCarousel', className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': 'false' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'carousel-inner', role: 'listbox' },
+                        this.state.questions.map(function (qq, i) {
+                            var webForm = null;
+                            var theInstruction = "";
+                            var webImage = "";
+                            if (qq.questionType == "INPUT") {
+                                webForm = _react2.default.createElement(
+                                    'div',
+                                    null,
+                                    _react2.default.createElement('input', { size: qq.length, maxLength: qq.length,
+                                        className: 'webFormInput', type: 'text', name: "q" + i })
+                                );
+                            } else if (qq.questionType == "MS") {
+                                webForm = _react2.default.createElement(_radioButtons.CheckboxGroup, { prefix: 'q', alternatives: qq.alternatives, i: i });
+                            } else if (qq.questionType == "MC") {
+                                webForm = _react2.default.createElement(_radioButtons.RadiobuttonGroup, { prefix: 'q', alternatives: qq.alternatives, i: i });
+                            } else if (qq.questionType == "MULTIPART") {
+
+                                webForm = qq.parts.map(function (qqqq, iiii) {
+
+                                    if (qqqq.questionType == "MC") {
+                                        return _react2.default.createElement(
+                                            'div',
+                                            null,
+                                            _react2.default.createElement(
+                                                'i',
+                                                { style: { color: "blue" } },
+                                                qqqq.cue
+                                            ),
+                                            _react2.default.createElement('br', null),
+                                            _react2.default.createElement(_radioButtons.RadiobuttonGroup, { prefix: "q" + i + "p", alternatives: qqqq.alternatives, i: iiii })
+                                        );
+                                    } else if (qqqq.questionType == "MS") {
+                                        return _react2.default.createElement(
+                                            'div',
+                                            null,
+                                            _react2.default.createElement(
+                                                'i',
+                                                { style: { color: "blue" } },
+                                                qqqq.cue
+                                            ),
+                                            _react2.default.createElement('br', null),
+                                            _react2.default.createElement(_radioButtons.CheckboxGroup, { prefix: "q" + i + "p", alternatives: qqqq.alternatives, i: iiii })
+                                        );
+                                    } else {
+                                        return _react2.default.createElement(
+                                            'div',
+                                            null,
+                                            _react2.default.createElement(
+                                                'i',
+                                                { style: { color: "blue" } },
+                                                qqqq.cue
+                                            ),
+                                            _react2.default.createElement('br', null),
+                                            _react2.default.createElement('input', { size: qqqq.length, maxLength: qqqq.length,
+                                                className: 'webFormInput', type: 'text', name: "q" + i + "p" + iiii })
+                                        );
+                                    }
+                                });
+                            } else {
+                                webForm = _react2.default.createElement(
+                                    'div',
+                                    null,
+                                    'Not Supported Question Type ',
+                                    i
+                                );
+                            }
+
+                            if (qq.hasOwnProperty('instruction') && qq.instruction != "") {
+                                theInstruction = _react2.default.createElement(
+                                    'i',
+                                    null,
+                                    '(',
+                                    qq.instruction,
+                                    ')'
+                                );
+                            } else {
+                                theInstruction = "";
+                            }
+
+                            if (qq.hasOwnProperty('imgSrc') && qq.imgSrc != "") {
+                                webImage = _react2.default.createElement(
+                                    'div',
+                                    null,
+                                    qq.imgSrc.map(function (iiss, i) {
+                                        return _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            _react2.default.createElement('img', { src: iiss }),
+                                            _react2.default.createElement('br', null)
+                                        );
+                                    })
+                                );
+                                //webImage = <img src={qq.imgSrc}/>;
+                            } else {
+                                webImage = "";
+                            }
+
+                            return _react2.default.createElement(
+                                'div',
+                                { className: i == 0 ? "item active" : "item" },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'container' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'row' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'col-xs-12' },
+                                            _react2.default.createElement('br', null),
+                                            _react2.default.createElement(
+                                                'b',
+                                                { style: { fontSize: "120%" } },
+                                                'Q',
+                                                i + 1,
+                                                ':'
+                                            ),
+                                            ' ',
+                                            _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: qq.question } }),
+                                            theInstruction == "" ? "" : _react2.default.createElement(
+                                                'span',
+                                                null,
+                                                _react2.default.createElement('br', null),
+                                                theInstruction
+                                            ),
+                                            webImage == "" ? "" : _react2.default.createElement(
+                                                'span',
+                                                null,
+                                                _react2.default.createElement('br', null),
+                                                webImage,
+                                                _react2.default.createElement('br', null)
+                                            ),
+                                            _react2.default.createElement('br', null),
+                                            webForm
+                                        )
+                                    )
+                                )
+                            );
+                        })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Carousel11;
+}(_react2.default.Component);
+
+module.exports = Carousel11;
+
+/***/ }),
+/* 253 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.getExamlist = getExamlist;
+exports.getExamItems = getExamItems;
+function getExamlist() {
+    var endpoint = "http://" + window.location.hostname + ":8080/exam/examlist.js";
+    return fetch(endpoint, { method: "GET", credentials: 'same-origin' }).then(function (res) {
+        return res.json();
+    }).catch(function (err) {
+        console.log(err);
+    });
+};
+
+function getExamItems() {
+    var ll = window.location.pathname.length;
+    var dash = window.location.pathname.lastIndexOf("/");
+    var endpoint = "http://" + window.location.hostname + ":8080/exam/examItems11.js?subtype=" + window.location.pathname.substring(dash + 1, ll - 5);
     return fetch(endpoint, { method: "GET", credentials: 'same-origin' }).then(function (res) {
         return res.json();
     }).catch(function (err) {

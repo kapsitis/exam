@@ -107,7 +107,7 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			session.setAttribute("loginID", loginID);
 			session.setAttribute("loginName", loginName);
-			resp.sendRedirect("/exam/examlist.html");
+			resp.sendRedirect("/exam/recurrent-sequences.html");
 		}
 	}
 }

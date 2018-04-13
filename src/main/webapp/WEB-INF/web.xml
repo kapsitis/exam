@@ -30,6 +30,10 @@
     <servlet-class>lv.ddgatve.nt.exam.ExamItemsServlet2</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>ExamItemsServlet11</servlet-name>
+    <servlet-class>lv.ddgatve.nt.exam.ExamItemsServlet11</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>ExamlistJsServlet</servlet-name>
     <servlet-class>lv.ddgatve.nt.exam.ExamlistJsServlet</servlet-class>
   </servlet>
@@ -40,6 +44,10 @@
   <servlet>
     <servlet-name>GradingServlet2</servlet-name>
     <servlet-class>lv.ddgatve.nt.exam.GradingServlet2</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GradingServlet11</servlet-name>
+    <servlet-class>lv.ddgatve.nt.exam.GradingServlet11</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
@@ -62,6 +70,10 @@
     <servlet-name>ExamItemsServlet2</servlet-name>
     <url-pattern>/examItems2.js</url-pattern>
   </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>ExamItemsServlet11</servlet-name>
+    <url-pattern>/examItems11.js</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ExamlistJsServlet</servlet-name>
     <url-pattern>/examlist.js</url-pattern>
@@ -73,6 +85,10 @@
   <servlet-mapping>
     <servlet-name>GradingServlet2</servlet-name>
     <url-pattern>/grading2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GradingServlet11</servlet-name>
+    <url-pattern>/grading11</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>

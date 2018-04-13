@@ -33,6 +33,24 @@ public class RandomChoices {
 	}
 	
 	/**
+	 * Vienkaarshi samaisa jaut. seciibu
+	 */
+	public static List<String> shuffle(long seed, int qNum) {
+		List<String> baseList = new ArrayList<String>();
+		for (int i=0; i < qNum; i++) {
+			baseList.add(""+(i+1));
+		}
+		if (seed==1L) {
+			return baseList;
+		} else {
+			RandomChoices rc = new RandomChoices(seed);
+			List<String> result = new ArrayList<String>();
+			result.addAll(rc.choose(baseList, qNum));
+			return result;
+		}
+	}
+	
+	/**
 	 * @param seed 1 (intro), 2 (generalizations), 
 	 * 3 (combinatorics), 4 (shapes), 5 (number-theory), more than 5 (random)
 	 * @return
@@ -81,6 +99,9 @@ public class RandomChoices {
 		System.out.println("abc is " + abc);
 		List<String> res = RandomChoices.take2eachFrom5(17L);
 		System.out.println("res is " + res);
+		
+		List<String> res2 = RandomChoices.shuffle(18L, 2);
+		System.out.println("res2 is " + res2);
 	}
 
 }

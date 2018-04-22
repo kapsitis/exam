@@ -13,6 +13,7 @@ import Carousel6 from './carousel6.jsx'
 import Carousel7 from './carousel7.jsx'
 import Carousel7Solutions from './carousel7solutions.jsx'
 import Carousel11 from './carousel11.jsx'
+import ExamSolutions from './examSolutions.jsx'
 
 
 if (document.getElementById("index")) {
@@ -53,6 +54,10 @@ if (document.getElementById('carousel11') != null) {
 
 if (document.getElementById('carousel7Solutions') != null) {
     ReactDOM.render(<Carousel7Solutions />, document.getElementById('carousel7Solutions'));
+}
+
+if (document.getElementById('examSolutions') != null) {
+    ReactDOM.render(<ExamSolutions />, document.getElementById('examSolutions'));
 }
 
 

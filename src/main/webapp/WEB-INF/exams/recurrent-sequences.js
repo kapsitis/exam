@@ -10,7 +10,7 @@ var examData = {
             + "$F(n+4)$ ar $F(n)$ un $F(n+1)$?",
             "instruction": "Ierakstīt atbildi formā: c*F(n)+d*F(n+1) (bez atstarpēm un ar zvaigznītēm reizināšanas zīmju vietā)",
             "answer": "2*F(n)+3*F(n+1)",
-            "explanation": "Ievietojam izteiksmē $F(n+3)=F(n+1)+F(n+2)$ izteiksmi, kurā $F(n+2) izteikta ar "
+            "explanation": "Ievietojam izteiksmē $F(n+3)=F(n+1)+F(n+2)$ izteiksmi, kurā $F(n+2)$ izteikta ar "
             + "$F(n)$ un $F(n+1)$. Pēc tam ievietojam atrasto $F(n+3)$ izteiksmē $F(n+4)=F(n+3)+F(n+2)$. "
             + "$$F(n+4)=F(n+2)+F(n+3)=F(n+2)+(F(n+1)+F(n+2))=F(n+1)+2F(n+2)=$$ "
             + "$$=F(n+1)+2(F(n)+F(n+1))=2F(n)+3F(n+1).$$"
@@ -20,12 +20,12 @@ var examData = {
             "id": "c.recurrence.intro.q2",
             "questionType": "INPUT",
             "length": "6",
-            "question": "Hanojas tornis sastāv no trim iesmiem un astoņiem diskiem $A,\\ldots,H$. "
+            "question": "Hanojas tornis sastāv no trim stieņiem un astoņiem diskiem $A,\\ldots,H$. "
             + "Vismazākā/augšējā diska $A$ pārcelšana maksā $1$ centu, diska $B$ pārcelšana $2$ centus, utt., "
             + "diska $H$ pārcelšana - $2^7$ centus (t.i. $n$-tā diska pārcelšana maksā $2^{n-1}$ centus). "
-            + "Cik maksās visu $8$ disku pārcelšana no 1.iesma uz 3.iesmu, ja to izpilda ar mazāko iespējamo pārcelšanu skaitu? "
+            + "Cik maksās visu $8$ disku pārcelšana no 1.stieņa uz 3.stieni, ja to izpilda ar mazāko iespējamo pārcelšanu skaitu? "
             + "(Piezīme: Hanojas torņa diskus drīkst pārcelt tikai pa vienam, nedrīkst likt lielāku disku uz mazāka, "
-            + "pārcelšanas gaitā drīkst izmantot arī vidējo, 2.iesmu.)",
+            + "pārcelšanas gaitā drīkst izmantot arī vidējo, 2.stieni.)",
             "answer": "1024",
             "explanation": "Veidojam rekurentu virkni ar izmaksām: $C(1)=1$, $C(n+1)=2C(n)+2^n$. "
             + "Sākam ievietot arvien lielākus $n$ un iegūstam, ka $C(8)=1024$. Tā kā gājienu ir vidēji $2^8-1$, "
@@ -96,24 +96,24 @@ var examData = {
             "id": "c.recurrence.intro.q5",
             "questionType": "INPUT",
             "length": "2",
-            "question": "Hanojas tornis sastāv no trim iesmiem un pieciem diskiem $A,B,C,D,E$. "
-            + "Aplūkojam procesu, kas pārliek visus diskus no 1.iesma uz 3.iesmu. "
-            + "Visas pārcelšanas darbības iedalām $6$ klasēs - atkarībā no tā, no kura uz kuru iesmu "
+            "question": "Hanojas tornis sastāv no trim stieņiem un pieciem diskiem $A,B,C,D,E$. "
+            + "Aplūkojam procesu, kas pārliek visus diskus no 1.stieņa uz 3.stieni. "
+            + "Visas pārcelšanas darbības iedalām $6$ klasēs - atkarībā no tā, no kura uz kuru stieni "
             + "disku pārliek. "
-            + "Cik reizes diski bija jāpārliek no 1.iesma uz 2.iesmu, ja visu procesu (visu 5 disku pārlikšanu no 1.iesma uz 3.iesmu) "
+            + "Cik reizes procesa gaitā diski jāpārliek no 1.stieņa uz 2.stieni, ja šo procesu (visu 5 disku pārlikšanu no 1.stieņa uz 3.stieni) "
             + "veic ar mazāko iespējamo pārcelšanu skaitu? "
             + "(Piezīme: Hanojas torņa diskus drīkst pārcelt tikai pa vienam, nedrīkst likt lielāku disku uz mazāka, "
-            + "pārcelšanas gaitā drīkst izmantot arī vidējo, 2.iesmu.)",
+            + "pārcelšanas gaitā drīkst izmantot arī vidējo, 2.stieni.)",
             "answer": "4",
-            "explanation": "Tos soļus, kuri $n$ disku pārcelšanā notiek no 1. uz 2.iesmu apzīmējam ar $XY(n)$, "
+            "explanation": "Tos soļus, kuri $n$ disku pārcelšanā notiek no 1. uz 2.stieni apzīmējam ar $XY(n)$, "
             + "līdzīgi ieviešam apzīmējumus $XZ(n)$ (no 1. uz 3.), $YX(n)$ (no 2. uz 1.), $YZ(n)$ (no 2. uz 3.) "
             + "$ZX(n)$ (no 3. uz 1.) un $ZY(n)$ (no 3. uz 2.). Ja mēs zinām visus sešus skaitļus $XY(n),\\ldots,ZY(n)$ "
             + "tad varam rekurenti atrast arī sešus skaitļus $n+1$ diskiem. Pārcelšanu aplūkojam trīs posmos:<br/> "
-            + "(1) Vispirms pārceļam visus $n$ augšējos diskus no 1. iesma uz 2.iesmu, ko var izdarīt $2^n-1$ gājienos, "
+            + "(1) Vispirms pārceļam visus $n$ augšējos diskus no 1. stieņa uz 2.stieni, ko var izdarīt $2^n-1$ gājienos, "
             + "tur skaitļu $(XY(n+1),\\ldots,ZY(n+1))$ sešiniekam piesummējam skaitļus no iepriekšējā sešinieka "
-            + "$(XY(n),\\ldots,ZY(n))$, kur $Y$ un $Z$ mainās lomām (jo tad, ja disku ir tikai $n$, tad mērķis ir 3.iesms, nevis 2.iesms).<br/> "
-            + "(2) Pārceļam vislielāko disku no 1.iesma uz 3.iesmu. Tas piesummē vieninieku pie $XZ(n+1)$.<br/> "
-            + "(3) Visbeidzot pārceļam visus $n$ augšējos diskus no 2.iesma uz 3.iesmu, ko atkal var izdarīt $2^n-1$ gājienos, "
+            + "$(XY(n),\\ldots,ZY(n))$, kur $Y$ un $Z$ mainās lomām (jo tad, ja disku ir tikai $n$, tad mērķis ir 3.stienis, nevis 2.stienis).<br/> "
+            + "(2) Pārceļam vislielāko disku no 1.stieņa uz 3.stieni. Tas piesummē vieninieku pie $XZ(n+1)$.<br/> "
+            + "(3) Visbeidzot pārceļam visus $n$ augšējos diskus no 2.stieņa uz 3.stieni, ko atkal var izdarīt $2^n-1$ gājienos, "
             + "kas atkal piesummē sešiniekam $(XY(n+1),\\ldots,ZY(n+1))$ vērtības no iepriekšējā sešinieka "
             + "$(XY(n),\\ldots,ZY(n))$, kur $X$ un $Y$ mainās lomām.<br/> "
             + "Iegūstam šādu rekurentu sakarību (īsuma dēļ pierakstām visas sešas piešķiršanas ar vienu vienādību): "
@@ -124,7 +124,8 @@ var examData = {
             + "$$(XY(3),XZ(3),YX(3),YZ(3),ZX(3),ZY(3))=(1,3,1,1,0,1)$$ "
             + "$$(XY(4),XZ(4),YX(4),YZ(4),ZX(4),ZY(4))=(4,3,1,4,2,1)$$ "
             + "$$(XY(5),XZ(5),YX(5),YZ(5),ZX(5),ZY(5))=(4,9,6,4,2,6).$$ "
-            + "Iegūstam, ka 5 disku pārvietošanai no 1. uz 3.iesmu vajadzīgas $XY(5)=4$ pārcelšanas no 1. uz 2.iesmu."
+            + "Iegūstam, ka visu $5$ disku pārvietošanai no 1. uz 3.stieni vajadzīgas $XY(5)=4$ "
+            + "atsevišķo disku pārcelšanas no 1. uz 2.stieni."
 
         },
         /* 6 */
@@ -182,7 +183,7 @@ var examData = {
             "explanation": "Ja meklējam atrisinājumu kā ģeometrisku progresiju $G(n)=b_0q^n$, "
             + "iegūsim vienādojumu $q^{n+2}=2q^{n+1}+q{n}$. Saīsinot ar $q^{n}$ iegūsim kvadrātvienādojumu "
             + "$q^2-2q-1=0$.<br/> "
-            + "Šī kvadrātvienādojuma atrisinājumi ir $q_{1,2}=1 \\pm \\sqrt{5}$. Lielākā no saknēm ir "
+            + "Šī kvadrātvienādojuma atrisinājumi ir $q_{1,2}=1 \\pm \\sqrt{2}$. Lielākā no saknēm ir "
             + "$1+\\sqrt{2}$. Tā arī ir sakne, kurai vistuvāk nonāk attiecības $G(n+1)/G(n)$ lieliem $n$. "
         },
         /* 9 */
@@ -312,8 +313,8 @@ var examData = {
             "answer": "192",
             "explanation": "Turpinām virkni pēc norādītā likuma: "
             + "$$1,2,2,4,8,32,48,192,576,3780,$$ "
-            + "$$35280,40320,5760,5040,4200,160,48,192,\\ldots$"
-            + "Esam ieguvuši $10$ skaitļu periodu:"
+            + "$$35280,40320,5760,5040,4200,160,48,192,\\ldots$$ "
+            + "Esam ieguvuši $10$ skaitļu periodu: "
             + "$$(48,192,576,3780,35280,40320,5760,5040,4200,160),$$ "
             + "kurš turpmāk visu laiku atkārtosies. Tādēļ virknes 2018.loceklis būs tāds pats kāds virknes 8. un 18. loceklis, "
             + "t.i. $192$."
@@ -350,53 +351,80 @@ var examData = {
         {
             "id": "c.recurrence.intro.q18",
             "questionType": "INPUT",
-            "length": "2",
-            "question": "Voldemāram jāpamato, ka vienādojumam $x^3 - 2016xyz=120$ nav atrisinājumu veselos skaitļos $x,y,z$. "
-            + "Lai to izdarītu, viņš izvēlējās tādu naturālu skaitli $m$, ka vienādojuma kreisā puse $x^3-2016xyz$ var dot trīs atlikumus "
-            + "$0$,$1$ vai $m-1$ dalot ar $m$, bet neviens no šiem atlikumiem nesakrīt ar skaitļa $120$ doto atlikumu, dalot ar $m$. "
-            + "Kādu skaitli Voldemārs izvēlējās?",
-            "answer": "9",
-            "explanation": "Jebkuru pilnu kubu dalot ar $9$ iegūsim kādu no atlikumiem $0,1,8$, bet $120$ dod atlikumu $3$. "
-            + "Tādēļ $m=9$ ir 'pretrunas modulis' šim vienādojumam - atlikumi pēc $9$ parāda, ka to nevar atrisināt."
+            "length": "4",
+            "question": "Plaknē novilktas  taisnes; nekādas divas nav paralēlas; nekādas trīs neiet caur vienu punktu. "
+            + "Cik gabalos šīs taisnes sagriež plakni?",
+            "answer": "56",
+            "explanation": "Ja novilktas $0$ taisnes, tad visa plakne sastāv no viena gabala, t.i. $L_0=1$. "
+            + "Aplūkosim, par cik atšķiras $L_{k-1}$ un $L_k$. "
+            + "Ja novilktas $k-1$ taisnes un plakne jau sadalīta $L_{k-1}$ gabalos, tad nākamā taisne krustojas "
+            + "ar katru no $k-1$ jau novilktajām taisnēm (jo tā nevar būt paralēla nevienai no tām vai arī iet "
+            + "caur kādu no jau esošiem krustpunktiem). Visi  krustpunkti sagriež šo $k$-to taisni tieši $k$ posmos "
+            + "(abi malējie posmi ir stari, bet visi vidējie posmi ir nogriežņi). Katrs šāds stars/nogrieznis pārgriež "
+            + "kādu jau esošu plaknes gabalu divās daļās. T.i. $L_k$, salīdzinot ar $L_{k-1}$ pieaug par $k$. "
+            + "Iegūstam, ka "
+            + "$$L_{10} = 1 + (1 + 2 + \\ldots + 10) = 56.$$"
         },
         /* 19 */
         {
             "id": "c.recurrence.intro.q19",
-            "questionType": "MULTIPART",
-            "question": "Lai pamatotu, ka vienādojumam $x^2+y^2+z^2=\\underbrace{1111\\ldots{}1}_{2018}$ nav atrisinājumu "
-            + "Fricis iedomājās tādu naturālu skaitli $m$, kuram kreisā puse $x^2+y^2+z^2$ var dot dažādus atlikumus, bet neviens no tiem "
-            + "nesakrīt ar vienādojuma labajā pusē esošā skaitļa atlikumu, dalot ar $m$. "
-            + "Ierakstīt lodziņos skaitli $m$ un arī visus atlikumus, kādus dod $x^2+y^2+z^2$, dalot ar $m$.",
-            "parts": [
-                {
-                    "questionType": "INPUT",
-                    "length": "2",
-                    "cue": "Skaitlis $m$"
-                },
-                {
-                    "questionType": "INPUT",
-                    "length": "20",
-                    "cue": "Iespējamie atlikumi augošā secībā, atdalīti ar komatiem"
-                }
-            ],
-            "answer": "8,0,1,2,3,4,5,6",
-            "explanation": "$(x,y,z)$ var būt $(0,0,0)$, $(0,0,1)$, $(0,1,1)$, $(1,1,1)$, $(2,0,0)$, $(2,0,1)$, $(2,1,1)$, "
-            + "kas dod visus atlikumus no $0$ līdz $6$. Atlikumu $7$ dabūt nav iespējams, jo ikviens pilns kvadrāts dod atlikumu "
-            + "$0$,$1$ vai $4$, dalot ar $8$. Nekādu trīs šādu saskaitāmo summa nevar būt $7$ vai $15$ (vai cits skaitlis ar atlikumu $7$)."
+            "questionType": "INPUT",
+            "length": "2",
+            "question": "Aplī sastājušies $41$ bērni, kuri sanumurēti pa apli ar skaitļiem $1,\\ldots,41$. "
+            + "Viņi, sākot ar 1.bērnu, skaita skaitāmpantu, kurā ir tikai divas zilbes; katrs bērns, "
+            + "pie kura beidzas kārtējais skaitāmpants, iziet no apļa un aplis visu laiku samazinās. "
+            + "Kurš bērns, šādi spēlējot, paliks pēdējais? T.i. vispirms no apļa izstājas bērni ar pāru numuriem, "
+            + "bet skaitāmpantu turpina arī pēc tam - un tad izstājas arī bērni ar nepāra numuriem, "
+            + "ikreiz vienu izlaižot, utt.<br/> (Līdzīgu spēli piemin rakstnieks Jozefs Flāvijs, "
+            + "kuru m.ē. 67.gadā kādas sacelšanās laikā kopā ar $40$ cīņubiedriem romieši bija iesprostojuši "
+            + "kādā alā pie Jodfatas (ciemats tagadējā Izraēlā). Tiesa, viņu gadījumā no apļa izstājās katrs trešais.)",
+            "instruction": "Ierakstīt naturālu skaitli - bērna numuru, kurš paliek pēdējais.",
+            "answer": "19",
+            "explanation": "Ja sākumā ir $n$ bērni, tad apzīmējam pēdējo bērnu, kurš paliek aplī ar $J(n)$. "
+            + "Viegli redzēt, ka $J(1)=1$. Lielākām  vērtībām aplūkojam divus gadījumus:<br/> "
+            + "(1) $n$ ir pāru skaitlis $n=2k$. Tad pēc $k$ skaitāmpantiem paliks visi bērni ar "
+            + "nepāru numuriem un faktiski turpināsies spēle $k$ bērniem, kurā pēdējais palikušais bērns "
+            + "(jaunajā numerācijā) būs $J(k)$. Bet nepāru skaitlis, kurš ir $J(k)$-tais nepāru skaitlis pēc kārtas, "
+            + "sākotnējā numerācijā ir ar numuru $2J(k)-1$. Tādēļ pastāv rekurenta sakarība: "
+            + "$$J(2k)=2J(k)-1.$$ "
+            + "(2) $n$ ir nepāru skaitlis $n=2k+1$. Tad pēc $k+1$ skaitāmpantiem no apļa pazudīs visi "
+            + "bērni ar pāru numuriem un arī bērns ar numuru '1'. "
+            + "Palikušajiem  bērniem (nepāru skaitļi, sākot ar skaitli '3') turpināsies spēle, "
+            + "kurā pēdējais palikušais bērns (jaunajā numerācijā) būs $J(k)$. Bet vecajā numerācijā tas ir $J(k)$-tais "
+            + "nepāru skaitlis, sākot ar '3'. Tādēļ pastāv rekurenta sakarība: "
+            + "$$J(2k+1)=2J(k)+1.$$"
+            + "Ievietojam $J(41)=2J(20)+1=2(2J(10)-1))+1=4J(10)-1$.<br/> "
+            + "Savukārt $J(10)=2J(5)-1=2(2J(2)+1))-1=4J(2)+1=5$.<br/> "
+            + "Ievietojot otro vienādību pirmajā: $J(41)=4 \\cdot 5 - 1=19$."
         },
         /* 20 */
         {
             "id": "c.recurrence.intro.q20",
             "questionType": "INPUT",
-            "length": "2",
-            "question": "Lai pamatotu, ka vienādojumam $10^x + 12^y = 34^z$ nav atrisinājumu naturālos skaitļos, "
-            + "Zigfrīds atrada tādu naturālu skaitli $m$, ka vienādojuma kreisā puse var dot tikai divus dažādus atlikumus, dalot ar $m$, "
-            + "bet labā puse dod vienmēr vienu un to pašu atlikumu (citu, nekā kreisā puse!) dalot ar $m$. Atrast šādu $m$.",
-            "answer": "11",
-            "explanation": "Šāds skaitlis $m=11$. Tad $12^y$ un $34^z$ vienmēr dod atlikumu $1$, bet $10^x$ dod pārmaiņus atlikumus $1$ un $10$. "
-            + "Tādēļ $m=11$ ir 'pretrunas modulis' šim vienādojumam - atlikumi pēc $11$ parāda, ka to nevar atrisināt."
+            "length": "3",
+            "question": "Brunhilde un Sigruna spēlē sekojošu spēli: Uz galda ir $n$ sērkociņi. "
+            + "Viņas pārmaiņus izdara gājienus - ar vienu gājienu paņemot $1,2,4,\\cdots$ sērkociņus "
+            + "(jebkuru veselu divnieka pakāpi). Uzvar tā spēlētāja, kura paņēma pēdējo sērkociņu. "
+            + "Skaitļus, pie kuriem uzvar otrā spēlētāja sauksim par 'zaļiem', visus pārējos sauksim par "
+            + "'sarkaniem'. Atrast mazāko trīsciparu 'zaļo' skaitli.",
+            "answer": "102",
+            "explanation": "Ir spēkā šāda rekurenta sakarība:<br/> "
+            + "(1) $0$ ir 'zaļš' skaitlis (ja šādā pozīcijā Brunhildei jāizdara pirmais gājiens, "
+            + "to nevar izdarīt un viņa zaudē).<br/> "
+            + "(2) Ja visi skaitļi no $0$ līdz $n$ ir izkrāsoti, tad<br/> "
+            + "(2A) $n+1$ ir 'zaļš', ja no tā atņemot jebkuru divnieka pakāpi $2^k \\leq n+1$, "
+            + "iegūst sarkanu skaitli.<br/> "
+            + "(2B) $n+1$ ir 'sarkans', ja eksistē tāda divnieka pakāpe, kuru atņemot no $n+1$ var iegūt zaļu skaitli.<br/><br/> "
+            + "Tālāk pamatosim, ka zaļie skaitļi ir visi tie, kuri dalās ar $3$. Indukcijas bāze ir spēkā "
+            + "($0$ dalās ar $3$ un ir 'zaļš' skaitlis). Pieņemsim, ka apgalvojums ir pamatots no $0$ "
+            + "līdz $n$ (un zaļie ir tieši tie, kuri dalās ar $3$). Aplūkojam divus gadījumus:<br/> "
+            + "(1) Ja $n+1$ dalās ar $3$, tad no tā atņemot jebkuru divnieka pakāpi (kas nekad nedalās ar $3$) "
+            + "dabūsim starpību $n-2^k$, kas nedalās ar $3$ un ir sarkans skaitlis (induktīvais pieņēmums).<br/> "
+            + "(2) Ja $n+1$ nedalās ar $3$, tad no tā var atņemt vai nu $1$ vai $2$ un iegūt skaitli kas dalās ar $3$ "
+            + "un ir zaļš (induktīvais pieņēmums).<br/> "
+            + "Tātad atbilde ir $102$, kas ir mazākais trīsciparu skaitlis, kas dalās ar $3$."
         },
-        /* THE END */
+/* THE END */
     ]
 };
 

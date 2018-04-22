@@ -54,7 +54,7 @@ public class GradingServlet11 extends HttpServlet {
 				"2*F(n)+3*F(n+1)", "1024", "0,0,1,2,1,0", "01001", "4",
 				"10001","20","a","c","a",
 	            "d","448","1,9,36,100,225","927","192",
-	            "42","15","9","8|0,1,2,3,4,5,6","11"
+	            "42","15","56","19","102"
 				);
 
 		Map<String, List<String>> allCorrect = new HashMap<String, List<String>>();
@@ -70,8 +70,6 @@ public class GradingServlet11 extends HttpServlet {
 		
 		session.setAttribute("seed", "" + seed);
 		
-		
-//		List<String> theList = RandomChoices.take2eachFrom5(seed);
 		List<String> theList = RandomChoices.shuffle(seed, MAXQUESTIONS);
 		List<String> correctSelected = new ArrayList<String>();
 		for (String itemStr: theList) {
@@ -83,10 +81,11 @@ public class GradingServlet11 extends HttpServlet {
 		String[] answers = new String[correctSelected.size()];
 
 		//Enumeration<String> ee = req.getParameterNames();
-		
-		//List<String> multiParts = Arrays.asList("19");
+
 		Map<String,Integer> multiParts = new HashMap<String,Integer>();
-		multiParts.put("19", 2);
+		
+		// shoreiz testā nav neviena multipart jautājuma
+		//multiParts.put("19", 2);
 		
 		for (int qNum = 0; qNum < correctSelected.size(); qNum++) {
 			//int numParts = correctSelected.get(qNum).split(",").length;
@@ -154,11 +153,11 @@ public class GradingServlet11 extends HttpServlet {
 		out.println("</p>");
 
 		out.println("<p>Summa: " + totalGrade + "<p>");
-//		out.println("<p>Uz "
-//				+ "<a href='http://www.dudajevagatve.lv:8080/exam/pigeonhole-solutions.html'>Jautaajumu analiizi</a></p>");
 		out.println("<p>Uz "
-				+ "<a href='http://www.dudajevagatve.lv:8080/exam/examlist.html'>Testu lapu</a></p>");
-		out.println("<p><a href='http://www.dudajevagatve.lv:8080/exam/examItems2.js'>JSON</a></p>");
+				+ "<a href='http://www.dudajevagatve.lv:8080/exam/exam-solutions.html'>Jautaajumu analiizi</a></p>");
+		out.println("<p>Uz "
+				+ "<a href='http://www.dudajevagatve.lv:8080/exam/login.html'>Testu saakumu</a></p>");
+		out.println("<p><a href='http://www.dudajevagatve.lv:8080/exam/examItems11.js'>JSON</a></p>");
 		
 		out.println("</body></html>");
 	}

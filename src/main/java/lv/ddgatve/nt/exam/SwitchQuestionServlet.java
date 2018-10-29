@@ -21,10 +21,10 @@ public class SwitchQuestionServlet extends HttpServlet {
 		//Object attr = getServletContext().getAttribute("ATTR_NAME");
 		
 		if (qNum.startsWith("Q")) {
-			// uzliek "application" scope mainīgo
+			// uzliek "application" scope mainiigo
 			getServletContext().setAttribute("QUESTION", qNum);
 		} else {
-			// ja ir "OK" (novākt visus)
+			// ja ir "OK" (novaakt visus)
 			getServletContext().setAttribute("QUESTION", "");
 		}
 		

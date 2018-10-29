@@ -84,7 +84,7 @@ public class GradingServlet11 extends HttpServlet {
 
 		Map<String,Integer> multiParts = new HashMap<String,Integer>();
 		
-		// shoreiz testā nav neviena multipart jautājuma
+		// shoreiz testaa nav neviena multipart jautaajuma
 		//multiParts.put("19", 2);
 		
 		for (int qNum = 0; qNum < correctSelected.size(); qNum++) {
@@ -141,11 +141,6 @@ public class GradingServlet11 extends HttpServlet {
 		out.print("<p>Juusu atbildes: ");
 		out.print(Arrays.asList(answers).toString());
 		out.println("</p>");
-
-// shito jaanonjem
-//		out.print("<p>Pareizās atbildes: ");
-//		out.print(Arrays.asList(correctSelected).toString());
-//		out.println("</p>");
 
 		
 		out.print("<p>Veerteejumi: ");

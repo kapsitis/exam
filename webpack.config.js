@@ -38,7 +38,7 @@ var config = {
       new webpack.ProvidePlugin({
           "React": "react",
       }),
-    //new webpack.optimize.UglifyJsPlugin({minimize: true})
+      new webpack.optimize.UglifyJsPlugin({minimize: true})
   ]
 }
 

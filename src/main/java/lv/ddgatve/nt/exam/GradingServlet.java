@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Enumeration;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import lv.ddgatve.nt.exam.dao.AnswerDAO;
 import lv.ddgatve.nt.exam.utils.NumericSortCanonizer;
 
 @SuppressWarnings("serial")
@@ -30,8 +32,8 @@ public class GradingServlet extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 
 		resp.setContentType("text/html;charset=utf-8");
-		List<String> correct1 = Arrays.asList("a", "c", "a", "b", "d", "c",
-				"d", "c", "b", "a", "1/25", "6,7,11");
+//		List<String> correct1 = Arrays.asList("a", "c", "a", "b", "d", "c",
+//				"d", "c", "b", "a", "1/25", "6,7,11");
 		List<String> correct2 = Arrays.asList("c", "d", "c", "a", "a", "b",
 				"a", "d", "b", "c", "c", "0000", "5");
 
@@ -63,7 +65,16 @@ public class GradingServlet extends HttpServlet {
 				"b", "240", "c,d", "34");
 
 		Map<String, List<String>> allCorrect = new HashMap<String, List<String>>();
-		allCorrect.put("carousel1", correct1);
+		//allCorrect.put("carousel1", correct1);
+		AnswerDAO answerDAO = new AnswerDAO();
+		List<String> answersForLabel = new ArrayList<String>();
+		try {
+			answersForLabel = answerDAO.getAnswers("carousel1");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		allCorrect.put("carousel1",answersForLabel);
+		
 		allCorrect.put("carousel2", correct2);
 		allCorrect.put("carouselNT2EXAM2", correct3);
 
@@ -152,6 +163,10 @@ public class GradingServlet extends HttpServlet {
 		out.print("<p>Evaluations: ");
 		out.print(Arrays.asList(evals).toString());
 		out.println("</p>");
+		
+		out.print("<p>Correct answers: ");
+		out.print(correct);
+		out.println("</p>");		
 
 		out.println("<p>Total grade: " + totalGrade + "<p>");
 		out.println("<p>Back to the "

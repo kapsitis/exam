@@ -1,5 +1,5 @@
 *.class
-.idea/workspace.xml
+/.idea/*
 /*.pdf
 /bin
 /build/bundle.js

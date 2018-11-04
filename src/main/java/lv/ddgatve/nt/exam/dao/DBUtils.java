@@ -22,8 +22,8 @@ public class DBUtils {
 		try {
 			input = new FileInputStream("/home/kalvis/exam.properties");
 			prop.load(input);
-//			System.out.println(prop.getProperty("user"));
-//			System.out.println(prop.getProperty("passwd"));
+			System.out.println(prop.getProperty("user"));
+			System.out.println(prop.getProperty("passwd"));
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {
@@ -38,11 +38,14 @@ public class DBUtils {
 	}
 	
 	public void getConnection() throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.cj.jdbc.Driver");
+//		Class.forName("com.mysql.cj.jdbc.Driver");
+		Class.forName("org.postgresql.Driver");
 		String user = prop.getProperty("user");
 		String passwd = prop.getProperty("passwd");
-		conn = DriverManager.getConnection("jdbc:mysql://localhost/exam?" +
-                "user=" + user + "&password=" + passwd);
+//		conn = DriverManager.getConnection("jdbc:mysql://localhost/exam?" +
+//                "user=" + user + "&password=" + passwd);
+		conn = DriverManager.getConnection("jdbc:postgresql://localhost/exam?" + 
+				"user=" + user + "&password=" + passwd);
 	}	
 	
 	public List<String> getAnswersByLabel(String label) throws SQLException {

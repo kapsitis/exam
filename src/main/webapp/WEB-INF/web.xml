@@ -61,6 +61,10 @@
     <servlet-name>SwitchQuestionServlet</servlet-name>
     <servlet-class>lv.ddgatve.nt.exam.SwitchQuestionServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>TestServlet</servlet-name>
+    <servlet-class>lv.ddgatve.nt.exam.TestServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>ExamItemsServlet</servlet-name>
@@ -102,6 +106,11 @@
     <servlet-name>SwitchQuestionServlet</servlet-name>
     <url-pattern>/switchQuestion</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestServlet</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  
 
   <session-config>
     <session-timeout>30</session-timeout>

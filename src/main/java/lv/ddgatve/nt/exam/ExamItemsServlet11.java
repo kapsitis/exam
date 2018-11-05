@@ -29,18 +29,26 @@ public class ExamItemsServlet11  extends HttpServlet {
 		resp.setContentType("application/json;charset=utf-8");
 		resp.setCharacterEncoding("UTF-8");
 		
+		// TODO - need to get this adaptively from "testLabel"
 		int qNum = 20;
 		
-		HttpSession session = req.getSession();
 		String examDataLocator = "recurrent-sequences.js";
+		HttpSession session = req.getSession();
+		String testLabel = (String) session.getAttribute("testLabel");
+		if (testLabel == null || testLabel.equals("carousel1")) {
+			examDataLocator = "carousel1.js";
+			qNum = 12;
+		}
+		
 		long seed = (new Date()).getTime();
-		//long seed=1L;
+		//seed=1L;
 		List<String> theList = RandomChoices.shuffle(seed, qNum);
 
 		if (allItems == null || allItems.size() < qNum) {
 			ServletContext context = getServletContext();
 			InputStream resourceContent = context.getResourceAsStream("/WEB-INF/exams/" + examDataLocator);
 			allItems = ReadJson.getAllItems(resourceContent);
+			//System.out.println("allItems.keys are " + allItems.keySet());
 		}
 
 		out.println(" {");

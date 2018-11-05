@@ -352,7 +352,7 @@ var examData = {
             "id": "c.recurrence.intro.q18",
             "questionType": "INPUT",
             "length": "4",
-            "question": "Plaknē novilktas  taisnes; nekādas divas nav paralēlas; nekādas trīs neiet caur vienu punktu. "
+            "question": "Plaknē novilktas $10$ taisnes; nekādas divas nav paralēlas; nekādas trīs neiet caur vienu punktu. "
             + "Cik gabalos šīs taisnes sagriež plakni?",
             "answer": "56",
             "explanation": "Ja novilktas $0$ taisnes, tad visa plakne sastāv no viena gabala, t.i. $L_0=1$. "

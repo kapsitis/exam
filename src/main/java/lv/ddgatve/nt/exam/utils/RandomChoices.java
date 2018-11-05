@@ -33,7 +33,7 @@ public class RandomChoices {
 	}
 	
 	/**
-	 * Vienkaarshi samaisa jaut. seciibu
+	 * Vienkaarshi samaisa jaut. seciibu - atgriezh skaitliishus kaa stringus
 	 */
 	public static List<String> shuffle(long seed, int qNum) {
 		List<String> baseList = new ArrayList<String>();

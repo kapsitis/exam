@@ -1,4 +1,5 @@
 *.class
+**/bundle.js
 /.idea/*
 /*.pdf
 /bin

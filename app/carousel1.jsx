@@ -55,7 +55,7 @@ class Carousel1 extends React.Component {
                                 webForm = <div><input size={qq.length} maxLength={qq.length}
                                                       className="webFormInput" type="text" name={"q" + i}/></div>;
                             } else {
-                                webForm = <RadiobuttonGroup alternatives={qq.alternatives} i={i}/>;
+                                webForm = <RadiobuttonGroup prefix="q" alternatives={qq.alternatives} i={i}/>;
                             }
 
                             if (qq.hasOwnProperty('instruction') && qq.instruction != "") {

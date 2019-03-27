@@ -1,4 +1,7 @@
-(Install node.js) - also gets you 'npm'
+sudo apt-get install nodejs
+sudo apt-get install npm
+
+## sho pilda tikai saakumaa, lai uztaisiitu package.json
 npm init
 
 
@@ -9,6 +12,9 @@ npm install --save-dev babel-preset-es2015
 npm install --save-dev babel-preset-react
 npm install --save-dev react
 npm install --save-dev react-dom
+
+npm install --save-dev webpack-dev-server
+npm install --save-dev react-router-dom
 
 npm run dev
 

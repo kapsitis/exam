@@ -20,7 +20,7 @@ public class DBUtils {
 	static {
 		InputStream input = null;
 		try {
-			input = new FileInputStream("/home/kalvis/exam.properties");
+			input = new FileInputStream("/home/kalvis/.jenkins-resources/exam.properties");
 			prop.load(input);
 			System.out.println(prop.getProperty("user"));
 			System.out.println(prop.getProperty("passwd"));
